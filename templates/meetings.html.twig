@@ -1,22 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
 <html>
     <body>
-        <section>
-            <img src="https://via.placeholder.com/150" alt="Meetings_images">
-            <h1>
-                Blockchain
-            </h1>
-            <hr />
-            <h3>
-                Theme
-            </h3>
-            <button type="submit">
-                button
-            </button>
-            <p>
-                20 personnes participent
-            </p>
+        <section class="meetings__head">
+            <div class="col-4">
+                <img src="https://via.placeholder.com/150" alt="Meetings_images">
+                <h1>
+                    Blockchain
+                </h1>
+                <hr />
+                <h3>
+                    Theme
+                </h3>
+                <button type="submit">
+                    button
+                </button>
+                <p>
+                    20 personnes participent
+                </p>
+            </div>
         </section>
-        <section>
+        <section class="meetings__requirements">
             <h3>
                 Pré-requis
             </h3>
@@ -25,7 +30,7 @@
                 Pré-requis potentiel
             </p>
         </section>
-        <section>
+        <section class="meetings__description">
             <h3>
                 Description
             </h3>
@@ -34,7 +39,7 @@
                 Description potentiel
             </p>
         </section>
-        <section>
+        <section class="meetings__schedule">
             <h3>
                 Créneaux
             </h3>
@@ -65,3 +70,4 @@
         </section>
     </body>
 </html>
+{% endblock %}
