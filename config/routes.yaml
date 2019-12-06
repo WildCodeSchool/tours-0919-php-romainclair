@@ -1,6 +1,3 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
-meetings:
-  path: /meetings
-  controller: App\Controller\MeetingsController::Meetings
