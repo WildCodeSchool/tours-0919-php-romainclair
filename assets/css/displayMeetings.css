@@ -22,7 +22,7 @@
     box-sizing: border-box;
     border: solid black 2px;
     font-size: small;
-    width: 20%
+    width: 50%
 }
 .meetings__schedule__two
 {
@@ -30,7 +30,7 @@
     box-sizing: border-box;
     border: solid black 2px;
     font-size: small;
-    width: 20%
+    width: 50%
 }
 .meetings__schedule__three
 {
@@ -38,7 +38,7 @@
     box-sizing: border-box;
     border: solid black 2px;
     font-size: small;
-    width: 20%
+    width: 50%
 }
 .meetings__schedule__four
 {
@@ -46,7 +46,7 @@
     box-sizing: border-box;
     border: solid black 2px;
     font-size: small;
-    width: 20%;
+    width: 50%;
 }
 @media screen and (max-width: 1024px) and (min-width: 481px)
 {
@@ -66,20 +66,51 @@
     {
         width: 95%;
     }
+}
+@media screen and (min-width: 1025px)
+{
+    .meetings__head
+    {
+        display: flex;
+        width: 60%;
+    }
+    .meetings__requirements
+    {
+        margin-left: 5%;
+        width: 25%;
+    }
+    .meetings__head__text
+    {
+        margin-left: 2%;
+        font-size: 14px;
+        width: 25%;
+    }
+    .meetings__head__line
+    {
+        width: 100%;
+    }
     .meetings__schedule__one
     {
-        /* aligner */
+        width: 15%;
+        text-align: center;
+        font-size: large;
     }
     .meetings__schedule__two
     {
-        /* aligner */
+        width: 15%;
+        text-align: center;
+        font-size: large;
     }
     .meetings__schedule__three
     {
-        /* aligner */
+        width: 15%;
+        text-align: center;
+        font-size: large;
     }
     .meetings__schedule__four
     {
-        /* aligner */
+        width: 15%;
+        text-align: center;
+        font-size: large;
     }
 }
