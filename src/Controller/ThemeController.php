@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ThemeController extends AbstractController 
+class ThemeController extends AbstractController
 {
     /**
      *@Route ("/theme", name="show_theme")
@@ -15,8 +15,6 @@ class ThemeController extends AbstractController
 
     public function theme() : Response
     {
-       return $this->render('theme.html.twig');
-    }
-        
+        return $this->render('theme.html.twig');
+    }    
 }
-
