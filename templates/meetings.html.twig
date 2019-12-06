@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<html>
+    <body>
+        <section class="meetings__head">
+            <div class="meetings_head__image">
+                <img src="https://via.placeholder.com/170" alt="Meetings_images">
+            </div>
+            <div class="meetings__head__text">
+                <h1>
+                    Blockchain
+                </h1>
+                <div class="meetings__head__line"></div>
+                <h3>
+                    Theme
+                </h3>
+                <button type="submit">
+                    button
+                </button>
+                <p>
+                    20 personnes participent
+                </p>
+            </div>
+            <div class="meetings__requirements">
+                <h3>
+                    Pré-requis
+                </h3>
+                <div class="meetings__head__line"></div>
+                <p>
+                    Pré-requis potentiel
+                </p>
+            </div>
+        </section>
+        <section class="meetings__description">
+            <h3>
+                Description
+            </h3>
+            <div class="meetings__head__line"></div>
+            <p>
+                Description potentiel
+            </p>
+        </section>
+        <section class="meetings__schedule">
+        <form>
+             <div class="meetings_schedule_title">
+                <h3>
+                    Créneaux
+                </h3>
+            </div>
+            <div class="meetings__head__line"></div>
+            {% for i in 0..3 %}
+            <div class="meetings__schedule__one">
+                <input type="checkbox" id="date_one" name="date_one">
+                <label for="date_one">
+                    01/01/19 19h00
+                </label>
+            </div>
+            {% endfor %}
+            <button type="submit">
+                button
+            </button>
+        </form>
+        </section>
+    </body>
+</html>
+{% endblock %}
