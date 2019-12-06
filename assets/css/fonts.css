@@ -1,0 +1,66 @@
+@font-face
+{
+    font-family:"Lato";
+    src: url("/fonts/lato/Lato-Light.ttf") format("truetype");
+    font-weight:normal;
+    font-style:normal;
+}
+@font-face
+{
+    font-family:"Lato-Regular";
+    src:url("/fonts/lato/Lato-Regular.ttf") format("truetype");
+    font-weight:normal;
+    font-style:normal;
+}
+
+@font-face
+{
+    font-family:"Economica-Regular";
+    src:url("/fonts/economica/Economica-Regular.ttf") format("truetype");
+    font-weight:normal;
+    font-style:normal;
+}
+
+@font-face
+{
+    font-family:"Economica-Bold";
+    src:url("/fonts/economica/Economica-Bold-OTF.ttf") format("truetype");
+    font-weight:normal;
+    font-style:normal;
+}
+
+@font-face
+{
+    font-family:"Economica-BoldItalic";
+    src:url("/fonts/economica/Economica-BoldItalic-OTF.ttf") format("truetype");
+    font-weight:normal;
+    font-style:normal;
+}
+
+@font-face
+{
+    font-family:"Economica-Italic";
+    src:url("/fonts/economica/Economica-Italic-OTF.ttf") format("truetype");
+    font-weight:normal;
+    font-style:normal;
+}
+
+:root
+{
+    font-family: Lato,arial,sans-serif;
+}
+
+h1, h2{
+    font-family: Economica-Regular, sans-serif;
+    font-weight: normal;
+}
+
+p{
+    font-family: Lato, sans-serif;
+}
+a {
+    font-family: Lato-Reg, sans-serif;
+}
+article h1{
+    font-family: Economica-Bold, sans-serif;
+}

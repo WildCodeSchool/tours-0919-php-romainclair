@@ -1,0 +1,21 @@
+.subject{
+    text-align: center;
+    font-family: Lato, sans-serif;
+}
+.subject__card{
+    background-color: #5eb5e0;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    margin: 5vw auto;
+}
+.subject__show-more-icon, .subject__image{
+    object-fit: contain;
+    margin-top: 2vw;
+}
+.subject__link{
+    margin-top: 2vw;
+}
+.subject__atelier-list{
+    padding: 0;
+}
