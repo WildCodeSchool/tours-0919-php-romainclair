@@ -1,13 +1,10 @@
 {% extends "base.html.twig" %}
 {% block title %}Liste des sujets{% endblock %}
-{% block stylesheets %}
-    {{ encore_entry_link_tags('app') }}
-{% endblock %}
 
 {% block body %}
     <main class="subject">
         <!-- Here is the head of the content-->
-        <h1 class>Titre de la thématique</h1>
+        <h1>Titre de la thématique</h1>
         <p>Est Scaevola si rogati consuetudo et amici cum casus sanciatur oporteat neque nos Etenim se igitur et oporteat.</p>
         <!-- Here is card with each subjects-->
         {% for i in 0..4 %}

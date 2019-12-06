@@ -14,6 +14,6 @@ class MeetingsController extends AbstractController
      */
     public function meetings() :Response
     {
-        return $this->render('meetings.html.twig');
+        return $this->render('meetings_display/meetings.html.twig');
     }
 }
