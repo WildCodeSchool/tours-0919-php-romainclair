@@ -16,5 +16,5 @@ class ThemeController extends AbstractController
     public function theme() : Response
     {
         return $this->render('theme.html.twig');
-    }    
+    }
 }
