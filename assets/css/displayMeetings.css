@@ -1,5 +1,85 @@
-.meetings__head
-{
-    display: inline-flex;
 
+.meetings__head__text
+{
+    text-align: left;
+    margin-left: 59%;
+    font-size: small;
+}
+.meetings__head__line
+{
+    background-color: black;
+    height: 1pt;
+    width: 75%;
+    margin-bottom: 1%;
+}
+.meetings_head__image
+{
+    float: left;
+}
+.meetings__schedule__one
+{
+    margin-bottom: 2%;
+    box-sizing: border-box;
+    border: solid black 2px;
+    font-size: small;
+    width: 20%
+}
+.meetings__schedule__two
+{
+    margin-bottom: 2%;
+    box-sizing: border-box;
+    border: solid black 2px;
+    font-size: small;
+    width: 20%
+}
+.meetings__schedule__three
+{
+    margin-bottom: 2%;
+    box-sizing: border-box;
+    border: solid black 2px;
+    font-size: small;
+    width: 20%
+}
+.meetings__schedule__four
+{
+    margin-bottom: 2%;
+    box-sizing: border-box;
+    border: solid black 2px;
+    font-size: small;
+    width: 20%;
+}
+@media screen and (max-width: 1024px) and (min-width: 481px)
+{
+    .meetings__head
+    {
+        display: flex;
+    }
+    .meetings__requirements
+    {
+        margin-left: 10%;
+    }
+    .meetings__head__text
+    {
+        margin-left: 10%;
+    }
+    .meetings__head__line
+    {
+        width: 95%;
+    }
+    .meetings__schedule__one
+    {
+        /* aligner */
+    }
+    .meetings__schedule__two
+    {
+        /* aligner */
+    }
+    .meetings__schedule__three
+    {
+        /* aligner */
+    }
+    .meetings__schedule__four
+    {
+        /* aligner */
+    }
 }
