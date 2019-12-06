@@ -1,0 +1,79 @@
+
+.meetings__head__text
+{
+    text-align: left;
+    margin-left: 59%;
+    font-size: small;
+}
+.meetings__head__line
+{
+    background-color: black;
+    height: 1pt;
+    width: 75%;
+    margin-bottom: 1%;
+}
+.meetings_head__image
+{
+    float: left;
+}
+.meetings__schedule__one
+{
+    margin-bottom: 2%;
+    box-sizing: border-box;
+    border: solid black 2px;
+    font-size: small;
+    width: 50%
+}
+@media screen and (max-width: 1024px) and (min-width: 481px)
+{
+    .meetings__head
+    {
+        display: flex;
+    }
+    .meetings__requirements
+    {
+        margin-left: 10%;
+    }
+    .meetings__head__text
+    {
+        margin-left: 10%;
+    }
+    .meetings__head__line
+    {
+        width: 95%;
+    }
+    .meetings__schedule__one
+    {
+        width: 25%;
+        text-align: center;
+    }
+}
+@media screen and (min-width: 1025px)
+{
+    .meetings__head
+    {
+        display: flex;
+        width: 60%;
+    }
+    .meetings__requirements
+    {
+        margin-left: 5%;
+        width: 25%;
+    }
+    .meetings__head__text
+    {
+        margin-left: 2%;
+        font-size: 14px;
+        width: 25%;
+    }
+    .meetings__head__line
+    {
+        width: 100%;
+    }
+    .meetings__schedule__one
+    {
+        width: 15%;
+        text-align: center;
+        font-size: large;
+    }
+}
