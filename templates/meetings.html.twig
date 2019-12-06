@@ -49,34 +49,14 @@
                 </h3>
             </div>
             <div class="meetings__head__line"></div>
+            {% for i in 0..3 %}
             <div class="meetings__schedule__one">
                 <input type="checkbox" id="date_one" name="date_one">
                 <label for="date_one">
                     01/01/19 19h00
                 </label>
             </div>
-
-            <div class="meetings__schedule__two">
-                <input type="checkbox" id="date_two" name="date_two">
-                <label for="date_two">
-                    02/01/19 19h00
-                </label>
-            </div>
-
-            <div class="meetings__schedule__three">
-                <input type="checkbox" id="date_three" name="date_three">
-                <label for="date_three">
-                    03/01/19 19h00
-                </label>
-            </div>
-
-            <div class="meetings__schedule__four">
-                <input type="checkbox" id="date_four" name="date_four">
-                <label for="date_four">
-                    04/01/19 19h00
-                </label>
-            </div>
-
+            {% endfor %}
             <button type="submit">
                 button
             </button>
