@@ -57,9 +57,10 @@
                 </label>
             </div>
             {% endfor %}
-            <button type="submit">
-                button
-            </button>
+            {{ form_start(form) }}
+                {{ form_widget(form.date) }}
+                <button type="submit">Rechercher</button>
+            {{ form_end(form) }}
         </form>
         </section>
     </body>
