@@ -1,8 +1,5 @@
 {% extends "base.html.twig" %}
 {% block title %}Liste des sujets{% endblock %}
-{% block stylesheets %}
-    {{ encore_entry_link_tags('app') }}
-{% endblock %}
 
 {% block body %}
     <main class="subject">
@@ -18,10 +15,9 @@
                 <h2>Titre du sujet</h2>
                 <p>Est Scaevola si rogati consuetudo et amici cum casus Turpis maiorum causa.</p>
                 <ul class="subject__atelier-list">
-                    <li>item</li>
-                    <li>item</li>
-                    <li>item</li>
-                    <li>item</li>
+                    {% for i in 0..3 %}
+                        <a href="{{ path('show_meetings') }}"><li>item</li></a>
+                    {% endfor %}
                 </ul>
             </article>
         {% endfor %}
