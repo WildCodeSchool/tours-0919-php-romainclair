@@ -17,6 +17,8 @@ class DateType extends AbstractType
         $builder
             ->add('date')
         ;
+
+        $options;
     }
 
     public function configureOptions(OptionsResolver $resolver)

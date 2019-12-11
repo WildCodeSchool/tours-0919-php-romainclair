@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+
 use App\Form\DateType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,20 +16,19 @@ class MeetingsController extends AbstractController
      */
     public function meetings(HttpFoundationRequest $request) :Response
     {
-    $form = $this->createForm(
+        $form = $this->createForm(
             DateType::class
-    );
-    $form->handleRequest($request);
-    if ($form->isSubmitted() && $form->isValid())
-    {
-        $date = $form->getData();
-        $entityManager = $this->getDoctrine()->getManager();
-        dump($entityManager);
-        $entityManager->persist($date);
-        $entityManager->flush();
-    }
-    return $this->render('meetings_display/meetings.html.twig', [
-        'form' => $form->createView()
-    ]);
+        );
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $date = $form->getData();
+            $entityManager = $this->getDoctrine()->getManager();
+            dump($entityManager);
+            $entityManager->persist($date);
+            $entityManager->flush();
+        }
+        return $this->render('meetings_display/meetings.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 }
