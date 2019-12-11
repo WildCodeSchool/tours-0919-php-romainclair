@@ -1,8 +1,81 @@
 .header__header {
     background-color: #131313;
     height: 10rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -18px;
+    margin-left: -8px;
+    margin-right: -8px;
+    margin-top: -28px;
     margin-bottom: 0;
+}
+.header__header a {
+    color: #1D1D1D;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+}
+.header__header h1 {
+    background: url('https://www.romainclair.com/images/LogoClair.svg') no-repeat;
+    background-position: 50% 40%;
+    min-width: 35px;
+    padding-top: 6rem;
+    color: #737373;
+}
+.header__header h2 {
+    margin-left: 36%;
+    color: #737373;
+}
+@media screen and (max-width: 1024px) and (min-width: 481px)
+{
+    .header__header {
+        background-color: #131313;
+        height: 10rem;
+        margin-left: -8px;
+        margin-right: -8px;
+        margin-top: -28px;
+        margin-bottom: 0;
+    }
+    .header__header a {
+        color: #1D1D1D;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out 0s;
+        -moz-transition: all 0.3s ease-in-out 0s;
+    }
+    .header__header h1 {
+    background: url('https://www.romainclair.com/images/LogoClair.svg') no-repeat;
+        background-position: 50% 40%;
+        min-width: 35px;
+        padding-top: 6rem;
+        color: #737373;
+    }
+    .header__header h2 {
+        margin-left: 45%;
+        color: #737373;
+    } 
+}
+@media screen and (min-width: 1025px)
+{
+    .header__header {
+        background-color: #131313;
+        height: 10rem;
+        margin-left: -8px;
+        margin-right: -8px;
+        margin-top: -28px;
+        margin-bottom: 0;
+        }
+        .header__header a {
+        color: #1D1D1D;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out 0s;
+        -moz-transition: all 0.3s ease-in-out 0s;
+        }
+        .header__header h1 {
+        background: url('https://www.romainclair.com/images/LogoClair.svg') no-repeat;
+        background-position: 50% 40%;
+        min-width: 35px;
+        padding-top: 6rem;
+        color: #737373;
+        }
+    .header__header h2 {
+        margin-left: 48%;
+        color: #737373;
+    } 
 }
