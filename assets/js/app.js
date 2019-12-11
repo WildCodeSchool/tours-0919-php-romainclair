@@ -9,6 +9,7 @@
 require('../scss/app.scss');
 require('../css/fonts.css');
 require('../css/display_list_style.css');
+require('../css/header.css');
 
 
 require('../css/displayMeetings.css');

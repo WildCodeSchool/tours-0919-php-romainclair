@@ -1,18 +1,18 @@
 
-.meetings__head__text
+.meetings__head-text
 {
     text-align: left;
     margin-left: 59%;
     font-size: small;
 }
-.meetings__head__line
+.meetings__head-line
 {
     background-color: black;
     height: 1pt;
     width: 75%;
     margin-bottom: 1%;
 }
-.meetings_head__image
+.meetings_head-image
 {
     float: left;
 }
@@ -34,11 +34,11 @@
     {
         margin-left: 10%;
     }
-    .meetings__head__text
+    .meetings__head-text
     {
         margin-left: 10%;
     }
-    .meetings__head__line
+    .meetings__head-line
     {
         width: 95%;
     }
@@ -60,13 +60,13 @@
         margin-left: 5%;
         width: 25%;
     }
-    .meetings__head__text
+    .meetings__head-text
     {
         margin-left: 2%;
         font-size: 14px;
         width: 25%;
     }
-    .meetings__head__line
+    .meetings__head-line
     {
         width: 100%;
     }
