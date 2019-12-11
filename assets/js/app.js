@@ -10,8 +10,7 @@ require('../css/fonts.css');
 require('../css/standardize.css');
 require('../css/display_list_style.css');
 require('../css/theme.css');
-
-
+require('../css/header.css');
 require('../css/displayMeetings.css');
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 // const $ = require('jquery');
