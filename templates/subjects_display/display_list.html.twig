@@ -4,7 +4,7 @@
 {% block body %}
     <main class="subject">
         <!-- Here is the head of the content-->
-        <h1 class>Titre de la thématique</h1>
+        <h1 class="subject__title">Titre de la thématique</h1>
         <p>Est Scaevola si rogati consuetudo et amici cum casus sanciatur oporteat neque nos Etenim se igitur et oporteat.</p>
         <!-- Here is card with each subjects-->
         {% for i in 0..4 %}
@@ -13,7 +13,7 @@
                 <img class="subject__show-more-icon" src="https://via.placeholder.com/20" alt="placeholder for a button that hide description on mobile">
                 <a class="subject__link">Voir moins</a>
                 <h2>Titre du sujet</h2>
-                <p>Est Scaevola si rogati consuetudo et amici cum casus Turpis maiorum causa.</p>
+                <p>Est Scaevola si <span>rogati consuetudo</span> et amici cum casus <span>Turpis maiorum</span> causa.</p>
                 <ul class="subject__atelier-list">
                     {% for i in 0..3 %}
                         <a href="{{ path('show_meetings') }}"><li>item</li></a>

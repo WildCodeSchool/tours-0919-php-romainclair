@@ -44,23 +44,3 @@
     font-weight:normal;
     font-style:normal;
 }
-
-:root
-{
-    font-family: Lato,arial,sans-serif;
-}
-
-h1, h2{
-    font-family: Economica-Regular, sans-serif;
-    font-weight: normal;
-}
-
-p{
-    font-family: Lato, sans-serif;
-}
-a {
-    font-family: Lato-Reg, sans-serif;
-}
-article h1{
-    font-family: Economica-Bold, sans-serif;
-}

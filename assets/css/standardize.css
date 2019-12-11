@@ -1,0 +1,25 @@
+:root
+{
+    font-family: Lato,arial,sans-serif;
+}
+
+h1, h2{
+    font-family: Economica-Regular, sans-serif;
+    font-weight: normal;
+}
+
+p{
+    font-family: Lato, sans-serif;
+    color: #6F6F6F;
+}
+a {
+    font-family: Lato-Reg, sans-serif;
+    color : #1D1D1D;
+    text-decoration: none;
+}
+article h1{
+    font-family: Economica-Bold, sans-serif;
+}
+span {
+    color : #A7A64A;
+}

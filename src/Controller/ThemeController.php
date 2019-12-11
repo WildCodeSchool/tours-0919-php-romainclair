@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ThemeController extends AbstractController
 {
     /**
-     *@Route ("/theme", name="show_theme")
+     *@Route ("/", name="show_theme")
      *@return Response A response instance
      */
 
