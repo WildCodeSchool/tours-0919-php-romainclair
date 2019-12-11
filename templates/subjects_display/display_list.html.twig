@@ -10,13 +10,13 @@
         </header>
         <!-- Here is card with each subjects-->
         {% for i in 0..4 %}
-            <article class="subject__card">
+            <article class="subject__card" id="card{{ i }}">
                 <h2>Titre du sujet</h2>
                 <img class="subject__image" src="https://via.placeholder.com/150" alt="placeholder for an illustration">
                 <img class="subject__show-more-icon" src="https://via.placeholder.com/20" alt="placeholder for a button that hide description on mobile">
-                <a class="subject__link" href="#toggle">Voir moins</a>
                 <p>Est Scaevola si <span>rogati consuetudo</span> et amici cum casus <span>Turpis maiorum</span> causa.</p>
-                <ul class="subject__atelier-list" id="toggle">
+                <button type="button" class="subject__link">Voir les sujets</button>
+                <ul class="subject__atelier-list">
                     {% for i in 0..3 %}
                         <a href="{{ path('show_meetings') }}"><li>item</li></a>
                     {% endfor %}
