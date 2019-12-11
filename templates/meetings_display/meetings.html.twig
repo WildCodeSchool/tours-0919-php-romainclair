@@ -2,7 +2,7 @@
 
 {% block body %}
 <html>
-    <body>
+    <main>
         <section class="meetings__head">
             <div class="meetings_head-image">
                 <img src="https://via.placeholder.com/170" alt="Meetings_images">
@@ -57,12 +57,9 @@
                 </label>
             </div>
             {% endfor %}
-            {{ form_start(form) }}
-                {{ form_widget(form.date) }}
-                <button type="submit">Rechercher</button>
-            {{ form_end(form) }}
+            <button type="submit">Ajouter</button>
         </form>
         </section>
-    </body>
+    </main>
 </html>
 {% endblock %}
