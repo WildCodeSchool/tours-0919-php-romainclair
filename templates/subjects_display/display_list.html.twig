@@ -4,8 +4,10 @@
 {% block body %}
     <main class="subject">
         <!-- Here is the head of the content-->
-        <h1 class="subject__title">Titre de la thématique</h1>
-        <p>Est Scaevola si rogati consuetudo et amici cum casus sanciatur oporteat neque nos Etenim se igitur et oporteat.</p>
+        <header class = "subject__header">
+            <h1 class="subject__title">Titre de la thématique</h1>
+            <p>Est Scaevola si rogati consuetudo et amici cum casus sanciatur oporteat neque nos Etenim se igitur et oporteat.</p>
+        </header>
         <!-- Here is card with each subjects-->
         {% for i in 0..4 %}
             <article class="subject__card">
