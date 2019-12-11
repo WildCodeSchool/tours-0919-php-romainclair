@@ -1,0 +1,42 @@
+:root
+{
+    font-family: Lato,arial,sans-serif;
+}
+
+h1, h2{
+    font-family: Economica-Regular, sans-serif;
+    font-weight: normal;
+}
+h1:first-of-type{
+    font-size: 2.6rem;
+    letter-spacing: -0.05rem;
+}
+p:first-of-type {
+    font-size: 1.57rem;
+    letter-spacing: 0.02rem;
+    font-weight: normal;
+    font-family: Economica-Regular, sans-serif;
+}
+article h2 {
+    text-transform: uppercase;
+    font-size: 2vw;
+    font-family: Economica-Bold, sans-serif;
+    margin-bottom: 0;
+    color: #1F1F1F;
+}
+
+p{
+    font-family: Lato, sans-serif;
+    color: #6F6F6F;
+}
+a {
+    font-family: Lato-Reg, sans-serif;
+    color : #1D1D1D;
+    text-decoration: none;
+}
+article h1{
+    font-family: Economica-Bold, sans-serif;
+}
+span {
+    color : #A7A64A;
+}

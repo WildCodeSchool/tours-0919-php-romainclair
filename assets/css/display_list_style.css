@@ -2,6 +2,18 @@
     text-align: center;
     font-family: Lato, sans-serif;
 }
+.subject__header {
+    border-bottom: 0.1rem dotted #A7A64A;
+    width: 80vw;
+    padding-bottom: 4vw;
+    margin-right: auto;
+    margin-left: auto;
+}
+.subject__description {
+    margin-right: auto;
+    margin-left: auto;
+    width: 70vw;
+}
 .subject__card{
     background-color: #5eb5e0;
     width: 60vw;
@@ -19,3 +31,4 @@
 .subject__atelier-list{
     padding: 0;
 }
+

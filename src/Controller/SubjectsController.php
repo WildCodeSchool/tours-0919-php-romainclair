@@ -11,7 +11,7 @@ class SubjectsController extends AbstractController
     /**
      * Show all rows from Subject’s entity
      *
-     * @Route("/sujet", name="list_subject")
+     * @Route("/sujets", name="list_subject")
      * @return Response A response instance
      */
     public function index(): Response
