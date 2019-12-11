@@ -34,4 +34,13 @@
 main {
     margin-top: 10rem;
 }
-
+ul {
+    display: none;
+}
+.subject__link:focus + ul {
+    display: block;
+}
+.subject__link + ul:active,
+.subject__link:focus + ul {
+    display: block;
+}
