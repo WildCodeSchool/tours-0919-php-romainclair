@@ -31,15 +31,3 @@
     padding: 0;
 }
 
-/* Apparition de la liste */
-
-.subject__link:active{
-
-}
-
-ul{
-    display: none;
-}
-ul:target{
-    display: block;
-}
