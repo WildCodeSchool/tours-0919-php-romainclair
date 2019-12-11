@@ -8,20 +8,21 @@ h1, h2{
     font-weight: normal;
 }
 h1:first-of-type{
-    font-size: 2.6rem;
+    font-size: 8vw;
     letter-spacing: -0.05rem;
 }
-p:first-of-type {
-    font-size: 1.57rem;
+.subject__description {
+    font-size: 6vw;
     letter-spacing: 0.02rem;
     font-weight: normal;
     font-family: Economica-Regular, sans-serif;
 }
 article h2 {
     text-transform: uppercase;
-    font-size: 2vw;
-    font-family: Economica-Bold, sans-serif;
-    margin-bottom: 0;
+    font-size: 6vw;
+    font-family: Economica-Bold;
+    margin-bottom: 4vw;
+    margin-top: 0;
     color: #1F1F1F;
 }
 
