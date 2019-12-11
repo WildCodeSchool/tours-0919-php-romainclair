@@ -14,7 +14,7 @@ class MeetingsController extends AbstractController
      * @Route ("/meetings", name="show_meetings")
      * @return Response A response instance
      */
-    public function meetings(Request $request) :Response
+    public function meetings() :Response
     {
         return $this->render('meetings_display/meetings.html.twig');
     }
