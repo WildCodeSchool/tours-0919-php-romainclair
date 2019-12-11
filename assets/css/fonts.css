@@ -24,7 +24,7 @@
 @font-face
 {
     font-family:"Economica-Bold";
-    src:url("/fonts/economica/Economica-Bold-OTF.ttf") format("truetype");
+    src:url("/fonts/economica/Economica-Bold.ttf") format("truetype");
     font-weight:normal;
     font-style:normal;
 }
@@ -32,7 +32,7 @@
 @font-face
 {
     font-family:"Economica-BoldItalic";
-    src:url("/fonts/economica/Economica-BoldItalic-OTF.ttf") format("truetype");
+    src:url("/fonts/economica/Economica-BoldItalic.ttf") format("truetype");
     font-weight:normal;
     font-style:normal;
 }
@@ -40,7 +40,7 @@
 @font-face
 {
     font-family:"Economica-Italic";
-    src:url("/fonts/economica/Economica-Italic-OTF.ttf") format("truetype");
+    src:url("/fonts/economica/Economica-Italic.ttf") format("truetype");
     font-weight:normal;
     font-style:normal;
 }
