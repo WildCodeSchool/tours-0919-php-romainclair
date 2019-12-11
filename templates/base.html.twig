@@ -9,6 +9,12 @@
         {% endblock %}
     </head>
     <body>
+    <header class="header__header">
+        <a href="https://www.romainclair.com/">
+            <h1 class="header__header-h1"></h1>
+            <h2>Romain Clair</h2>
+        </a>
+    </header>
         {% block body %}{% endblock %}
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}

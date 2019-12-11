@@ -8,6 +8,7 @@
     padding-bottom: 4vw;
     margin-right: auto;
     margin-left: auto;
+    padding-top: 2vw;
 }
 .subject__description {
     margin-right: auto;
@@ -29,5 +30,8 @@
 }
 .subject__atelier-list{
     padding: 0;
+}
+main {
+    margin-top: 10rem;
 }
 
