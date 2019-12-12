@@ -69,5 +69,4 @@ class AdminController extends AbstractController
 
         return $this->redirectToRoute('subjects_index');
     }
-
 }

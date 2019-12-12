@@ -19,7 +19,7 @@ class MeetingsController extends AbstractController
      */
     public function meetings(SubjectsRepository $subjectsRepository) :Response
     {
-        return $this->render('meetings_display/meetings.html.twig' ,[
+        return $this->render('meetings_display/meetings.html.twig', [
             'subjects' => $subjectsRepository->findAll(),
         ]);
     }

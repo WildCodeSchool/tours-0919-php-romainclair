@@ -17,6 +17,7 @@ class SubjectsType extends AbstractType
             ->add('requirements')
             ->add('image')
         ;
+        $options;
     }
 
     public function configureOptions(OptionsResolver $resolver)
