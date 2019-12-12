@@ -15,7 +15,28 @@
             <h2>Romain Clair</h2>
         </a>
     </header>
+        <nav>
+        <ul>
+            <li>
+                <a href="{{ path('show_theme') }}">
+                    <span>Accueil</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('list_subject') }}">
+                    Sujet
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('subjects_index') }}">
+                    Admin
+                </a>
+            </li>
+        </ul>
+    </nav> 
+    <main>
         {% block body %}{% endblock %}
+    </main>
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
