@@ -53,7 +53,7 @@ CREATE TABLE `subjects` (
   `requirements` varchar(80) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(80) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,6 +62,7 @@ CREATE TABLE `subjects` (
 
 LOCK TABLES `subjects` WRITE;
 /*!40000 ALTER TABLE `subjects` DISABLE KEYS */;
+INSERT INTO `subjects` VALUES (1,'C','exemple de description',NULL,NULL),(2,'PHP','exemple de description',NULL,NULL),(3,'Java','exemple de description',NULL,NULL),(4,'C++','exemple de description',NULL,NULL),(5,'Javascript','exemple de description',NULL,NULL),(6,'Rust','exemple de description',NULL,NULL),(7,'Python','exemple de description',NULL,NULL);
 /*!40000 ALTER TABLE `subjects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -78,7 +79,7 @@ CREATE TABLE `thematiques` (
   `image` varchar(80) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` varchar(80) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87,6 +88,7 @@ CREATE TABLE `thematiques` (
 
 LOCK TABLES `thematiques` WRITE;
 /*!40000 ALTER TABLE `thematiques` DISABLE KEYS */;
+INSERT INTO `thematiques` VALUES (1,'developpement',NULL,NULL);
 /*!40000 ALTER TABLE `thematiques` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -99,4 +101,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-12 10:55:38
+-- Dump completed on 2019-12-12 15:18:01

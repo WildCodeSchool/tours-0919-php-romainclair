@@ -2,20 +2,56 @@
 
 namespace App\Controller;
 
+use App\Entity\Subjects;
+use App\Form\SubjectsType;
+use App\Repository\SubjectsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/subjects")
+ */
 class SubjectsController extends AbstractController
 {
+    /*  index utilisateurs */
+
     /**
      * Show all rows from Subject’s entity
      *
      * @Route("/sujets", name="list_subject")
      * @return Response A response instance
      */
-    public function index(): Response
+    public function subject(SubjectsRepository $subjectsRepository): Response
     {
-        return $this->render('subjects_display/display_list.html.twig');
+        return $this->render('subjects_display/display_list.html.twig', [
+            'subjects' => $subjectsRepository->findAll(),
+        ]);
+    }
+
+    /* ajouts utilisateurs */
+
+    /**
+     * @Route("/new", name="subjects_new", methods={"GET","POST"})
+     */
+    public function new(Request $request): Response
+    {
+        $subject = new Subjects();
+        $form = $this->createForm(SubjectsType::class, $subject);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($subject);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('subjects_index');
+        }
+
+        return $this->render('subjects/new.html.twig', [
+            'subject' => $subject,
+            'form' => $form->createView(),
+        ]);
     }
 }
