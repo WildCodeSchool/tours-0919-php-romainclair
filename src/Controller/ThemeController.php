@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\ThematiquesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,12 +10,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class ThemeController extends AbstractController
 {
     /**
-     *@Route ("/", name="show_theme")
-     *@return Response A response instance
+     * @Route ("/", name="show_theme")
+     * @param ThematiquesRepository $themaRepo
+     * @return Response A response instance
      */
 
-    public function theme() : Response
+    public function theme(ThematiquesRepository $themaRepo) : Response
     {
-        return $this->render('theme.html.twig');
+        $allTheme = $themaRepo->findAll();
+        return $this->render('theme.html.twig', [
+            'themes' => $allTheme
+        ]);
     }
 }

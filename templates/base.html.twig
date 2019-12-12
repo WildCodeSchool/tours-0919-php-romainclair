@@ -15,7 +15,9 @@
             <h2>Romain Clair</h2>
         </a>
     </header>
-        {% block body %}{% endblock %}
+        <main>
+            {% block body %}{% endblock %}
+        </main>
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}

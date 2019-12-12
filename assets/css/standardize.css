@@ -9,6 +9,8 @@ body , html {
 h1, h2{
     font-family: Economica-Regular, sans-serif;
     font-weight: normal;
+    text-align: center;
+
 }
 h1:first-of-type{
     font-size: 1.8rem;
@@ -37,10 +39,15 @@ a {
     font-family: Lato-Reg, sans-serif;
     color : #1D1D1D;
     text-decoration: none;
+    text-align: center;
 }
 article h1{
     font-family: Economica-Bold, sans-serif;
 }
 span {
     color : #A7A64A;
+}
+.admin__link{
+    margin-bottom: 3vw;
+    border: 1px solid #6F6F6F;
 }
