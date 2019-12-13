@@ -15,6 +15,7 @@ class MeetingsController extends AbstractController
 {
     /**
      * @Route("/meetings/", name="show_meetings", methods={"GET"})
+     * @return Response A response instance
      */
     public function meetings(SubjectsRepository $subjectsRepository) :Response
     {
