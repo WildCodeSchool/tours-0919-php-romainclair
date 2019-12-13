@@ -34,12 +34,14 @@ article h2 {
 p{
     font-family: Lato, sans-serif;
     color: #6F6F6F;
+    text-align: center;
 }
 a {
     font-family: Lato-Reg, sans-serif;
     color : #1D1D1D;
     text-decoration: none;
     text-align: center;
+    display: block;
 }
 article h1{
     font-family: Economica-Bold, sans-serif;
@@ -48,6 +50,39 @@ span {
     color : #A7A64A;
 }
 .admin__link{
-    margin-bottom: 3vw;
     border: 1px solid #6F6F6F;
+    width: 40vw;
+    margin: 0.75vw auto;
+}
+button{
+    margin: 1vw auto;
+}
+form{
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+#thematiques_description, #subjects_description{
+    height: 30vw;
+}
+form > div > div {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    margin: 1vw auto;
+}
+@media screen and (min-width: 1024px) {
+    .admin__link {
+        width: 15vw;
+        margin: 0.75vw auto;
+    }
+    form > div > div {
+        width: 40vw;
+    }
+    #thematiques_description, #subjects_description{
+        height: 7vw;
+    }
 }

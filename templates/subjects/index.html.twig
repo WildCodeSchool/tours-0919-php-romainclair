@@ -3,29 +3,16 @@
 {% block title %}Subjects index{% endblock %}
 
 {% block body %}
-    <header class = "subject__header">
-        <h1 class="subject__title">Thematique name</h1>
-        <p class="subject__description">Est Scaevola si rogati consuetudo et amici cum casus sanciatur oporteat neque nos Etenim se igitur et oporteat.</p>
-    </header>
+    <h1 class="subject__title">Gestion des thématiques</h1>
+    <a class="admin__link" href="{{ path('subjects_new') }}">Créer</a>
     <div class="subject__allCards">
     {% for subject in subjects %}
         <article class="subject__card" {# id="card{{ i }}" #}>
             <h2>Programmation en {{ subject.name }}</h2>
             <img class="subject__image" src="https://via.placeholder.com/150" alt="placeholder for an illustration">
-            <p>{{ subject.description }}</p>
-            {# <ul class="subject__atelier-list">
-                {% for i in 0..3 %}
-                    <a href="{{ path('show_meetings') }}"><li>item</li></a>
-                {% endfor %}
-            </ul> #}
-            <form method="post" action="{{ path('subjects_delete', {'id': subject.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
-                <input type="hidden" name="_method" value="DELETE">
-                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ subject.id) }}">
-                <button class="btn">Delete</button>
-            </form>
-            <a href="{{ path('subjects_show', {'id': subject.id}) }}">show</a>
-            <a href="{{ path('subjects_edit', {'id': subject.id}) }}">edit</a>
-            <a href="{{ path('subjects_new') }}">Create new</a>
+            <a class="admin__link" href="{{ path('subjects_show', {'id': subject.id}) }}">Details</a>
+            <a class="admin__link" href="{{ path('subjects_edit', {'id': subject.id}) }}">Editer</a>
+            <a class="admin__link" href="{{ path('subjects_delete', {'id': subject.id}) }}">Supprimer</a>
         </article>
         {% endfor %}
     </div>
