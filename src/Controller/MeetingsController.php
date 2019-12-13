@@ -14,8 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MeetingsController extends AbstractController
 {
     /**
-     * @Route ("/meetings", name="show_meetings")
-     * @return Response A response instance
+     * @Route("/meetings/", name="show_meetings", methods={"GET"})
      */
     public function meetings(SubjectsRepository $subjectsRepository) :Response
     {

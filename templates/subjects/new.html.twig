@@ -3,11 +3,9 @@
 {% block title %}New Subjects{% endblock %}
 
 {% block body %}
-<main>
     <h1>Create new Subjects</h1>
 
     {{ include('subjects/_form.html.twig') }}
 
     <a href="{{ path('subjects_index') }}">back to list</a>
-<main>
 {% endblock %}

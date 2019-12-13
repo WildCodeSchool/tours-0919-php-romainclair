@@ -2,7 +2,7 @@
 {% block title %}Liste des sujets{% endblock %}
 
 {% block body %}
-    <main class="subject">
+    <div class="subject">
         <!-- Here is the head of the content-->
         <header class = "subject__header">
             <h1 class="subject__title">Titre de la thématique</h1>
@@ -18,10 +18,11 @@
                 <button type="button" class="subject__link">Voir les sujets</button>
                 <ul class="subject__atelier-list">
                     {% for i in 0..3 %}
-                        <a href="{{ path('show_meetings') }}"><li>item</li></a>
+                        <a href="{{ path('show_meetings', {'id': subject.id}) }}"><li>item</li></a>
                     {% endfor %}
+                    
                 </ul>
             </article>
         {% endfor %}
-    </main>
+    </div>
 {% endblock %}
