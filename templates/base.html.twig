@@ -14,27 +14,27 @@
             <h1 class="header__header-h1"></h1>
             <h2>Romain Clair</h2>
         </a>
+        <nav class="header__nav">
+            <ul class="header__nav-ul">
+                <li>
+                    <a href="{{ path('show_theme') }}">
+                        <span>Accueil</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('list_subject') }}">
+                        Sujet
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('subjects_index') }}">
+                        Admin
+                    </a>
+                </li>
+            </ul> 
     </header>
-        <nav>
-        <ul>
-            <li>
-                <a href="{{ path('show_theme') }}">
-                    <span>Accueil</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ path('list_subject') }}">
-                    Sujet
-                </a>
-            </li>
-            <li>
-                <a href="{{ path('subjects_index') }}">
-                    Admin
-                </a>
-            </li>
-        </ul>
-    </nav> 
     <main>
+    </nav>
         {% block body %}{% endblock %}
     </main>
         {% block javascripts %}

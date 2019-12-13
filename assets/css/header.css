@@ -14,7 +14,7 @@
 }
 .header__header h1 {
     background: url('https://www.romainclair.com/images/LogoClair.svg') no-repeat;
-    background-position: 50% 40%;
+    background-position: 25% 40%;
     min-width: 35px;
     padding-top: 6rem;
     color: #737373;
@@ -23,7 +23,8 @@
     margin-left: 36%;
     color: #737373;
     position: absolute;
-    top: 27vw;
+    top: 10vw;
+    left: 7vw;
 }
 @media screen and (max-width: 1024px) and (min-width: 481px)
 {
@@ -50,9 +51,10 @@
         margin-left: 45%;
         color: #737373;
         top: 11vw;
+        left: 0vw;
     } 
     main {
-        margin-top: 10rem;
+        margin-top: 13rem;
     }
 }
 @media screen and (min-width: 1025px)
@@ -79,8 +81,9 @@
         margin-left: 48%;
         color: #737373;
         top: 5vw;
+        left: 0;
     } 
     main {
-        margin-top: 10rem;
+        margin-top: 13rem;
     }
 }
