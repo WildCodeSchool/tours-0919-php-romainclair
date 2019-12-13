@@ -30,9 +30,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('subjects_index') }}">back to list</a>
+    <a class="admin__link" href="{{ path('subjects_index') }}">back to list</a>
 
-    <a href="{{ path('subjects_edit', {'id': subject.id}) }}">edit</a>
+    <a class="admin__link" href="{{ path('subjects_edit', {'id': subject.id}) }}">edit</a>
 
     {{ include('subjects/_delete_form.html.twig') }}
 {% endblock %}
