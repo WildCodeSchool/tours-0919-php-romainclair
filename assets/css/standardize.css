@@ -51,3 +51,11 @@ span {
     margin-bottom: 3vw;
     border: 1px solid #6F6F6F;
 }
+button{
+    margin-right: auto;
+    margin-left: auto;
+}
+form{
+    margin-right: auto;
+    margin-left: auto;
+}

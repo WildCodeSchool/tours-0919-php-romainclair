@@ -5,15 +5,23 @@
 {% block body %}
     <h1>Thematiques index</h1>
 
+    <div class="subject__allCards">
         {% for theme in themes %}
-            <article class="subject__card">
-                <h1>{{theme.name}}</h1>
+            <article class="subject__card" {# id="card{{ i }}" #}>
+                <h2>Programmation en {{ theme.name }}</h2>
                 <img class="subject__image" src="https://via.placeholder.com/150" alt="placeholder for an illustration">
-                <p>Est Scaevola si <span>rogati consuetudo</span> et amici cum casus <span>Turpis maiorum</span> causa.Est Scaevola si <span>rogati consuetudo</span> et amici cum casus <span>Turpis maiorum</span> causa.</p>
+                <p class="subject__cardDescription">{{ theme.description }}</p>
+                <button type="button" class="subject__link">Voir les sujets</button>
+                <ul class="subject__atelier-list">
+                    {% for i in 0..3 %}
+                        <a href="{{ path('show_meetings') }}"><li>item</li></a>
+                    {% endfor %}
+                </ul>
                 <a class="admin__link" href="{{ path('thematiques_show', {'id': theme.id}) }}">Details</a>
                 <a class="admin__link" href="{{ path('thematiques_edit', {'id': theme.id}) }}">Editer</a>
                 <a class="admin__link" href="{{ path('thematiques_delete', {'id': theme.id}) }}">Supprimer</a>
             </article>
         {% endfor %}
+    </div>
     <a href="{{ path('thematiques_new') }}">Create new</a>
 {% endblock %}
