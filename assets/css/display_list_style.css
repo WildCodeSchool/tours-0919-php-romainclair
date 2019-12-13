@@ -44,3 +44,33 @@ main {
 .subject__link:focus + ul {
     display: block;
 }
+.subject__cardDescription{
+    text-align: center;
+}
+@media screen and (min-width: 1024px)
+{
+    .subject__allCards{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .subject__card{
+        margin: 0;
+        width: 25vw;
+    }
+    .theme__linkToSubject {
+        display: block;
+        width: 25vw;
+    }
+    .subject__card > h2 {
+        margin-bottom: 0;
+        margin-top: 5vw;
+    }
+    .subject__atelier-list {
+        display: block;
+    }
+    .subject__link{
+        display: none;
+    }
+}

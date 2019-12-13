@@ -9,14 +9,16 @@
     </header>
     <a href="/thematiques">Administrer les thématiques</a>
     <!-- Here is card with each subjects-->
-    {% for theme in themes %}
-      <a href="{{ path('list_subject') }}">
-        <article class="subject__card">
-          <h2>{{theme.name}}</h2>
-          <img class="subject__image" src="https://via.placeholder.com/150" alt="placeholder for an illustration">
-          <p>Est Scaevola si <span>rogati consuetudo</span> et amici cum casus <span>Turpis maiorum</span> causa.Est Scaevola si <span>rogati consuetudo</span> et amici cum casus <span>Turpis maiorum</span> causa.</p>
-        </article>
-      </a>
-    {% endfor %}
+    <div class="subject__allCards">
+      {% for theme in themes %}
+        <a class="theme__linkToSubject"href="{{ path('list_subject') }}">
+          <article class="subject__card">
+            <h2>{{theme.name}}</h2>
+            <img class="subject__image" src="https://via.placeholder.com/150" alt="placeholder for an illustration">
+            <p class="subject__description">Est Scaevola si <span>rogati consuetudo</span> et amici cum casus <span>Turpis maiorum</span> causa.Est Scaevola si <span>rogati consuetudo</span> et amici cum casus <span>Turpis maiorum</span> causa.</p>
+          </article>
+        </a>
+      {% endfor %}
+    </div>
   </main>
 {% endblock %}
