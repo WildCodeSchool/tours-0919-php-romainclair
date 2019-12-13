@@ -3,21 +3,18 @@
 {% block title %}Thematiques{% endblock %}
 
 {% block body %}
-    <h1>Thematiques</h1>
-    <article class="subject__card" {# id="card{{ i }}" #}>
-        <h2>Programmation en {{ thematique.name }}</h2>
-        <img class="subject__image" src="https://via.placeholder.com/150" alt="placeholder for an illustration">
-        <p class="subject__cardDescription">{{ thematique.description }}</p>
-        <button type="button" class="subject__link">Voir les sujets</button>
-        <ul class="subject__atelier-list">
-            {% for i in 0..3 %}
-                <a href="{{ path('show_meetings') }}"><li>item</li></a>
-            {% endfor %}
-        </ul>
-        <a href="{{ path('thematiques_index') }}">back to list</a>
-        <a href="{{ path('thematiques_edit', {'id': thematique.id}) }}">edit</a>
-        {{ include('thematiques/_delete_form.html.twig') }}
-    </article>
+    <div class="subject__allCards">
+        <article class="subject__card" {# id="card{{ i }}" #}>
+            <h1>Thematique</h1>
+            <h2>Programmation en {{ thematique.name }}</h2>
+            <img class="subject__image" src="https://via.placeholder.com/150" alt="placeholder for an illustration">
+            <p class="subject__cardDescription">{{ thematique.description }}</p>
+            <button type="button" class="subject__link">Voir les sujets</button>
+            <a class="admin__link" href="{{ path('thematiques_index') }}">back to list</a>
+            <a class="admin__link" href="{{ path('thematiques_edit', {'id': thematique.id}) }}">edit</a>
+            {{ include('thematiques/_delete_form.html.twig') }}
+        </article>
+    </div>
 
 
 

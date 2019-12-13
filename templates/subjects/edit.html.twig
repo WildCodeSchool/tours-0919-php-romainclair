@@ -7,7 +7,7 @@
 
     {{ include('subjects/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('subjects_index') }}">back to list</a>
+    <a class="admin__link" href="{{ path('subjects_index') }}">back to list</a>
 
     {{ include('subjects/_delete_form.html.twig') }}
 {% endblock %}
