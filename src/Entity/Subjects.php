@@ -48,6 +48,12 @@ class Subjects
      */
     private $meetings;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $participation;
+
+
     public function __construct()
     {
         $this->meetings = new ArrayCollection();
@@ -146,6 +152,18 @@ class Subjects
                 $meeting->setSubjects(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getParticipation(): ?string
+    {
+        return $this->participation;
+    }
+
+    public function setParticipation(string $participation): self
+    {
+        $this->participation = $participation;
 
         return $this;
     }
