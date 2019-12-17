@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20191212165039 extends AbstractMigration
+final class Version20191217092937 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,9 +22,7 @@ final class Version20191212165039 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE subjects ADD thematiques_id INT DEFAULT NULL');
-        $this->addSql('ALTER TABLE subjects ADD CONSTRAINT FK_AB259917A15F660A FOREIGN KEY (thematiques_id) REFERENCES thematiques (id)');
-        $this->addSql('CREATE INDEX IDX_AB259917A15F660A ON subjects (thematiques_id)');
+        $this->addSql('ALTER TABLE meetings ADD participating INT DEFAULT NULL, CHANGE required required LONGTEXT DEFAULT NULL');
     }
 
     public function down(Schema $schema) : void
@@ -32,8 +30,6 @@ final class Version20191212165039 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE subjects DROP FOREIGN KEY FK_AB259917A15F660A');
-        $this->addSql('DROP INDEX IDX_AB259917A15F660A ON subjects');
-        $this->addSql('ALTER TABLE subjects DROP thematiques_id');
+        $this->addSql('ALTER TABLE meetings DROP participating, CHANGE required required LONGTEXT CHARACTER SET utf8mb4 DEFAULT NULL COLLATE `utf8mb4_unicode_ci` COMMENT \'(DC2Type:simple_array)\'');
     }
 }
