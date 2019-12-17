@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Meetings{% endblock %}
+{% block title %}Créer un atelier{% endblock %}
 
 {% block body %}
-    <h1>Create new Meetings</h1>
+    <h1>Créer un atelier</h1>
 
     {{ include('meetings/_form.html.twig') }}
 
-    <a href="{{ path('meetings_index') }}">back to list</a>
+    <a href="{{ path('meetings_index') }}">Retour</a>
 {% endblock %}
