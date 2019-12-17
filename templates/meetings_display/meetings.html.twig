@@ -1,15 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<html>
-    {% for subject in subjects %}
         <section class="meetings__head">
             <div class="meetings_head-image">
                 <img src="https://via.placeholder.com/170" alt="Meetings_images">
             </div>
             <div class="meetings__head-text">
                 <h1>
-                   Programmation en {{ subject.name }}
+                   Programmation en {{ meetings.name }}
                 </h1>
                 <div class="meetings__head-line"></div>
                 <h2>
@@ -19,7 +17,7 @@
                     button
                 </button>
                 <p>
-                    20 personnes participent
+                    {{ meetings.participating }} personne(s) participent.
                 </p>
             </div>
             <div class="meetings__requirements">
@@ -28,7 +26,7 @@
                 </h2>
                 <div class="meetings__head-line"></div>
                 <p>
-                    Pré-requis potentiel
+                    {{meetings.required}}
                 </p>
             </div>
         </section>
@@ -38,7 +36,7 @@
             </h2>
             <div class="meetings__head-line"></div>
             <p>
-                {{ subject.description }}
+                {{ meetings.description }}
             </p>
         </section>
         <section class="meetings__schedule">
@@ -60,7 +58,4 @@
             <button type="submit">Ajouter</button>
         </form>
         </section>
-    {% endfor %}
-
-</html>
 {% endblock %}

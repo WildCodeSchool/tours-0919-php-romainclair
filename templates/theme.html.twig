@@ -11,7 +11,7 @@
     <!-- Here is card with each subjects-->
     <div class="subject__allCards">
       {% for theme in themes %}
-        <a class="theme__linkToSubject"href="{{ path('list_subject') }}">
+        <a class="theme__linkToSubject" href="{{ path('list_subject', {'id' : theme.id})  }}">
           <article class="subject__card">
             <h2>{{theme.name}}</h2>
             <img class="subject__image" src="https://via.placeholder.com/150" alt="placeholder for an illustration">
