@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -45,8 +47,15 @@ class Subjects
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $participate;
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Meetings", mappedBy="subjects")
+     */
+    private $meetings;
 
-
+    public function __construct()
+    {
+        $this->meetings = new ArrayCollection();
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -85,7 +94,7 @@ class Subjects
     {
         $this->requirements = $requirements;
 
-        return $this;
+        retemplates/subjects/_form.html.twigturn $this;
     }
 
     public function getImage(): ?string
@@ -120,6 +129,34 @@ class Subjects
     public function setParticipate(?bool $participate): self
     {
         $this->participate = $participate;
+    }
+    /**
+     * @return Collection|Meetings[]
+     */
+    public function getMeetings(): Collection
+    {
+        return $this->meetings;
+    }
+
+    public function addMeeting(Meetings $meeting): self
+    {
+        if (!$this->meetings->contains($meeting)) {
+            $this->meetings[] = $meeting;
+            $meeting->setSubjects($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMeeting(Meetings $meeting): self
+    {
+        if ($this->meetings->contains($meeting)) {
+            $this->meetings->removeElement($meeting);
+            // set the owning side to null (unless already changed)
+            if ($meeting->getSubjects() === $this) {
+                $meeting->setSubjects(null);
+            }
+        }
 
         return $this;
     }

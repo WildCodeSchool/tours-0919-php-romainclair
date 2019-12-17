@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20191212165039 extends AbstractMigration
+final class Version20191217101706 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,9 +22,9 @@ final class Version20191212165039 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE subjects ADD thematiques_id INT DEFAULT NULL');
-        $this->addSql('ALTER TABLE subjects ADD CONSTRAINT FK_AB259917A15F660A FOREIGN KEY (thematiques_id) REFERENCES thematiques (id)');
-        $this->addSql('CREATE INDEX IDX_AB259917A15F660A ON subjects (thematiques_id)');
+        $this->addSql('ALTER TABLE meetings ADD subjects_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE meetings ADD CONSTRAINT FK_44FE52E294AF957A FOREIGN KEY (subjects_id) REFERENCES subjects (id)');
+        $this->addSql('CREATE INDEX IDX_44FE52E294AF957A ON meetings (subjects_id)');
     }
 
     public function down(Schema $schema) : void
@@ -32,8 +32,8 @@ final class Version20191212165039 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE subjects DROP FOREIGN KEY FK_AB259917A15F660A');
-        $this->addSql('DROP INDEX IDX_AB259917A15F660A ON subjects');
-        $this->addSql('ALTER TABLE subjects DROP thematiques_id');
+        $this->addSql('ALTER TABLE meetings DROP FOREIGN KEY FK_44FE52E294AF957A');
+        $this->addSql('DROP INDEX IDX_44FE52E294AF957A ON meetings');
+        $this->addSql('ALTER TABLE meetings DROP subjects_id');
     }
 }
