@@ -1,4 +1,16 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<form action="doUpload" method="post" enctype="multipart/form-data">
+
+    <input type="hidden" name="token" value="{{ csrf_token('upload') }}" />
+
+    <div>
+        <label>File to upload:</label>
+        <input type="file" name="myfile">
+    </div>
+
+    <button type="submit">Send</button>
+
+</form>
+<button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

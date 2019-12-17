@@ -41,6 +41,11 @@ class Subjects
      */
     private $thematiques;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $participate;
+
 
     public function getId(): ?int
     {
@@ -103,6 +108,18 @@ class Subjects
     public function setThematiques(?Thematiques $thematiques): self
     {
         $this->thematiques = $thematiques;
+
+        return $this;
+    }
+
+    public function getParticipate(): ?bool
+    {
+        return $this->participate;
+    }
+
+    public function setParticipate(?bool $participate): self
+    {
+        $this->participate = $participate;
 
         return $this;
     }
