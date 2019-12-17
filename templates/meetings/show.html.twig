@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Meetings{% endblock %}
+
+{% block body %}
+    <h1>Meetings</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ meeting.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ meeting.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ meeting.description }}</td>
+            </tr>
+            <tr>
+                <th>Required</th>
+                <td>{{ meeting.required }}</td>
+            </tr>
+            <tr>
+                <th>Participating</th>
+                <td>{{ meeting.participating }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('meetings_index') }}">back to list</a>
+
+    <a href="{{ path('meetings_edit', {'id': meeting.id}) }}">edit</a>
+
+    {{ include('meetings/_delete_form.html.twig') }}
+{% endblock %}
