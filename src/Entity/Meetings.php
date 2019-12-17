@@ -36,6 +36,11 @@ class Meetings
      */
     private $participating;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Subjects", inversedBy="meetings")
+     */
+    private $subjects;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +90,18 @@ class Meetings
     public function setParticipating(?int $participating): self
     {
         $this->participating = $participating;
+
+        return $this;
+    }
+
+    public function getSubjects(): ?Subjects
+    {
+        return $this->subjects;
+    }
+
+    public function setSubjects(?Subjects $subjects): self
+    {
+        $this->subjects = $subjects;
 
         return $this;
     }
