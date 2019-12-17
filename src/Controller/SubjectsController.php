@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Subjects;
 use App\Form\SubjectsType;
+use App\Repository\MeetingsRepository;
 use App\Repository\SubjectsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,13 +21,21 @@ class SubjectsController extends AbstractController
     /**
      * Show all rows from Subject’s entity
      *
-     * @Route("/sujets", name="list_subject")
+     * @Route("/sujets/{id}", name="list_subject")
+     * @param SubjectsRepository $subjectsRepository
+     * @param int $id
+     * @param Subjects $subjectEntity
      * @return Response A response instance
      */
-    public function subject(SubjectsRepository $subjectsRepository): Response
-    {
+    public function subject(
+        SubjectsRepository $subjectsRepository,
+        int $id,
+        Subjects $subjectEntity
+    ): Response {
+        $subjects = $subjectsRepository->findBythematiques($id);
         return $this->render('subjects_display/display_list.html.twig', [
-            'subjects' => $subjectsRepository->findAll(),
+            'subjects' => $subjects,
+            'meetings' => $subjectEntity->getMeetings()
         ]);
     }
 

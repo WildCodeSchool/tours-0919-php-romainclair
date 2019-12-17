@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -40,6 +42,22 @@ class Subjects
      * @ORM\ManyToOne(targetEntity="App\Entity\Thematiques", inversedBy="subjects")
      */
     private $thematiques;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Meetings", mappedBy="subjects")
+     */
+    private $meetings;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $participation;
+
+
+    public function __construct()
+    {
+        $this->meetings = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -103,6 +121,49 @@ class Subjects
     public function setThematiques(?Thematiques $thematiques): self
     {
         $this->thematiques = $thematiques;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Meetings[]
+     */
+    public function getMeetings(): Collection
+    {
+        return $this->meetings;
+    }
+
+    public function addMeeting(Meetings $meeting): self
+    {
+        if (!$this->meetings->contains($meeting)) {
+            $this->meetings[] = $meeting;
+            $meeting->setSubjects($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMeeting(Meetings $meeting): self
+    {
+        if ($this->meetings->contains($meeting)) {
+            $this->meetings->removeElement($meeting);
+            // set the owning side to null (unless already changed)
+            if ($meeting->getSubjects() === $this) {
+                $meeting->setSubjects(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getParticipation(): ?string
+    {
+        return $this->participation;
+    }
+
+    public function setParticipation(string $participation): self
+    {
+        $this->participation = $participation;
 
         return $this;
     }
