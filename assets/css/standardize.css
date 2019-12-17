@@ -74,6 +74,7 @@ form > div > div {
     width: 80vw;
     margin: 1vw auto;
 }
+
 @media screen and (min-width: 1024px) {
     .admin__link {
         width: 15vw;
