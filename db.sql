@@ -28,8 +28,11 @@ CREATE TABLE `meetings` (
   `description` longtext COLLATE utf8mb4_unicode_ci,
   `required` longtext COLLATE utf8mb4_unicode_ci,
   `participating` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `subjects_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_44FE52E294AF957A` (`subjects_id`),
+  CONSTRAINT `FK_44FE52E294AF957A` FOREIGN KEY (`subjects_id`) REFERENCES `subjects` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +41,7 @@ CREATE TABLE `meetings` (
 
 LOCK TABLES `meetings` WRITE;
 /*!40000 ALTER TABLE `meetings` DISABLE KEYS */;
-INSERT INTO `meetings` VALUES (1,'Les fonctions','Ceci est un exemple de description d\'atelier','Les variables',12),(2,'Les variables','Ceci est un exemple de description d\'atelier',NULL,5),(3,'Symfony','Ceci est un exemple de description d\'atelier','',0),(4,'Les boucles','Ceci est un exemple de description d\'atelier','Les variables',9001);
+INSERT INTO `meetings` VALUES (1,'Les fonctions','Ceci est un exemple de description d\'atelier','Les variables',12,3),(2,'Les variables','Ceci est un exemple de description d\'atelier',NULL,5,1),(3,'Symfony','Ceci est un exemple de description d\'atelier','',0,2),(4,'Les boucles','Ceci est un exemple de description d\'atelier','Les variables',9001,4),(5,'Node.js','Ceci est un exemple de description d\'atelier','Base de Javascript',1,5),(6,'Rust pour les nuls','Ceci est un exemple de description d\'atelier','Aucune',0,6),(7,'Django','Ceci est un exemple de description','Bases de Python',10,7),(9,'Hashage','Ceci est un exemple de description',NULL,12,8),(10,'Gérer l\'accès par IP','Ceci est un exemple de description',NULL,51,9),(11,'Le scrum board','Ceci est un exemple de description',NULL,10,10),(12,'Installation de sa version Ubuntu','Ceci est un exemple de description',NULL,2,11);
 /*!40000 ALTER TABLE `meetings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,7 +65,7 @@ CREATE TABLE `migration_versions` (
 
 LOCK TABLES `migration_versions` WRITE;
 /*!40000 ALTER TABLE `migration_versions` DISABLE KEYS */;
-INSERT INTO `migration_versions` VALUES ('20191211084414','2019-12-11 08:44:52'),('20191211090536','2019-12-11 09:05:45'),('20191211151032','2019-12-11 15:11:06'),('20191212095101','2019-12-12 09:51:25'),('20191212145731','2019-12-12 14:57:43'),('20191217091659','2019-12-17 09:23:38'),('20191217092937','2019-12-17 09:29:45');
+INSERT INTO `migration_versions` VALUES ('20191211084414','2019-12-11 08:44:52'),('20191211090536','2019-12-11 09:05:45'),('20191211151032','2019-12-11 15:11:06'),('20191212095101','2019-12-12 09:51:25'),('20191212145731','2019-12-12 14:57:43'),('20191217091659','2019-12-17 09:23:38'),('20191217092937','2019-12-17 09:29:45'),('20191217101706','2019-12-17 10:17:22');
 /*!40000 ALTER TABLE `migration_versions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -83,7 +86,7 @@ CREATE TABLE `subjects` (
   PRIMARY KEY (`id`),
   KEY `IDX_AB259917A15F660A` (`thematiques_id`),
   CONSTRAINT `FK_AB259917A15F660A` FOREIGN KEY (`thematiques_id`) REFERENCES `thematiques` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92,7 +95,7 @@ CREATE TABLE `subjects` (
 
 LOCK TABLES `subjects` WRITE;
 /*!40000 ALTER TABLE `subjects` DISABLE KEYS */;
-INSERT INTO `subjects` VALUES (1,'C','exemple de description',NULL,NULL,NULL),(2,'PHP','exemple de description',NULL,NULL,NULL),(3,'Java','exemple de description',NULL,NULL,NULL),(4,'C++','exemple de description',NULL,NULL,NULL),(5,'Javascript','exemple de description',NULL,NULL,NULL),(6,'Rust','exemple de description',NULL,NULL,NULL),(7,'Python','exemple de description',NULL,NULL,NULL);
+INSERT INTO `subjects` VALUES (1,'C','exemple de description',NULL,NULL,1),(2,'PHP','exemple de description',NULL,NULL,1),(3,'Java','exemple de description',NULL,NULL,1),(4,'C++','exemple de description',NULL,NULL,1),(5,'Javascript','exemple de description',NULL,NULL,1),(6,'Rust','exemple de description',NULL,NULL,1),(7,'Python','exemple de description',NULL,NULL,1),(8,'Cryptographie','Exemple de description',NULL,NULL,2),(9,'Administrer son réseau','Exemple de description',NULL,NULL,3),(10,'Scrum','Exemple de description',NULL,NULL,4),(11,'Ubuntu','Exemple de description',NULL,NULL,5);
 /*!40000 ALTER TABLE `subjects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,4 +134,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-17 10:31:29
+-- Dump completed on 2019-12-17 13:12:08
