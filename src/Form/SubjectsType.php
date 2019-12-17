@@ -22,7 +22,7 @@ class SubjectsType extends AbstractType
                 'choices' => [
                     'Oui' => true,
                     'Non' => false,
-                ],   
+                ],
             ])
         ;
         $options;
