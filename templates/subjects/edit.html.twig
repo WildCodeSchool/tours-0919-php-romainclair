@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Subjects{% endblock %}
+{% block title %}Éditer un sujet{% endblock %}
 
 {% block body %}
-    <h1>Edit Subjects</h1>
+    <h1>Éditer un sujet</h1>
 
-    {{ include('subjects/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('subjects/_form.html.twig', {'button_label': 'Éditer'}) }}
 
-    <a class="admin__link" href="{{ path('subjects_index') }}">back to list</a>
+    <a class="admin__link" href="{{ path('subjects_index') }}">Retour</a>
 
     {{ include('subjects/_delete_form.html.twig') }}
 {% endblock %}

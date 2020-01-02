@@ -41,7 +41,7 @@ class ThematiquesController extends AbstractController
             $entityManager->persist($thematique);
             $entityManager->flush();
 
-            return $this->redirectToRoute('thematiques_index');
+            return $this->redirectToRoute('succes');
         }
 
         return $this->render('thematiques/new.html.twig', [
@@ -71,7 +71,7 @@ class ThematiquesController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('thematiques_index');
+            return $this->redirectToRoute('succes');
         }
 
         return $this->render('thematiques/edit.html.twig', [

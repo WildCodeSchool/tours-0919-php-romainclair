@@ -47,7 +47,7 @@ class AdminSubjectsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('subjects_index');
+            return $this->redirectToRoute('succes');
         }
 
         return $this->render('subjects/edit.html.twig', [
