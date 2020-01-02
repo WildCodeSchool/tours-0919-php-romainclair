@@ -67,6 +67,7 @@ form{
 }
 #thematiques_description, #subjects_description{
     height: 30vw;
+
 }
 form > div > div {
     display: flex;
