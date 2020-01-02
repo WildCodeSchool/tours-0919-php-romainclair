@@ -14,23 +14,25 @@ class UploadController extends AbstractController
     /**
      * @Route("/thematiques/doUpload", name="upload")
      */
-     public function index(Request $request, string $uploadDir, 
-             FileUploader $uploader, LoggerInterface $logger, ThematiquesRepository $themaRepository)
-    {
+    public function index(
+        Request $request,
+        string $uploadDir,
+        FileUploader $uploader,
+        LoggerInterface $logger,
+        ThematiquesRepository $themaRepository
+    ) {
         $token = $request->get("token");
 
-        if (!$this->isCsrfTokenValid('upload', $token)) 
-        {
+        if (!$this->isCsrfTokenValid('upload', $token)) {
             $logger->info("CSRF failure");
-            // add render 
-        }        
+            // add render
+        }
 
         $file = $request->files->get('myfile');
 
-        if (empty($file)) 
-        {
+        if (empty($file)) {
             // add render
-        }        
+        }
 
         $filename = $file->getClientOriginalName();
         $uploader->upload($uploadDir, $file, $filename);
@@ -38,7 +40,5 @@ class UploadController extends AbstractController
         return $this->render('thematiques/index.html.twig', [
             'themes' => $themaRepository->findAll(),
         ]);
-        
-        
     }
 }
