@@ -13,7 +13,7 @@ footer div {
     margin-right: auto;
 }
 footer p {
-    font-family: Economica-Regular;
+    font-family: "Economica-Regular";
     font-size: 1.2rem;
     color: 
     #737373;
@@ -24,62 +24,14 @@ footer a {
     #BFBFBF;
     font-size: 1rem;
 }
-.footer__references {
-    width: 45%;
-    display: inline-block;
-}
-.footer__references p {
-    display: initial;
-}
-.footer__references a {
-    background-image: url('https://www.romainclair.com/images/PictoPuceClair.png');
-    background-repeat: no-repeat;
-    background-position: 0.4rem 0.6rem;
-    padding-left: 1rem;
-}
-.footer__logos .UnivTours {
-    background-image: url('https://www.romainclair.com/images/UnivTours.jpg');
-}
-.footer__logos .Polytech {
-    background-image: url('https://www.romainclair.com/images/Polytech.jpg');
-}
-.footer__logos .Insa {
-    background-image: url('https://www.romainclair.com/images/Insa.jpg');
-}
-.footer__logos .Cnam {
-    background-image: url('https://www.romainclair.com/images/Cnam.jpg');
-}
-.footer__logos .Cefim {
-    background-image: url('https://www.romainclair.com/images/Cefim.jpg');
-}
-.footer__logos .Greta {
-    background-image: url('https://www.romainclair.com/images/Greta37.jpg');
-}
-.footer__logos .Diabolus {
-    background-image: url('https://www.romainclair.com/images/DiabolusInMusica.jpg');
-}
-.footer__logos .Eben {
-    background-image: url('https://www.romainclair.com/images/eben.jpg');
-}
-.footer__logos a {
-    display: inline-block;
-    background-image: none;
-    width: 80px;
-    height: 94px;
-    vertical-align: middle;
-    background-color: 
-    #333333;
-    margin-right: 0.5rem;
-    margin-bottom: 0.8rem;
-    transition: all 0.3s ease-in-out 0s;
-    -webkit-transition: all 0.3s ease-in-out 0s;
-    -moz-transition: all 0.3s ease-in-out 0s;
-    -o-transition: all 0.3s ease-in-out 0s;
-    -ms-transition: all 0.3s ease-in-out 0s;
-    background-repeat: no-repeat;
-    background-position: center;
-    font-size: 0;
-    background-size: 100% 100%;
+footer h1
+{
+    text-transform: uppercase;
+    font-family: "Economica-Bold";
+    font-size: 1.5rem;
+    text-align: left;
+    padding-top: 0.5rem;
+    color : #737373;
 }
 .footer__contact {
     width: 48%;
@@ -112,7 +64,7 @@ footer a {
     padding-bottom: 2rem;
     padding-top: 2rem;
     text-indent: 4rem;
-    font-family: Economica-Regular;
+    font-family: "Economica-Regular";
 }
 @media screen and (max-width: 1024px) and (min-width: 481px)
 {
