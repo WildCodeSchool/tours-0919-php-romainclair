@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Thematiques index{% endblock %}
+{% block title %}Gérer thématiques{% endblock %}
 
 {% block body %}
     <h1>Gestion des thématiques</h1>
@@ -13,7 +13,7 @@
                 <img class="subject__image" src="https://via.placeholder.com/150" alt="placeholder for an illustration">
                 <p class="subject__cardDescription">{{ theme.description }}</p>
                 <a class="admin__link" href="{{ path('thematiques_show', {'id': theme.id}) }}">Details</a>
-                <a class="admin__link" href="{{ path('thematiques_edit', {'id': theme.id}) }}">Editer</a>
+                <a class="admin__link" href="{{ path('thematiques_edit', {'id': theme.id}) }}">Éditer</a>
                 <a class="admin__link" href="{{ path('thematiques_delete', {'id': theme.id}) }}">Supprimer</a>
             </article>
         {% endfor %}

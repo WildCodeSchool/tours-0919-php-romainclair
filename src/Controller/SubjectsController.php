@@ -55,7 +55,7 @@ class SubjectsController extends AbstractController
             $entityManager->persist($subject);
             $entityManager->flush();
 
-            return $this->redirectToRoute('subjects_index');
+            return $this->redirectToRoute('succes');
         }
 
         return $this->render('subjects/new.html.twig', [

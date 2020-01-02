@@ -1,38 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Subjects{% endblock %}
+{% block title %}Détails d'un sujet{% endblock %}
 
 {% block body %}
-    <h1>Subjects</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ subject.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ subject.name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ subject.description }}</td>
-            </tr>
-            <tr>
-                <th>Requirements</th>
-                <td>{{ subject.requirements }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td>{{ subject.image }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="subject__allCards">
+        <article class="subject__card">
+            <h1>Sujet</h1>
+            <h2>{{ subject.name }}</h2>
+            <img class="subject__image" src="https://via.placeholder.com/150" alt="placeholder for an illustration">
+            <h2>Description</h2>
+            <p class="subject__cardDescription">{{ subject.description }}</p>
+            <a class="admin__link" href="{{ path('subjects_index') }}">Retour</a>
+            <a class="admin__link" href="{{ path('subjects_edit', {'id': subject.id}) }}">Éditer</a>
+            {{ include('subjects/_delete_form.html.twig') }}
+        </article>
+    </div>
 
-    <a class="admin__link" href="{{ path('subjects_index') }}">back to list</a>
-
-    <a class="admin__link" href="{{ path('subjects_edit', {'id': subject.id}) }}">edit</a>
-
-    {{ include('subjects/_delete_form.html.twig') }}
 {% endblock %}

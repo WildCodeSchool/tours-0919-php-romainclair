@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Subjects{% endblock %}
+{% block title %}Créer un nouveau sujet{% endblock %}
 
 {% block body %}
-    <h1>Create new Subjects</h1>
+    <h1>Créer un nouveau sujet</h1>
 
     {{ include('subjects/_form.html.twig') }}
 
-    <a class="admin__link" href="{{ path('subjects_index') }}">back to list</a>
+    <a class="admin__link" href="{{ path('subjects_index') }}">Retour</a>
 {% endblock %}
