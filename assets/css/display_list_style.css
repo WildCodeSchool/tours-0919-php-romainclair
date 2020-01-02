@@ -4,7 +4,7 @@
 }
 .subject__header {
     border-bottom: 0.1rem dotted #A7A64A;
-    width: 80vw;
+    width: 60vw;
     padding-bottom: 4vw;
     margin-right: auto;
     margin-left: auto;
@@ -50,17 +50,21 @@ main {
 {
     .subject__allCards{
         display: flex;
-        justify-content: space-around;
+        align-items: flex-start;
         flex-direction: row;
         flex-wrap: wrap;
+        width: 90%;
+        max-width: 1000px;
+        margin-right: auto;
+        margin-left: auto;
     }
     .subject__card{
-        margin: 0;
-        width: 25vw;
+        margin: 2vw;
+        width: 18vw;
     }
     .theme__linkToSubject {
         display: block;
-        width: 25vw;
+        width: 18vw;
     }
     .subject__card > h2 {
         margin-bottom: 0;
@@ -71,5 +75,10 @@ main {
     }
     .subject__link{
         display: none;
+    }
+    .subject__image{
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
     }
 }
