@@ -6,6 +6,7 @@ use App\Entity\Thematiques;
 use App\Form\ThematiquesType;
 use App\Repository\ThematiquesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -37,25 +38,28 @@ class ThematiquesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $imageFile = $form['brochure']->getData();
+            $imageFile = $form['image']->getData();
             if($imageFile) {
+                
                 $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
-
-                $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
+                $newFilename = $originalFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
 
                 try {
                     $imageFile->move(
-                        $this->getParameter('brochures_directory'),
+                        $this->getParameter('image_directory'),
                         $newFilename
                     );
+                } catch (FileException $e) {
+                    // return exception
                 }
-            }
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($thematique);
-            $entityManager->flush();
+                $thematique->setImage($newFilename);
 
-            return $this->redirectToRoute('succes');
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($thematique);
+                $entityManager->flush();
+
+                return $this->redirect($this->generateUrl('succes'));
+            }
         }
 
         return $this->render('thematiques/new.html.twig', [
