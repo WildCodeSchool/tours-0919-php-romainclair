@@ -10,6 +10,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+
 
 /**
  * @Route("/subjects")
@@ -51,12 +53,28 @@ class SubjectsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($subject);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('succes');
+            $imageFile = $form['image']->getData();
+            if ($imageFile) {
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFilename = $originalFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
+    
+                try {
+                    $imageFile->move(
+                        $this->getParameter('subjects_image_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // return exception
+                }
+                $subject->setImage($newFilename);
+    
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($subject);
+                $entityManager->flush();
+    
+                return $this->redirect($this->generateUrl('succes'));
         }
+    }
 
         return $this->render('subjects/new.html.twig', [
             'subject' => $subject,

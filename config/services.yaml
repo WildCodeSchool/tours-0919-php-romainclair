@@ -6,7 +6,8 @@
 parameters:
     locale: 'en'
     upload_dir: '../public/uploads'
-    image_directory: '../public/uploads'
+    image_directory: '../public/uploads/thematiques'
+    subjects_image_directory: '../public/uploads/subjects'
 services:
     # default configuration for services in *this* file
     _defaults:

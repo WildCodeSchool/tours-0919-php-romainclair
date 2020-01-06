@@ -39,8 +39,7 @@ class ThematiquesController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $imageFile = $form['image']->getData();
-            if($imageFile) {
-                
+            if ($imageFile) {
                 $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
                 $newFilename = $originalFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
 
