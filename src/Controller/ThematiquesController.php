@@ -37,6 +37,20 @@ class ThematiquesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imageFile = $form['brochure']->getData();
+            if($imageFile) {
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
+
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
+
+                try {
+                    $imageFile->move(
+                        $this->getParameter('brochures_directory'),
+                        $newFilename
+                    );
+                }
+            }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($thematique);
             $entityManager->flush();
