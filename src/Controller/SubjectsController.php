@@ -73,7 +73,7 @@ class SubjectsController extends AbstractController
     
                 return $this->redirect($this->generateUrl('succes'));
             }
-            }
+    }
         return $this->render('subjects/new.html.twig', [
             'subject' => $subject,
             'form' => $form->createView(),
