@@ -12,7 +12,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
-
 /**
  * @Route("/subjects")
  */
@@ -73,9 +72,8 @@ class SubjectsController extends AbstractController
                 $entityManager->flush();
     
                 return $this->redirect($this->generateUrl('succes'));
-        }
-    }
-
+            }
+            }
         return $this->render('subjects/new.html.twig', [
             'subject' => $subject,
             'form' => $form->createView(),

@@ -14,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/thematiques")
  */
+
 class ThematiquesController extends AbstractController
 {
     /**
@@ -74,7 +75,7 @@ class ThematiquesController extends AbstractController
     {
         return $this->render('thematiques/show.html.twig', [
             'thematique' => $thematique,
-        ]);
+            ]);
     }
 
     /**
