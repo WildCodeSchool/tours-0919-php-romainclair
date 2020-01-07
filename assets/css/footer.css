@@ -64,7 +64,7 @@ footer h1
     padding-bottom: 2rem;
     padding-top: 2rem;
     text-indent: 4rem;
-    font-family: "Economica-Regular";
+    font-family: Economica-Regular;
 }
 @media screen and (max-width: 1024px) and (min-width: 481px)
 {
