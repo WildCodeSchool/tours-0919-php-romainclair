@@ -12,28 +12,39 @@
     transition: all 0.3s ease-in-out 0s;
     -moz-transition: all 0.3s ease-in-out 0s;
 }
+.header__logoText{
+    display: flex;
+    flex-direction: column;
+}
 .header__header h1 {
     background: url('https://www.romainclair.com/images/LogoClair.svg') no-repeat;
     background-position: 25% 40%;
-    min-width: 35px;
-    padding-top: 6rem;
+    min-width: 65px;
+    padding-top: 5rem;
     color: #737373;
 }
 .header__header h2 {
-    margin-left: 36%;
     color: #737373;
-    position: absolute;
-    top: 10vw;
-    left: 7vw;
+    position: relative;
+    top: -3vw;
 }
-@media screen and (max-width: 700px) and (min-width: 481px)
+
+@media screen and (max-width: 700px)
 {
     .header__header h2 {
-        margin-left: 46%;
-        color: 
-        #737373;
-        top: 8vw;
-        left: 0;
+        color: #737373;
+        top: 5vw;
+        margin-left: 3vw;
+    }
+    .header__logoText{
+        display: flex;
+        flex-direction: row;
+        margin-left: 3vw;
+        position: relative;
+        top: -1vw;
+    }
+    .header__header {
+        height: 8rem;
     }
 }
 
@@ -59,11 +70,9 @@
 
     }
     .header__header h2 {
-        margin-left: 45%;
         color: #737373;
-        top: 11vw;
-        left: 0vw;
-    } 
+        top: -5vw;
+    }
     main {
         margin-top: 13rem;
     }
@@ -74,11 +83,9 @@
         background-position: 50% 40%;
     }
     .header__header h2 {
-        margin-left: 46%;
-        color: 
+        color:
         #737373;
-        top: 8vw;
-        left: 0;
+        top: -4vw;
     }
 }
 
@@ -88,11 +95,8 @@
         background-position: 50% 40%;
     }
     .header__header h2 {
-        margin-left: 46%;
-        color: 
+        color:
         #737373;
-        top: 7vw;
-        left: 0;
     }
 }
 
@@ -117,11 +121,8 @@
         color: #737373;
     }
     .header__header h2 {
-        margin-left: 48%;
         color: #737373;
-        top: 5vw;
-        left: 0;
-    } 
+    }
     main {
         margin-top: 13rem;
     }
