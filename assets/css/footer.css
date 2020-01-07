@@ -1,10 +1,10 @@
 footer {
-    background-color: 
-    #131313;
+    background-color: #131313;
     background-image: url('https://www.romainclair.com/images/Pied.png');
     background-position: center bottom;
     background-repeat: repeat-x;
     padding-bottom: 2.8rem;
+    margin-top: 4vw;
 }
 footer div {
     width: 90%;
@@ -15,12 +15,12 @@ footer div {
 footer p {
     font-family: Economica-Regular;
     font-size: 1.2rem;
-    color: 
+    color:
     #737373;
     text-align: left;
 }
 footer a {
-    color: 
+    color:
     #BFBFBF;
     font-size: 1rem;
 }
@@ -53,7 +53,7 @@ footer h1
     padding-left: 1rem;
 }
 .footer__bottom {
-    border-top: 
+    border-top:
     #373600 solid 1px;
     width: 100%;
     background-image: url('https://www.romainclair.com/images/LogoFonce.svg');
