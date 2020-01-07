@@ -6,6 +6,7 @@ use App\Entity\Thematiques;
 use App\Form\ThematiquesType;
 use App\Repository\ThematiquesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/thematiques")
  */
+
 class ThematiquesController extends AbstractController
 {
     /**
@@ -37,11 +39,27 @@ class ThematiquesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($thematique);
-            $entityManager->flush();
+            $imageFile = $form['image']->getData();
+            if ($imageFile) {
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFilename = $originalFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
 
-            return $this->redirectToRoute('thematiques_index');
+                try {
+                    $imageFile->move(
+                        $this->getParameter('image_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // return exception
+                }
+                $thematique->setImage($newFilename);
+
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($thematique);
+                $entityManager->flush();
+
+                return $this->redirect($this->generateUrl('succes'));
+            }
         }
 
         return $this->render('thematiques/new.html.twig', [
@@ -57,7 +75,7 @@ class ThematiquesController extends AbstractController
     {
         return $this->render('thematiques/show.html.twig', [
             'thematique' => $thematique,
-        ]);
+            ]);
     }
 
     /**
@@ -71,7 +89,7 @@ class ThematiquesController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('thematiques_index');
+            return $this->redirectToRoute('succes');
         }
 
         return $this->render('thematiques/edit.html.twig', [

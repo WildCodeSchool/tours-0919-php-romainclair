@@ -26,10 +26,10 @@
                         Admin
                     </a>
                 </li>
-            </ul> 
+            </ul>
+        </nav>
     </header>
     <main>
-    </nav>
         {% block body %}{% endblock %}
         <footer>
             <div>
@@ -46,8 +46,8 @@
             </div>
         </footer>
     </main>
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
     </body>
 </html>

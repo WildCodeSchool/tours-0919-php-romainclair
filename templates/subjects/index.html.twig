@@ -1,17 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Subjects index{% endblock %}
+{% block title %}Gérer les thématiques{% endblock %}
 
 {% block body %}
     <h1 class="subject__title">Gestion des thématiques</h1>
     <a class="admin__link" href="{{ path('subjects_new') }}">Créer</a>
     <div class="subject__allCards">
     {% for subject in subjects %}
-        <article class="subject__card" {# id="card{{ i }}" #}>
+        <article class="subject__card">
             <h2>Programmation en {{ subject.name }}</h2>
-            <img class="subject__image" src="https://via.placeholder.com/150" alt="placeholder for an illustration">
-            <a class="admin__link" href="{{ path('subjects_show', {'id': subject.id}) }}">Details</a>
-            <a class="admin__link" href="{{ path('subjects_edit', {'id': subject.id}) }}">Editer</a>
+            <img class="subject__image" src="/img/placeholder.png" alt="placeholder for an illustration">
+            <a class="admin__link" href="{{ path('subjects_edit', {'id': subject.id}) }}">Éditer</a>
             <a class="admin__link" href="{{ path('subjects_delete', {'id': subject.id}) }}">Supprimer</a>
         </article>
         {% endfor %}

@@ -3,7 +3,7 @@
 {% block body %}
         <section class="meetings__head">
             <div class="meetings_head-image">
-                <img src="https://via.placeholder.com/170" alt="Meetings_images">
+                <img src="/img/placeholder.png" alt="Meetings_images">
             </div>
             <div class="meetings__head-text">
                 <h1>
@@ -20,15 +20,18 @@
                     {{ meetings.participating }} personne(s) participent.
                 </p>
             </div>
-            <div class="meetings__requirements">
-                <h2>
-                    Pré-requis
-                </h2>
-                <div class="meetings__head-line"></div>
-                <p>
-                    {{meetings.required}}
-                </p>
-            </div>
+            {% if meetings.required %}
+                <div class="meetings__requirements">
+                    <h2>
+                        Pré-requis
+                    </h2>
+                        <div class="meetings__head-line">
+                            <p>
+                                {{meetings.required}}
+                            </p>
+                        </div>
+                </div>
+            {% endif %}
         </section>
         <section class="meetings__description">
             <h2>
