@@ -44,18 +44,14 @@ class Meetings
     private $subjects;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Meetings", inversedBy="Meetings")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Meetings", inversedBy="meetings")
      */
     private $meetings;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Meetings", mappedBy="meetings")
-     */
-    private $Meetings;
-
     public function __construct()
     {
-        $this->Meetings = new ArrayCollection();
+        /* $this->meetings = new ArrayCollection();
+        $this->Meetings = new ArrayCollection(); */
     }
 
     public function getId(): ?int
