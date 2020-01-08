@@ -53,6 +53,19 @@ main {
     flex-direction: column;
     margin: 5vw auto;
     }
+    .subject__allCards{
+        margin-left: auto;
+        margin-right: auto;
+        width: 60%
+    }
+}
+@media screen and (min-width: 421px) and (max-width: 1023px)
+{
+    .subject__allCards{
+        margin-left: auto;
+        margin-right: auto;
+        width: 60%
+    }
 }
 @media screen and (min-width: 1024px)
 {
@@ -67,7 +80,7 @@ main {
         margin-left: auto;
     }
     .subject__card{
-        width: 18vw;
+        width: 100%;
     }
     .theme__linkToSubject {
         display: block;
