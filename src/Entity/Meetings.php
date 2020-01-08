@@ -1,9 +1,6 @@
 <?php
 
 namespace App\Entity;
-
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -50,8 +47,7 @@ class Meetings
 
     public function __construct()
     {
-        /* $this->meetings = new ArrayCollection();
-        $this->Meetings = new ArrayCollection(); */
+        // construct
     }
 
     public function getId(): ?int
