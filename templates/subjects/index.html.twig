@@ -12,6 +12,7 @@
             <img class="subject__image" src="/img/placeholder.png" alt="placeholder for an illustration">
             <a class="admin__link" href="{{ path('subjects_edit', {'id': subject.id}) }}">Éditer</a>
             <a class="admin__link" href="{{ path('subjects_delete', {'id': subject.id}) }}">Supprimer</a>
+            {{ include('subjects/_delete_form.html.twig') }}
         </article>
         {% endfor %}
     </div>
