@@ -18,7 +18,7 @@ class MeetingsType extends AbstractType
             ->add('required')
             ->add('participating')
             ->add('subjects', null, ['choice_label' => 'name'])
-        ;
+            ->add('meetings', null, ['choice_label' => 'name','label' => 'Requirements(link to other meetings)']);
     }
 
     public function configureOptions(OptionsResolver $resolver)
