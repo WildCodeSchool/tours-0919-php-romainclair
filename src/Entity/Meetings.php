@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -40,6 +42,21 @@ class Meetings
      * @ORM\ManyToOne(targetEntity="App\Entity\Subjects", inversedBy="meetings")
      */
     private $subjects;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Meetings", inversedBy="Meetings")
+     */
+    private $meetings;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Meetings", mappedBy="meetings")
+     */
+    private $Meetings;
+
+    public function __construct()
+    {
+        $this->Meetings = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -102,6 +119,41 @@ class Meetings
     public function setSubjects(?Subjects $subjects): self
     {
         $this->subjects = $subjects;
+
+        return $this;
+    }
+
+    public function getMeetings(): ?self
+    {
+        return $this->meetings;
+    }
+
+    public function setMeetings(?self $meetings): self
+    {
+        $this->meetings = $meetings;
+
+        return $this;
+    }
+
+    public function addMeeting(self $meeting): self
+    {
+        if (!$this->Meetings->contains($meeting)) {
+            $this->Meetings[] = $meeting;
+            $meeting->setMeetings($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMeeting(self $meeting): self
+    {
+        if ($this->Meetings->contains($meeting)) {
+            $this->Meetings->removeElement($meeting);
+            // set the owning side to null (unless already changed)
+            if ($meeting->getMeetings() === $this) {
+                $meeting->setMeetings(null);
+            }
+        }
 
         return $this;
     }
