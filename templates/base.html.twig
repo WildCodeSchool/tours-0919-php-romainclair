@@ -26,13 +26,21 @@
                         Admin
                     </a>
                 </li>
-                <li>
-                    {% if app.user %}
+                {% if app.user %}
+                    <li>
                         <a href="{{ path('app_logout') }}">{{ app.user.username }} Se déconnecter</a>
-                    {% else %}
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{{ path('app_register') }}"> S'inscrire</a>
+                    </li>
+                    <li>
                         <a href="{{ path('app_login') }}"> Se connecter</a>
-                    {% endif %}
-                </li>
+                    </li>
+                {% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li><a>You're an admin ! </a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
