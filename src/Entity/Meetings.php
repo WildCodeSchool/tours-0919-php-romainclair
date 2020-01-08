@@ -133,8 +133,8 @@ class Meetings
 
     public function addMeeting(self $meeting): self
     {
-        if (!$this->Meetings->contains($meeting)) {
-            $this->Meetings[] = $meeting;
+        if (!$this->meetings->contains($meeting)) {
+            $this->meetings[] = $meeting;
             $meeting->setMeetings($this);
         }
 
@@ -143,8 +143,8 @@ class Meetings
 
     public function removeMeeting(self $meeting): self
     {
-        if ($this->Meetings->contains($meeting)) {
-            $this->Meetings->removeElement($meeting);
+        if ($this->meetings->contains($meeting)) {
+            $this->meetings->removeElement($meeting);
             // set the owning side to null (unless already changed)
             if ($meeting->getMeetings() === $this) {
                 $meeting->setMeetings(null);
