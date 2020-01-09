@@ -49,11 +49,7 @@ article h1{
 span {
     color : #A7A64A;
 }
-.admin__link{
-    border: 1px solid #6F6F6F;
-    width: 40vw;
-    margin: 0.75vw auto;
-}
+
 button{
     margin: 1vw auto;
 }
@@ -65,25 +61,25 @@ form{
     justify-content: center;
     text-align: center;
 }
+
+.sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;  /* 2 */
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;            /* 3 */
+}
+
 #thematiques_description, #subjects_description{
     height: 30vw;
-
 }
-form > div > div {
-    display: flex;
-    flex-direction: column;
-    width: 80vw;
-    margin: 1vw auto;
-}
-
 @media screen and (min-width: 1024px) {
-    .admin__link {
-        width: 15vw;
-        margin: 0.75vw auto;
-    }
-    form > div > div {
-        width: 40vw;
-    }
     #thematiques_description, #subjects_description{
         height: 7vw;
     }
