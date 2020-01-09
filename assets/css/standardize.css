@@ -61,7 +61,16 @@ form{
     justify-content: center;
     text-align: center;
 }
-
+form > div {
+    display: flex;
+    flex-direction: column;
+}
+input {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 2vw;
+}
 .sr-only {
     border: 0 !important;
     clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
