@@ -16,6 +16,8 @@
             <h2>{{theme.name}}</h2>
             <img class="subject__image" src="/img/placeholder.png" alt="placeholder for an illustration">
             <p class="subject__cardDescription">Est Scaevola si <span>rogati consuetudo</span> et amici cum casus <span>Turpis maiorum</span> causa.Est Scaevola si <span>rogati consuetudo</span> et amici cum casus <span>Turpis maiorum</span> causa.</p>
+            <a class="admin__link" href="{{ path('thematiques_edit', {'id': theme.id}) }}">Éditer</a>
+            {{ include('thematiques/_delete_form.html.twig') }}
           </article>
         </a>
       {% endfor %}
