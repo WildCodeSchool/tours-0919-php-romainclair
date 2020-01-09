@@ -1,4 +1,6 @@
 footer {
+    bottom:0;
+    width:100%;
     background-color: #131313;
     background-image: url('https://www.romainclair.com/images/Pied.png');
     background-position: center bottom;

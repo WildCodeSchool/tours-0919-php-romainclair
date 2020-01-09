@@ -79,6 +79,7 @@ form{
 #thematiques_description, #subjects_description{
     height: 30vw;
 }
+
 @media screen and (min-width: 1024px) {
     #thematiques_description, #subjects_description{
         height: 7vw;

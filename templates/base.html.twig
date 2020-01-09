@@ -46,14 +46,15 @@
     </header>
     <main>
         {% block body %}{% endblock %}
-        <footer>
-            <div>
-                <div class="footer__bottom">
-                    <a href="https://www.romainclair.com/mentions.php">Mentions légales</a>
-                </div>
-            </div>
-        </footer>
+
     </main>
+    <footer>
+        <div>
+            <div class="footer__bottom">
+                <a href="https://www.romainclair.com/mentions.php">Mentions légales</a>
+            </div>
+        </div>
+    </footer>
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
     {% endblock %}
