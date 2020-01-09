@@ -12,9 +12,13 @@
         <div class="subject__allCards">
             {% for subject in subjects %}
                 <article class="subject__card subject__card__display" {# id="card{{ i }}" #}>
-                    <h2>Programmation en {{ subject.name }}</h2>
+                    <h2>{{ subject.name }}</h2>
                     <img class="subject__image" src="/img/placeholder.png" alt="placeholder for an illustration">
                     <p class="subject__cardDescription">{{ subject.description }}</p>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a class="admin__link" href="{{ path('subjects_edit', {'id': subject.id}) }}">Éditer</a>
+                        {{ include('subjects/_delete_form.html.twig') }}
+                    {% endif %}
                     <button type="button" class="subject__link">Voir les sujets</button>
                     <ul class="subject__atelier-list">
                         {% for meeting in subject.meetings %}
