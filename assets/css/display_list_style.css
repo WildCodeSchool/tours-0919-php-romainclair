@@ -80,11 +80,18 @@ main {
         margin-left: auto;
     }
     .subject__card{
-        width: 100%;
+        position: relative;
+        width: 33%;
+    }
+    .subject__actions {
+        z-index: 1;
     }
     .theme__linkToSubject {
-        display: block;
-        width: 33%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
     }
     .subject__card > h2 {
         margin-bottom: 0;

@@ -1,26 +1,31 @@
 {% extends "base.html.twig" %}
 {% block title %}Les ateliers de Romain Clair{% endblock %}
 {% block body %}
-  <main class="subject">
-    <!-- Here is the head of the content-->
-    <header class = "subject__header">
-      <h1 class="subject__title">Romain Clair, Formateur et Consultant en Informatique.</h1>
-      <p class="subject__description">Romain Clair vous propose la solution pour participer, organiser, animer les ateliers sur des sujets variés sous le thème de l'informatique.</p>
-    </header>
-    <a href="/thematiques">Administrer les thématiques</a>
-    <!-- Here is card with each subjects-->
-    <div class="subject__allCards">
-      {% for theme in themes %}
-        <a class="theme__linkToSubject" href="{{ path('list_subject', {'id' : theme.id})  }}">
-          <article class="subject__card">
-            <h2>{{theme.name}}</h2>
-            <img class="subject__image" src="../uploads/thematiques/{{ theme.image }}" alt="placeholder for an illustration">
-            <p class="subject__cardDescription">Est Scaevola si <span>rogati consuetudo</span> et amici cum casus <span>Turpis maiorum</span> causa.Est Scaevola si <span>rogati consuetudo</span> et amici cum casus <span>Turpis maiorum</span> causa.</p>
-            <a class="admin__link" href="{{ path('thematiques_edit', {'id': theme.id}) }}">Éditer</a>
-            {{ include('thematiques/_delete_form.html.twig') }}
-          </article>
-        </a>
-      {% endfor %}
-    </div>
-  </main>
+    <main class="subject">
+        <!-- Here is the head of the content-->
+        <header class = "subject__header">
+            <h1 class="subject__title">Romain Clair, Formateur et Consultant en Informatique.</h1>
+            <p class="subject__description">Romain Clair vous propose la solution pour participer, organiser, animer les ateliers sur des sujets variés sous le thème de l'informatique.</p>
+        </header>
+        <a href="/thematiques">Administrer les thématiques</a>
+        <!-- Here is card with each subjects-->
+        <div class="subject__allCards">
+            {% for theme in themes %}
+                    <article class="subject__card">
+                        <h2>{{theme.name}}</h2>
+                        <img class="subject__image" src="../uploads/thematiques/{{ theme.image }}" alt="placeholder for an illustration">
+                        <p class="subject__cardDescription">
+                            Est Scaevola si <span>rogati consuetudo</span> et amici cum casus <span>Turpis maiorum</span> causa.Est Scaevola si <span>rogati consuetudo</span> et amici cum casus <span>Turpis maiorum</span> causa.
+                        </p>
+                        <a class="theme__linkToSubject" href="{{ path('list_subject', {'id' : theme.id})}}"><span class="sr-only">Voir les sujets liés</span></a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <div class="subject__actions">
+                                <a class="admin__link" href="{{ path('thematiques_edit', {'id': theme.id}) }}">Éditer</a>
+                                {{ include('thematiques/_delete_form.html.twig') }}
+                            </div>
+                        {% endif %}
+                    </article>
+            {% endfor %}
+        </div>
+    </main>
 {% endblock %}

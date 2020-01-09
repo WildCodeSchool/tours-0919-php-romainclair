@@ -44,14 +44,19 @@ class Meetings
     private $subjects;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Meetings", inversedBy="meetings")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Meetings", inversedBy="meetings")
+     */
+    private $requiredMeetings;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Meetings", mappedBy="requiredMeetings")
      */
     private $meetings;
 
     public function __construct()
     {
-        /* $this->meetings = new ArrayCollection();
-        $this->Meetings = new ArrayCollection(); */
+        $this->requiredMeetings = new ArrayCollection();
+        $this->meetings = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -119,23 +124,45 @@ class Meetings
         return $this;
     }
 
-    public function getMeetings(): ?self
+    /**
+     * @return Collection|self[]
+     */
+    public function getRequiredMeetings(): Collection
     {
-        return $this->meetings;
+        return $this->requiredMeetings;
     }
 
-    public function setMeetings(?self $meetings): self
+    public function addRequiredMeeting(self $requiredMeeting): self
     {
-        $this->meetings = $meetings;
+        if (!$this->requiredMeetings->contains($requiredMeeting)) {
+            $this->requiredMeetings[] = $requiredMeeting;
+        }
 
         return $this;
+    }
+
+    public function removeRequiredMeeting(self $requiredMeeting): self
+    {
+        if ($this->requiredMeetings->contains($requiredMeeting)) {
+            $this->requiredMeetings->removeElement($requiredMeeting);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|self[]
+     */
+    public function getMeetings(): Collection
+    {
+        return $this->meetings;
     }
 
     public function addMeeting(self $meeting): self
     {
         if (!$this->meetings->contains($meeting)) {
             $this->meetings[] = $meeting;
-            $meeting->setMeetings($this);
+            $meeting->addRequiredMeeting($this);
         }
 
         return $this;
@@ -145,10 +172,7 @@ class Meetings
     {
         if ($this->meetings->contains($meeting)) {
             $this->meetings->removeElement($meeting);
-            // set the owning side to null (unless already changed)
-            if ($meeting->getMeetings() === $this) {
-                $meeting->setMeetings(null);
-            }
+            $meeting->removeRequiredMeeting($this);
         }
 
         return $this;
