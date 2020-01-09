@@ -10,7 +10,7 @@
     </head>
     <body>
     <header class="header__header">
-        <a href="https://www.romainclair.com/">
+        <a class="header__logoText" href="https://www.romainclair.com/">
             <h1 class="header__header-h1"></h1>
             <h2>Romain Clair</h2>
         </a>
@@ -26,43 +26,34 @@
                         Admin
                     </a>
                 </li>
+                {% if app.user %}
+                    <li>
+                        <a href="{{ path('app_logout') }}">{{ app.user.username }} Se déconnecter</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{{ path('app_register') }}"> S'inscrire</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_login') }}"> Se connecter</a>
+                    </li>
+                {% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li><a>You're an admin ! </a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
     <main>
         {% block body %}{% endblock %}
+        <footer>
+            <div>
+                <div class="footer__bottom">
+                    <a href="https://www.romainclair.com/mentions.php">Mentions légales</a>
+                </div>
+            </div>
+        </footer>
     </main>
-    <footer>
-        <div>
-            <div class="footer__references">
-                <h1>References</h1>
-                <p>
-                    Docteur en informatique et ingénieur système et réseau
-                    <a href="https://www.romainclair.com/references.php">Suite</a>
-                </p>
-                <p class="footer__logos">
-                    <a href="http://www.univ-tours.fr/" class="UnivTours">Université François-Rabelais de Tours</a>
-                    <a href="http://polytech.univ-tours.fr/" class="Polytech">Polytech</a>
-                    <a href="http://www.insa-centrevaldeloire.fr/" class="Insa">INSA Centre Val de Loire</a>
-                    <a href="http://www.cnam-centre.fr/" class="Cnam">Le CNAM Centre</a>
-                    <a href="http://www.cefim.eu/" class="Cefim">CEFIM</a>
-                    <a href="http://www.greta37.com/" class="Greta">Greta d'Indre et Loire</a>
-                    <a href="http://www.diabolusinmusica.fr/" class="Diabolus">Diabolus in Musica</a>
-                    <a href="http://www.eben37.fr/" class="Eben">eben 37</a>
-                </p>
-            </div>
-            <div class="footer__contact">
-                <h1>Contacts</h1>
-                <p>
-                    N'hésitez pas à me contacter par mail contactweb (at) romainclair.com ou par téléphone
-                    <a href="tel:+33632395560">06.32.39.55.60</a>
-                </p>
-            </div>
-            <div class="footer__bottom">
-                <a href="https://www.romainclair.com/mentions.php">Mentions légales</a>
-            </div>
-        </div>
-    </footer>
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
     {% endblock %}

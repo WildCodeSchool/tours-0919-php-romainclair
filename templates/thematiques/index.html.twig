@@ -10,7 +10,7 @@
         {% for theme in themes %}
             <article class="subject__card" {# id="card{{ i }}" #}>
                 <h2>Programmation en {{ theme.name }}</h2>
-                <img class="subject__image" src="https://via.placeholder.com/150" alt="placeholder for an illustration">
+                <img class="subject__image" src="../uploads/thematiques/{{ theme.image }}" alt="placeholder for an illustration">
                 <p class="subject__cardDescription">{{ theme.description }}</p>
                 <a class="admin__link" href="{{ path('thematiques_edit', {'id': theme.id}) }}">Éditer</a>
                 {{ include('thematiques/_delete_form.html.twig') }}

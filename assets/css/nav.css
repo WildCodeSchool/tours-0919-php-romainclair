@@ -1,8 +1,8 @@
 nav {
     height: 2.4rem;
     width: 100%;
-    position: absolute;
-    top: 10rem;
+    position: relative;
+    top: -3vw;
 }
 nav ul {
     margin: 0px;
@@ -50,3 +50,9 @@ nav li a:hover
 }
 
 
+@media screen and (min-width: 421px) and (max-width: 1023px)
+{
+    nav {
+        top: -5vw;
+    }
+}
