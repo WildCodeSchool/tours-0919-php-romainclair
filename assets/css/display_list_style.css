@@ -3,7 +3,6 @@
     font-family: Lato, sans-serif;
 }
 .subject__header {
-    border-bottom: 0.1rem dotted #A7A64A;
     width: 90%;
     padding-bottom: 4vw;
     margin-right: auto;
@@ -23,6 +22,7 @@
     object-fit: contain;
     margin-top: 2vw;
 }
+
 .subject__link{
     margin-top: 2vw;
 }
@@ -31,6 +31,7 @@
 }
 main {
     margin-top: 13rem;
+    min-height: 60vh;
 }
 .subject__atelier-list {
     display: none;
@@ -44,6 +45,9 @@ main {
 }
 .subject__cardDescription{
     text-align: center;
+}
+.subject__allCards{
+    border-top: 0.1rem dotted #A7A64A;
 }
 @media screen and (max-width: 420px)
 {
@@ -104,9 +108,12 @@ main {
         display: none;
     }
     .subject__image{
-        width: 80%;
+        display: block;
+        height: 120px;
+        width: 264px;
         margin-right: auto;
         margin-left: auto;
+        object-fit: cover;
     }
     .subject__card__display{
         width: 33%;

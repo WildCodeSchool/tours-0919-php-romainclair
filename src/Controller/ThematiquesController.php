@@ -93,7 +93,7 @@ class ThematiquesController extends AbstractController
         }
 
         return $this->render('thematiques/edit.html.twig', [
-            'thematique' => $thematique,
+            'theme' => $thematique,
             'form' => $form->createView(),
         ]);
     }

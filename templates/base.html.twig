@@ -21,14 +21,12 @@
                         <span>Accueil</span>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ path('subjects_index') }}">
-                        Admin
-                    </a>
-                </li>
                 {% if app.user %}
                     <li>
-                        <a href="{{ path('app_logout') }}">{{ app.user.username }} Se déconnecter</a>
+                        <a>{{ app.user.username }}</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_logout') }}"> Se déconnecter</a>
                     </li>
                 {% else %}
                     <li>
@@ -38,22 +36,20 @@
                         <a href="{{ path('app_login') }}"> Se connecter</a>
                     </li>
                 {% endif %}
-                {% if is_granted('ROLE_ADMIN') %}
-                    <li><a>You're an admin ! </a></li>
-                {% endif %}
             </ul>
         </nav>
     </header>
     <main>
         {% block body %}{% endblock %}
-        <footer>
-            <div>
-                <div class="footer__bottom">
-                    <a href="https://www.romainclair.com/mentions.php">Mentions légales</a>
-                </div>
-            </div>
-        </footer>
+
     </main>
+    <footer>
+        <div>
+            <div class="footer__bottom">
+                <a href="https://www.romainclair.com/mentions.php">Mentions légales</a>
+            </div>
+        </div>
+    </footer>
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
     {% endblock %}
