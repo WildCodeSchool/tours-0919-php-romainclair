@@ -6,6 +6,7 @@ use App\Entity\Subjects;
 use App\Form\SubjectsType;
 use App\Repository\MeetingsRepository;
 use App\Repository\SubjectsRepository;
+use Swift_Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -45,7 +46,7 @@ class SubjectsController extends AbstractController
     /**
      * @Route("/new", name="subjects_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, Swift_Mailer $mailer): Response
     {
         $subject = new Subjects();
         $form = $this->createForm(SubjectsType::class, $subject);
@@ -70,7 +71,17 @@ class SubjectsController extends AbstractController
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($subject);
                 $entityManager->flush();
-    
+
+                $message = (new \Swift_Message('Hello Email'))
+                ->setFrom('contact@romainclair.com')
+                ->setTo('contact@romainclair.com')
+                ->setBody(
+                    $this->renderView(
+                        'emails/email.html.twig',
+                    ),
+                    'text/html'
+                )
+            ;
                 return $this->redirect($this->generateUrl('succes'));
             }
         }
