@@ -109,6 +109,6 @@ class ThematiquesController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('thematiques_index');
+        return $this->redirectToRoute('show_theme');
     }
 }

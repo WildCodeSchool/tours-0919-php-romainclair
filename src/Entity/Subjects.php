@@ -44,7 +44,7 @@ class Subjects
     private $thematiques;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Meetings", mappedBy="subjects")
+     * @ORM\OneToMany(targetEntity="App\Entity\Meetings", orphanRemoval=true, mappedBy="subjects")
      */
     private $meetings;
 

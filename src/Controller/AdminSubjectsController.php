@@ -67,6 +67,6 @@ class AdminSubjectsController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('subjects_index');
+        return $this->redirectToRoute('show_theme');
     }
 }
