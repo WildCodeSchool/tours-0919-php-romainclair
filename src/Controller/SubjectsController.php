@@ -81,7 +81,8 @@ class SubjectsController extends AbstractController
                     ),
                     'text/html'
                 )
-            ;
+                ;
+                $mailer->send($message);
                 return $this->redirect($this->generateUrl('succes'));
             }
         }
