@@ -7,6 +7,7 @@ use App\Form\SubjectsType;
 use App\Repository\MeetingsRepository;
 use App\Repository\SubjectsRepository;
 use Swift_Mailer;
+use Swift_Message;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -72,7 +73,7 @@ class SubjectsController extends AbstractController
                 $entityManager->persist($subject);
                 $entityManager->flush();
 
-                $message = (new \Swift_Message('Hello Email'))
+                $message = (new Swift_Message('Hello Email'))
                 ->setFrom('contact@romainclair.com')
                 ->setTo('contact@romainclair.com')
                 ->setBody(
