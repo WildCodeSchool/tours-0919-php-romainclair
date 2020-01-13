@@ -23,7 +23,7 @@
                 </li>
                 {% if app.user %}
                     <li>
-                        <a>{{ app.user.username }}</a>
+                        <a href="{{ path('user_edit', {'id': app.user.id}) }}">{{ app.user.username }}</a>
                     </li>
                     <li>
                         <a href="{{ path('app_logout') }}"> Se déconnecter</a>
@@ -34,6 +34,11 @@
                     </li>
                     <li>
                         <a href="{{ path('app_login') }}"> Se connecter</a>
+                    </li>
+                {% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li>
+                        <a href="{{ path('user_index') }}">Gérer les utilisateurs</a>
                     </li>
                 {% endif %}
             </ul>
