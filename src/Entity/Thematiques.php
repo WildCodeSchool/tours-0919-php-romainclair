@@ -34,7 +34,7 @@ class Thematiques
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Subjects", mappedBy="thematiques")
+     * @ORM\OneToMany(targetEntity="App\Entity\Subjects", orphanRemoval=true, mappedBy="thematiques")
      */
     private $subjects;
 
