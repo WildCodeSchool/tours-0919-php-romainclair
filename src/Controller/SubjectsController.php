@@ -33,7 +33,7 @@ class SubjectsController extends AbstractController
         int $id,
         Subject $subjectEntity
     ): Response {
-        $subjects = $subjectRepository->findBythematiques($id);
+        $subjects = $subjectRepository->findBytheme($id);
         return $this->render('subjects_display/display_list.html.twig', [
             'subjects' => $subjects,
             'meetings' => $subjectEntity->getMeetings()
