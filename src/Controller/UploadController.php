@@ -5,21 +5,21 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use App\Repository\ThematiquesRepository;
+use App\Repository\ThemeRepository;
 use App\Service\FileUploader;
 use Psr\Log\LoggerInterface;
 
 class UploadController extends AbstractController
 {
     /**
-     * @Route("/thematiques/doUpload", name="upload")
+     * @Route("/theme/doUpload", name="upload")
      */
     public function index(
         Request $request,
         string $uploadDir,
         FileUploader $uploader,
         LoggerInterface $logger,
-        ThematiquesRepository $themaRepository
+        ThemeRepository $themeRepository
     ) {
         $token = $request->get("token");
 
@@ -37,8 +37,8 @@ class UploadController extends AbstractController
         $filename = $file->getClientOriginalName();
         $uploader->upload($uploadDir, $file, $filename);
 
-        return $this->render('thematiques/index.html.twig', [
-            'themes' => $themaRepository->findAll(),
+        return $this->render('theme/index.html.twig', [
+            'themes' => $themeRepository->findAll(),
         ]);
     }
 }
