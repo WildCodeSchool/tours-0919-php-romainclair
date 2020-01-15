@@ -115,7 +115,7 @@ class Subjects
 
     public function getTheme(): ?Theme
     {
-        return $this->thematiques;
+        return $this->theme;
     }
 
     public function setTheme(?Theme $theme): self
