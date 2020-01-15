@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\Subjects;
-use App\Form\SubjectsType;
-use App\Repository\SubjectsRepository;
+use App\Entity\Subject;
+use App\Form\SubjectType;
+use App\Repository\SubjectRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +18,10 @@ class AdminSubjectsController extends AbstractController
     /**
      * @Route("/", name="subjects_index", methods={"GET"})
      */
-    public function index(SubjectsRepository $subjectsRepository): Response
+    public function index(SubjectRepository $subjectRepository): Response
     {
-        return $this->render('subjects/index.html.twig', [
-            'subjects' => $subjectsRepository->findAll(),
+        return $this->render('subject/index.html.twig', [
+            'subject' => $subjectRepository->findAll(),
         ]);
     }
 
@@ -29,7 +29,7 @@ class AdminSubjectsController extends AbstractController
     /**
      * @Route("/{id}", name="subjects_show", methods={"GET"})
      */
-    public function show(Subjects $subject): Response
+    public function show(Subject $subject): Response
     {
         return $this->render('subjects/show.html.twig', [
             'subject' => $subject,
@@ -39,9 +39,9 @@ class AdminSubjectsController extends AbstractController
     /**
      * @Route("/{id}/edit", name="subjects_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Subjects $subject): Response
+    public function edit(Request $request, Subject $subject): Response
     {
-        $form = $this->createForm(SubjectsType::class, $subject);
+        $form = $this->createForm(SubjectType::class, $subject);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -59,7 +59,7 @@ class AdminSubjectsController extends AbstractController
     /**
      * @Route("/{id}", name="subjects_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Subjects $subject): Response
+    public function delete(Request $request, Subject $subject): Response
     {
         if ($this->isCsrfTokenValid('delete'.$subject->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
