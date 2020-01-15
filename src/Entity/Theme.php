@@ -34,13 +34,13 @@ class Theme
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Subjects", orphanRemoval=true, mappedBy="thematiques")
+     * @ORM\OneToMany(targetEntity="App\Entity\Subject", orphanRemoval=true, mappedBy="theme")
      */
-    private $subjects;
+    private $subject;
 
     public function __construct()
     {
-        $this->subjects = new ArrayCollection();
+        $this->subject = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -85,27 +85,27 @@ class Theme
     }
 
     /**
-     * @return Collection|Subjects[]
+     * @return Collection|Subject[]
      */
-    public function getSubjects(): Collection
+    public function getSubject(): Collection
     {
-        return $this->subjects;
+        return $this->subject;
     }
 
-    public function addSubject(Subjects $subject): self
+    public function addSubject(Subject $subject): self
     {
-        if (!$this->subjects->contains($subject)) {
-            $this->subjects[] = $subject;
+        if (!$this->subject->contains($subject)) {
+            $this->subject[] = $subject;
             $subject->setTheme($this);
         }
 
         return $this;
     }
 
-    public function removeSubject(Subjects $subject): self
+    public function removeSubject(Subject $subject): self
     {
-        if ($this->subjects->contains($subject)) {
-            $this->subjects->removeElement($subject);
+        if ($this->subject->contains($subject)) {
+            $this->subject->removeElement($subject);
             // set the owning side to null (unless already changed)
             if ($subject->getTheme() === $this) {
                 $subject->setTheme(null);
