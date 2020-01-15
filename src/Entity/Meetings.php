@@ -39,7 +39,7 @@ class Meetings
     private $participating;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Subjects", inversedBy="meetings")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Subject", inversedBy="meetings")
      */
     private $subject;
 
