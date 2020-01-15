@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Subjects;
-use App\Form\SubjectsType;
-use App\Repository\SubjectsRepository;
+use App\Form\SubjectType;
+use App\Repository\SubjectRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,17 +23,17 @@ class SubjectsController extends AbstractController
      * Show all rows from Subject’s entity
      *
      * @Route("/sujets/{id}", name="list_subject")
-     * @param SubjectsRepository $subjectsRepository
+     * @param SubjectRepository $subjectRepository
      * @param int $id
      * @param Subjects $subjectEntity
      * @return Response A response instance
      */
     public function subject(
-        SubjectsRepository $subjectsRepository,
+        SubjectRepository $subjectRepository,
         int $id,
         Subjects $subjectEntity
     ): Response {
-        $subjects = $subjectsRepository->findBythematiques($id);
+        $subjects = $subjectRepository->findBythematiques($id);
         return $this->render('subjects_display/display_list.html.twig', [
             'subjects' => $subjects,
             'meetings' => $subjectEntity->getMeetings()
@@ -48,7 +48,7 @@ class SubjectsController extends AbstractController
     public function new(Request $request): Response
     {
         $subject = new Subjects();
-        $form = $this->createForm(SubjectsType::class, $subject);
+        $form = $this->createForm(SubjectType::class, $subject);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
