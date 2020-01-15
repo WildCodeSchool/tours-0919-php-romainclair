@@ -4,13 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Subjects;
 use App\Form\SubjectsType;
-use App\Repository\MeetingsRepository;
 use App\Repository\SubjectsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\Mime\Email;
 
 /**
  * @Route("/subjects")
@@ -66,7 +66,7 @@ class SubjectsController extends AbstractController
                     // return exception
                 }
                 $subject->setImage($newFilename);
-    
+
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($subject);
                 $entityManager->flush();

@@ -39,9 +39,9 @@ class Subjects
     private $image;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Thematiques", inversedBy="subjects")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Theme", inversedBy="subjects")
      */
-    private $thematiques;
+    private $theme;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Meetings", orphanRemoval=true, mappedBy="subjects")
@@ -113,14 +113,14 @@ class Subjects
         return $this;
     }
 
-    public function getThematiques(): ?Thematiques
+    public function getTheme(): ?Theme
     {
         return $this->thematiques;
     }
 
-    public function setThematiques(?Thematiques $thematiques): self
+    public function setTheme(?Theme $theme): self
     {
-        $this->thematiques = $thematiques;
+        $this->theme = $theme;
 
         return $this;
     }

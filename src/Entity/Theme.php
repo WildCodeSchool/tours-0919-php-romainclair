@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ThematiquesRepository")
  */
-class Thematiques
+class Theme
 {
     /**
      * @ORM\Id()
@@ -96,7 +96,7 @@ class Thematiques
     {
         if (!$this->subjects->contains($subject)) {
             $this->subjects[] = $subject;
-            $subject->setThematiques($this);
+            $subject->setTheme($this);
         }
 
         return $this;
@@ -107,8 +107,8 @@ class Thematiques
         if ($this->subjects->contains($subject)) {
             $this->subjects->removeElement($subject);
             // set the owning side to null (unless already changed)
-            if ($subject->getThematiques() === $this) {
-                $subject->setThematiques(null);
+            if ($subject->getTheme() === $this) {
+                $subject->setTheme(null);
             }
         }
 

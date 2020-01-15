@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Thematiques;
+use App\Entity\Theme;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
 /**
- * @method Thematiques|null find($id, $lockMode = null, $lockVersion = null)
- * @method Thematiques|null findOneBy(array $criteria, array $orderBy = null)
- * @method Thematiques[]    findAll()
- * @method Thematiques[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Theme|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Theme|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Theme[]    findAll()
+ * @method Theme[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ThematiquesRepository extends ServiceEntityRepository
+class ThemeRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Thematiques::class);
+        parent::__construct($registry, Theme::class);
     }
 
     // /**
-    //  * @return Thematiques[] Returns an array of Thematiques objects
+    //  * @return Theme[] Returns an array of Thematiques objects
     //  */
     /*
     public function findByExampleField($value)
