@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\Subjects;
-use App\Form\SubjectsType;
-use App\Repository\SubjectsRepository;
+use App\Entity\Subject;
+use App\Form\SubjectType;
+use App\Repository\SubjectRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +15,7 @@ use Symfony\Component\Mime\Email;
 /**
  * @Route("/subjects")
  */
-class SubjectsController extends AbstractController
+class SubjectController extends AbstractController
 {
     /*  index utilisateurs */
 
@@ -23,19 +23,19 @@ class SubjectsController extends AbstractController
      * Show all rows from Subject’s entity
      *
      * @Route("/sujets/{id}", name="list_subject")
-     * @param SubjectsRepository $subjectsRepository
+     * @param SubjectRepository $subjectRepository
      * @param int $id
-     * @param Subjects $subjectEntity
+     * @param Subject $subjectEntity
      * @return Response A response instance
      */
     public function subject(
-        SubjectsRepository $subjectsRepository,
+        SubjectRepository $subjectRepository,
         int $id,
-        Subjects $subjectEntity
+        Subject $subjectEntity
     ): Response {
-        $subjects = $subjectsRepository->findBythematiques($id);
-        return $this->render('subjects_display/display_list.html.twig', [
-            'subjects' => $subjects,
+        $subject = $subjectRepository->findBythematiques($id);
+        return $this->render('subject_display/display_list.html.twig', [
+            'subject' => $subject,
             'meetings' => $subjectEntity->getMeetings()
         ]);
     }
@@ -43,12 +43,12 @@ class SubjectsController extends AbstractController
     /* ajouts utilisateurs */
 
     /**
-     * @Route("/new", name="subjects_new", methods={"GET","POST"})
+     * @Route("/new", name="subject_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
-        $subject = new Subjects();
-        $form = $this->createForm(SubjectsType::class, $subject);
+        $subject = new Subject();
+        $form = $this->createForm(SubjectType::class, $subject);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -74,7 +74,7 @@ class SubjectsController extends AbstractController
                 return $this->redirect($this->generateUrl('succes'));
             }
         }
-        return $this->render('subjects/new.html.twig', [
+        return $this->render('subject/new.html.twig', [
             'subject' => $subject,
             'form' => $form->createView(),
         ]);
