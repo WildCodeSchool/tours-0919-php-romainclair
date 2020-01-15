@@ -41,7 +41,7 @@ class Meetings
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Subjects", inversedBy="meetings")
      */
-    private $subjects;
+    private $subject;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Meetings", inversedBy="meetings")
@@ -112,14 +112,14 @@ class Meetings
         return $this;
     }
 
-    public function getSubjects(): ?Subjects
+    public function getSubject(): ?Subject
     {
-        return $this->subjects;
+        return $this->subject;
     }
 
-    public function setSubjects(?Subjects $subjects): self
+    public function setSubject(?Subject $subject): self
     {
-        $this->subjects = $subjects;
+        $this->subject = $subject;
 
         return $this;
     }

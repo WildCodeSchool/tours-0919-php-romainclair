@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Éditer un sujet{% endblock %}
+
+{% block body %}
+    <h1>Éditer un sujet</h1>
+
+    {{ include('subject/_form.html.twig', {'button_label': 'Éditer'}) }}
+
+    <a class="admin__link" href="{{ path('subject_index') }}">Retour</a>
+
+    {{ include('subject/_delete_form.html.twig') }}
+{% endblock %}
