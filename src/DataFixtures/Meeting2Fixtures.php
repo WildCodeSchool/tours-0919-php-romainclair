@@ -6,7 +6,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Meetings;
 
-class MeetingFixtures extends Fixture
+class Meeting2Fixtures extends Fixture
 {
     //need to remove the s
     public function load(ObjectManager $manager)
