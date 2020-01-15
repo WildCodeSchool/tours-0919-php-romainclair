@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Subjects;
+use App\Entity\Subject;
 use App\Form\SubjectType;
 use App\Repository\SubjectRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,13 +25,13 @@ class SubjectsController extends AbstractController
      * @Route("/sujets/{id}", name="list_subject")
      * @param SubjectRepository $subjectRepository
      * @param int $id
-     * @param Subjects $subjectEntity
+     * @param Subject $subjectEntity
      * @return Response A response instance
      */
     public function subject(
         SubjectRepository $subjectRepository,
         int $id,
-        Subjects $subjectEntity
+        Subject $subjectEntity
     ): Response {
         $subjects = $subjectRepository->findBythematiques($id);
         return $this->render('subjects_display/display_list.html.twig', [
@@ -47,7 +47,7 @@ class SubjectsController extends AbstractController
      */
     public function new(Request $request): Response
     {
-        $subject = new Subjects();
+        $subject = new Subject();
         $form = $this->createForm(SubjectType::class, $subject);
         $form->handleRequest($request);
 
