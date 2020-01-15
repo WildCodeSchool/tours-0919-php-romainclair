@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 
 /**
@@ -45,7 +46,7 @@ class SubjectsController extends AbstractController
     /**
      * @Route("/new", name="subjects_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, MailerInterface $mailer): Response
     {
         $subject = new Subjects();
         $form = $this->createForm(SubjectsType::class, $subject);
@@ -67,6 +68,16 @@ class SubjectsController extends AbstractController
                 }
                 $subject->setImage($newFilename);
 
+                $email = (new Email())
+                    ->from($this->getParameter('mailer_from'))
+                    ->to('romainculleron12@gmail.com')
+                    ->subject('Un sujet a etait soumis')
+                    ->text('Sending emails is fun again!')
+                    ->html($this->renderView('email/email.html.twig'));
+    
+                    /** @var Symfony\Component\Mailer\SentMessage $sentEmail */
+                    $mailer->send($email);
+    
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($subject);
                 $entityManager->flush();
