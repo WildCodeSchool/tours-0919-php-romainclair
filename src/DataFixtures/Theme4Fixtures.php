@@ -23,6 +23,7 @@ class Theme4Fixtures extends Fixture
         $subject7 = new Subject();
         $subject7->setName('Scrum');
         $subject7->setDescription('Description du sujet Scrum');
+        $subject7->setRequirements('requirements');
         $subject7->setTheme($theme4);
 
         $manager->persist($subject7);
@@ -30,6 +31,7 @@ class Theme4Fixtures extends Fixture
         $subject8 = new Subject();
         $subject8->setName('Kanban');
         $subject8->setDescription('Description du sujet Kanban');
+        $subject8->setRequirements('requirements');
         $subject8->setTheme($theme4);
         $manager->persist($subject8);
 
