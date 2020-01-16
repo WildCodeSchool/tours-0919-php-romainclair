@@ -8,6 +8,7 @@ parameters:
     upload_dir: '../public/uploads'
     image_directory: '../public/uploads/thematiques'
     subjects_image_directory: '../public/uploads/subjects'
+    mailer_from: '%env(resolve:MAILER_FROM_ADDRESS)%'
 services:
     # default configuration for services in *this* file
     _defaults:
