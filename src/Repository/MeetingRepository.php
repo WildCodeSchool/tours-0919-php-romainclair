@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Meetings;
+use App\Entity\Meeting;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
 /**
- * @method Meetings|null find($id, $lockMode = null, $lockVersion = null)
- * @method Meetings|null findOneBy(array $criteria, array $orderBy = null)
- * @method Meetings[]    findAll()
- * @method Meetings[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Meeting|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Meeting|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Meeting[]    findAll()
+ * @method Meeting[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class MeetingsRepository extends ServiceEntityRepository
+class MeetingRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Meetings::class);
+        parent::__construct($registry, Meeting::class);
     }
 
     // /**
-    //  * @return Meetings[] Returns an array of Meetings objects
+    //  * @return Meeting[] Returns an array of Meeting objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class MeetingsRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Meetings
+    public function findOneBySomeField($value): ?Meeting
     {
         return $this->createQueryBuilder('m')
             ->andWhere('m.exampleField = :val')

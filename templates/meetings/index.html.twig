@@ -6,9 +6,9 @@
 
     <h1>Gérer les ateliers</h1>
 
-        <a class="admin__link" href="{{ path('meetings_new') }}">Create new</a>
+        <a class="admin__link" href="{{ path('meeting_new') }}">Create new</a>
     <div class="subject__allCards">
-        {% for meeting in meetings %}
+        {% for meeting in meeting %}
                 <article class="subject__card">
                     <h2>{{ meeting.name }}</h2>
                     <p class="subject__description">{{ meeting.description }}</p>
@@ -18,9 +18,9 @@
                         <p class="subject__description">Il n'y a aucun prérequis</p>
                     {% endif %}
                     <p class="subject__description">{{ meeting.participating }}</p>
-                    <a class="admin__link" href="{{ path('meetings_show', {'id': meeting.id}) }}">Details</a>
-                    <a class="admin__link" href="{{ path('meetings_edit', {'id': meeting.id}) }}">Editer</a>
-                    <a class="admin__link" href="{{ path('meetings_delete', {'id': meeting.id}) }}">Supprimer</a>
+                    <a class="admin__link" href="{{ path('meeting_show', {'id': meeting.id}) }}">Details</a>
+                    <a class="admin__link" href="{{ path('meeting_edit', {'id': meeting.id}) }}">Editer</a>
+                    <a class="admin__link" href="{{ path('meeting_delete', {'id': meeting.id}) }}">Supprimer</a>
                 </article>
         {% else %}
             <p class="subject__description">Aucun atelier est disponible</p>

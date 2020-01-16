@@ -7,14 +7,14 @@
             </div>
             <div class="meetings__head-text">
                 <h1>
-                   Programmation en {{ meetings.name }}
+                   Programmation en {{ meeting.name }}
                 </h1>
                 <div class="meetings__head-line"></div>
                 <h2>
                     Theme
                 </h2>
                 <p>
-                    {{ meetings.participating }} personne(s) participent.
+                    {{ meeting.participating }} personne(s) participent.
                 </p>
             </div>
             {# {% if meetings.required %} #}
@@ -25,7 +25,7 @@
                         <div class="meetings__head__requirements-line">
                         <br />
                             <p>
-                                {{ meetings.required }}
+                                {{ meeting.required }}
                             </p>
                             <p>
                                 {# {{ meetings.meetings }} #}
@@ -40,7 +40,7 @@
             </h2>
             <div class="meetings__head__description-line"></div>
             <p>
-                {{ meetings.description }}
+                {{ meeting.description }}
             </p>
         </section>
         <section class="meetings__schedule">

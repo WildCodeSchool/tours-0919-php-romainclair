@@ -21,8 +21,8 @@
                     {% endif %}
                     <button type="button" class="subject__link">Voir les sujets</button>
                     <ul class="subject__atelier-list">
-                        {% for meeting in subject.meetings %}
-                            <a href="{{ path('show_meetings', {'id' : meeting.id}) }}"><li>{{ meeting.name }}</li></a>
+                        {% for meeting in subject.meeting %}
+                            <a href="{{ path('show_meeting', {'id' : meeting.id}) }}"><li>{{ meeting.name }}</li></a>
                         {% endfor %}
                     </ul>
                 </article>

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails d'un sujet{% endblock %}
+
+{% block body %}
+
+    <div class="subject__allCards">
+        <article class="subject__card">
+            <h1>Sujet</h1>
+            <h2>{{ subject.name }}</h2>
+            <img class="subject__image" src="https://via.placeholder.com/150" alt="placeholder for an illustration">
+            <h2>Description</h2>
+            <p class="subject__cardDescription">{{ subject.description }}</p>
+            <a class="admin__link" href="{{ path('subject_index') }}">Retour</a>
+            <a class="admin__link" href="{{ path('subject_edit', {'id': subject.id}) }}">Éditer</a>
+            {{ include('subject/_delete_form.html.twig') }}
+        </article>
+    </div>
+
+{% endblock %}
