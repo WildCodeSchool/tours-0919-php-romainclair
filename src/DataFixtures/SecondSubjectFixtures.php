@@ -4,7 +4,7 @@ namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use App\Entity\Subjects;
+use App\Entity\Subject;
 
 class SecondSubjectFixtures extends Fixture
 {
@@ -14,7 +14,7 @@ class SecondSubjectFixtures extends Fixture
         // $product = new Product();
         // $manager->persist($product);
 
-        $subject7 = new Subjects();
+        $subject7 = new Subject();
         $subject7->setName('Python');
         $subject7->setDescription('exemple');
         $subject7->setRequirements('[NULL]');
@@ -24,7 +24,7 @@ class SecondSubjectFixtures extends Fixture
 
         $manager->persist($subject7);
 
-        $subject8 = new Subjects();
+        $subject8 = new Subject();
         $subject8->setName('Cryptographie');
         $subject8->setDescription('exemple');
         $subject8->setRequirements('[NULL]');
@@ -34,7 +34,7 @@ class SecondSubjectFixtures extends Fixture
 
         $manager->persist($subject8);
 
-        $subject9 = new Subjects();
+        $subject9 = new Subject();
         $subject9->setName('Administrer son réseau');
         $subject9->setDescription('exemple');
         $subject9->setRequirements('[NULL]');
@@ -44,7 +44,7 @@ class SecondSubjectFixtures extends Fixture
 
         $manager->persist($subject9);
 
-        $subject10 = new Subjects();
+        $subject10 = new Subject();
         $subject10->setName('Scrum');
         $subject10->setDescription('exemple');
         $subject10->setRequirements('[NULL]');
@@ -54,7 +54,7 @@ class SecondSubjectFixtures extends Fixture
 
         $manager->persist($subject10);
 
-        $subject11 = new Subjects();
+        $subject11 = new Subject();
         $subject11->setName('Ubuntu');
         $subject11->setDescription('exemple');
         $subject11->setRequirements('[NULL]');
