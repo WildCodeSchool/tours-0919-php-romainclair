@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Subjects;
+use App\Entity\Subject;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
 /**
- * @method Subjects|null find($id, $lockMode = null, $lockVersion = null)
- * @method Subjects|null findOneBy(array $criteria, array $orderBy = null)
- * @method Subjects[]    findAll()
- * @method Subjects[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Subject|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Subject|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Subject[]    findAll()
+ * @method Subject[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class SubjectsRepository extends ServiceEntityRepository
+class SubjectRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Subjects::class);
+        parent::__construct($registry, Subject::class);
     }
 
     // /**
-    //  * @return Subjects[] Returns an array of Subjects objects
+    //  * @return Subject[] Returns an array of Subjects objects
     //  */
     /*
     public function findByExampleField($value)

@@ -2,28 +2,23 @@
 
 namespace App\Controller;
 
-use App\Form\DateType;
-use App\Entity\Subjects;
-use App\Form\SubjectsType;
-use App\Repository\MeetingsRepository;
-use App\Repository\SubjectsRepository;
+use App\Repository\MeetingRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DisplayMeetingController extends AbstractController
 {
     /**
-     * @Route("/meeting/{id}", name="show_meetings", methods={"GET"})
-     * @param MeetingsRepository $meetingsRepository
+     * @Route("/meeting/{id}", name="show_meeting", methods={"GET"})
+     * @param MeetingRepository $meetingRepository
      * @param int $id
      * @return Response A response instance
      */
-    public function meetings(MeetingsRepository $meetingsRepository, int $id) :Response
+    public function meeting(MeetingRepository $meetingRepository, int $id) :Response
     {
-        return $this->render('meetings_display/meetings.html.twig', [
-            'meetings' => $meetingsRepository->findOneByid($id)
+        return $this->render('meeting_display/meeting.html.twig', [
+            'meeting' => $meetingRepository->findOneByid($id)
         ]);
     }
 }

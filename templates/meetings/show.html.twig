@@ -14,9 +14,9 @@
             <p class="subject__cardDescription">{{ meeting.required }}</p>
             <h2>Nombre de participants</h2>
             <p class="subject__cardDescription">{{ meeting.participating }}</p>
-            <a class="admin__link" href="{{ path('meetings_index') }}">Retour</a>
-            <a class="admin__link" href="{{ path('meetings_edit', {'id': meeting.id}) }}">Éditer</a>
-            {{ include('meetings/_delete_form.html.twig') }}
+            <a class="admin__link" href="{{ path('meeting_index') }}">Retour</a>
+            <a class="admin__link" href="{{ path('meeting_edit', {'id': meeting.id}) }}">Éditer</a>
+            {{ include('meeting/_delete_form.html.twig') }}
         </article>
     </div>
 {% endblock %}

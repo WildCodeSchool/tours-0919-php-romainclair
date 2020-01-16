@@ -7,9 +7,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\MeetingsRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\MeetingRepository")
  */
-class Meetings
+class Meeting
 {
     /**
      * @ORM\Id()
@@ -39,24 +39,24 @@ class Meetings
     private $participating;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Subjects", inversedBy="meetings")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Subject", inversedBy="meetings")
      */
-    private $subjects;
+    private $subject;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Meetings", inversedBy="meetings")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Meeting", inversedBy="meeting")
      */
-    private $requiredMeetings;
+    private $requiredMeeting;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Meetings", mappedBy="requiredMeetings")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Meeting", mappedBy="requiredMeeting")
      */
-    private $meetings;
+    private $meeting;
 
     public function __construct()
     {
-        $this->requiredMeetings = new ArrayCollection();
-        $this->meetings = new ArrayCollection();
+        $this->requiredMeeting = new ArrayCollection();
+        $this->meeting = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -112,14 +112,14 @@ class Meetings
         return $this;
     }
 
-    public function getSubjects(): ?Subjects
+    public function getSubject(): ?Subject
     {
-        return $this->subjects;
+        return $this->subject;
     }
 
-    public function setSubjects(?Subjects $subjects): self
+    public function setSubject(?Subject $subject): self
     {
-        $this->subjects = $subjects;
+        $this->subject = $subject;
 
         return $this;
     }
@@ -127,15 +127,15 @@ class Meetings
     /**
      * @return Collection|self[]
      */
-    public function getRequiredMeetings(): Collection
+    public function getRequiredMeeting(): Collection
     {
-        return $this->requiredMeetings;
+        return $this->requiredMeeting;
     }
 
     public function addRequiredMeeting(self $requiredMeeting): self
     {
-        if (!$this->requiredMeetings->contains($requiredMeeting)) {
-            $this->requiredMeetings[] = $requiredMeeting;
+        if (!$this->requiredMeeting->contains($requiredMeeting)) {
+            $this->requiredMeeting[] = $requiredMeeting;
         }
 
         return $this;
@@ -143,8 +143,8 @@ class Meetings
 
     public function removeRequiredMeeting(self $requiredMeeting): self
     {
-        if ($this->requiredMeetings->contains($requiredMeeting)) {
-            $this->requiredMeetings->removeElement($requiredMeeting);
+        if ($this->requiredMeeting->contains($requiredMeeting)) {
+            $this->requiredMeeting->removeElement($requiredMeeting);
         }
 
         return $this;
@@ -153,15 +153,15 @@ class Meetings
     /**
      * @return Collection|self[]
      */
-    public function getMeetings(): Collection
+    public function getMeeting(): Collection
     {
-        return $this->meetings;
+        return $this->meeting;
     }
 
     public function addMeeting(self $meeting): self
     {
-        if (!$this->meetings->contains($meeting)) {
-            $this->meetings[] = $meeting;
+        if (!$this->meeting->contains($meeting)) {
+            $this->meeting[] = $meeting;
             $meeting->addRequiredMeeting($this);
         }
 
@@ -170,8 +170,8 @@ class Meetings
 
     public function removeMeeting(self $meeting): self
     {
-        if ($this->meetings->contains($meeting)) {
-            $this->meetings->removeElement($meeting);
+        if ($this->meeting->contains($meeting)) {
+            $this->meeting->removeElement($meeting);
             $meeting->removeRequiredMeeting($this);
         }
 
