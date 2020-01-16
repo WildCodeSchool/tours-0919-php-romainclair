@@ -5,11 +5,12 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Meeting;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\SubjectsRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\SubjectRepository")
  */
-class Subjects
+class Subject
 {
     /**
      * @ORM\Id()
@@ -39,7 +40,7 @@ class Subjects
     private $image;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Theme", inversedBy="subjects")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Theme", inversedBy="subject")
      */
     private $theme;
 
@@ -137,7 +138,7 @@ class Subjects
     {
         if (!$this->meeting->contains($meeting)) {
             $this->meeting[] = $meeting;
-            $meeting->setSubjects($this);
+            $meeting->setSubject($this);
         }
 
         return $this;
@@ -148,8 +149,8 @@ class Subjects
         if ($this->meeting->contains($meeting)) {
             $this->meeting->removeElement($meeting);
             // set the owning side to null (unless already changed)
-            if ($meeting->getSubjects() === $this) {
-                $meeting->setSubjects(null);
+            if ($meeting->getSubject() === $this) {
+                $meeting->setSubject(null);
             }
         }
 
