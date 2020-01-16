@@ -19,8 +19,8 @@
                         <a class="theme__linkToSubject" href="{{ path('list_subject', {'id' : theme.id})}}"><span class="sr-only">Voir les sujets liés</span></a>
                         {% if is_granted('ROLE_ADMIN') %}
                             <div class="subject__actions">
-                                <a class="admin__link" href="{{ path('thematiques_edit', {'id': theme.id}) }}">Éditer</a>
-                                {{ include('thematiques/_delete_form.html.twig') }}
+                                <a class="admin__link" href="{{ path('theme_edit', {'id': theme.id}) }}">Éditer</a>
+                                {{ include('theme/_delete_form.html.twig') }}
                             </div>
                         {% endif %}
                     </article>

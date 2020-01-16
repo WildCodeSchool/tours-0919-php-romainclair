@@ -24,7 +24,7 @@ class ThemeController extends AbstractController
      */
     public function index(ThemeRepository $themeRepository): Response
     {
-        return $this->render('thematiques/index.html.twig', [
+        return $this->render('theme/index.html.twig', [
             'themes' => $themeRepository->findAll(),
         ]);
     }
@@ -62,7 +62,7 @@ class ThemeController extends AbstractController
             }
         }
 
-        return $this->render('thematiques/new.html.twig', [
+        return $this->render('theme/new.html.twig', [
             'theme' => $theme,
             'form' => $form->createView(),
         ]);
@@ -73,7 +73,7 @@ class ThemeController extends AbstractController
      */
     public function show(Theme $theme): Response
     {
-        return $this->render('thematiques/show.html.twig', [
+        return $this->render('theme/show.html.twig', [
             'thematique' => $theme,
             ]);
     }
@@ -92,7 +92,7 @@ class ThemeController extends AbstractController
             return $this->redirectToRoute('succes');
         }
 
-        return $this->render('thematiques/edit.html.twig', [
+        return $this->render('theme/edit.html.twig', [
             'theme' => $theme,
             'form' => $form->createView(),
         ]);

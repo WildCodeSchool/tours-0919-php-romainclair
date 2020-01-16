@@ -16,8 +16,8 @@
                     <img class="subject__image" src="/img/placeholder.png" alt="placeholder for an illustration">
                     <p class="subject__cardDescription">{{ subject.description }}</p>
                     {% if is_granted('ROLE_ADMIN') %}
-                        <a class="admin__link" href="{{ path('subjects_edit', {'id': subject.id}) }}">Éditer</a>
-                        {{ include('subjects/_delete_form.html.twig') }}
+                        <a class="admin__link" href="{{ path('subject_edit', {'id': subject.id}) }}">Éditer</a>
+                        {{ include('subject/_delete_form.html.twig') }}
                     {% endif %}
                     <button type="button" class="subject__link">Voir les sujets</button>
                     <ul class="subject__atelier-list">
