@@ -17,6 +17,7 @@
 
 --
 -- Table structure for table `creneaux`
+<<<<<<< HEAD
 --
 
 DROP TABLE IF EXISTS `creneaux`;
@@ -39,12 +40,36 @@ UNLOCK TABLES;
 
 --
 -- Table structure for table `meetings`
+=======
+>>>>>>> dev
 --
 
-DROP TABLE IF EXISTS `meetings`;
+DROP TABLE IF EXISTS `creneaux`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `meetings` (
+CREATE TABLE `creneaux` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `creneaux`
+--
+
+LOCK TABLES `creneaux` WRITE;
+/*!40000 ALTER TABLE `creneaux` DISABLE KEYS */;
+/*!40000 ALTER TABLE `creneaux` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `meeting`
+--
+
+DROP TABLE IF EXISTS `meeting`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `meeting` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` longtext COLLATE utf8mb4_unicode_ci,
@@ -61,13 +86,16 @@ CREATE TABLE `meetings` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `meetings`
+-- Dumping data for table `meetings_meetings`
 --
 
 LOCK TABLES `meetings` WRITE;
 /*!40000 ALTER TABLE `meetings` DISABLE KEYS */;
 INSERT INTO `meetings` VALUES (1,'Les fonctions','Ceci est un exemple de description d\'atelier','Les variables',12,3,NULL,NULL,NULL),(2,'Les variables','Ceci est un exemple de description d\'atelier',NULL,5,1,NULL,NULL,NULL),(3,'Symfony','Ceci est un exemple de description d\'atelier','',0,2,NULL,NULL,NULL),(4,'Les boucles','Ceci est un exemple de description d\'atelier','Les variables',9001,4,NULL,NULL,NULL),(5,'Node.js','Ceci est un exemple de description d\'atelier','Base de Javascript',1,5,NULL,NULL,NULL),(6,'Rust pour les nuls','Ceci est un exemple de description d\'atelier','Aucune',0,6,NULL,NULL,NULL),(7,'Django','Ceci est un exemple de description','Bases de Python',10,7,NULL,NULL,NULL),(9,'Hashage','Ceci est un exemple de description',NULL,12,8,NULL,NULL,NULL),(10,'Gérer l\'accès par IP','Ceci est un exemple de description',NULL,51,9,NULL,NULL,NULL),(11,'Le scrum board','Ceci est un exemple de description',NULL,10,10,NULL,NULL,NULL),(12,'Installation de sa version Ubuntu','Ceci est un exemple de description',NULL,2,11,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `meetings` ENABLE KEYS */;
+LOCK TABLES `meetings_meetings` WRITE;
+/*!40000 ALTER TABLE `meetings_meetings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `meetings_meetings` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -214,4 +242,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-15 13:37:07
+-- Dump completed on 2020-01-15 14:18:59

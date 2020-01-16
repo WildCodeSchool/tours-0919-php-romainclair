@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Meeting;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SubjectRepository")
@@ -44,9 +45,9 @@ class Subject
     private $theme;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Meetings", orphanRemoval=true, mappedBy="subject")
+     * @ORM\OneToMany(targetEntity="App\Entity\Meeting", orphanRemoval=true, mappedBy="subjects")
      */
-    private $meetings;
+    private $meeting;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -56,7 +57,7 @@ class Subject
 
     public function __construct()
     {
-        $this->meetings = new ArrayCollection();
+        $this->meeting = new ArrayCollection();
     }
 
 
@@ -126,27 +127,27 @@ class Subject
     }
 
     /**
-     * @return Collection|Meetings[]
+     * @return Collection|Meeting[]
      */
-    public function getMeetings(): Collection
+    public function getMeeting(): Collection
     {
-        return $this->meetings;
+        return $this->meeting;
     }
 
-    public function addMeeting(Meetings $meeting): self
+    public function addMeeting(Meeting $meeting): self
     {
-        if (!$this->meetings->contains($meeting)) {
-            $this->meetings[] = $meeting;
+        if (!$this->meeting->contains($meeting)) {
+            $this->meeting[] = $meeting;
             $meeting->setSubject($this);
         }
 
         return $this;
     }
 
-    public function removeMeeting(Meetings $meeting): self
+    public function removeMeeting(Meeting $meeting): self
     {
-        if ($this->meetings->contains($meeting)) {
-            $this->meetings->removeElement($meeting);
+        if ($this->meeting->contains($meeting)) {
+            $this->meeting->removeElement($meeting);
             // set the owning side to null (unless already changed)
             if ($meeting->getSubject() === $this) {
                 $meeting->setSubject(null);
