@@ -45,7 +45,7 @@ class Subject
     private $theme;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Meeting", orphanRemoval=true, mappedBy="subjects")
+     * @ORM\OneToMany(targetEntity="App\Entity\Meeting", orphanRemoval=true, mappedBy="subject")
      */
     private $meeting;
 

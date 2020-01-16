@@ -23,6 +23,7 @@ class Theme3Fixtures extends Fixture
         $subject5 = new Subject();
         $subject5->setName('Administrer son réseau');
         $subject5->setDescription('Description du sujet Administrer son réseau');
+        $subject5->setRequirements('requirements');
         $subject5->setTheme($theme3);
 
         $manager->persist($subject5);
@@ -30,6 +31,7 @@ class Theme3Fixtures extends Fixture
         $subject6 = new Subject();
         $subject6->setName('Sécuriser son réseau');
         $subject6->setDescription('Description du sujet sécuriser son réseau');
+        $subject6->setRequirements('requirements');
         $subject6->setTheme($theme3);
         $manager->persist($subject6);
 

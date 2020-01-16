@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Subject;
 use App\Form\SubjectType;
 use App\Repository\SubjectRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,6 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
+use App\Entity\Subject;
 
 /**
  * @Route("/subjects")
@@ -26,18 +26,15 @@ class SubjectsController extends AbstractController
      * @Route("/sujets/{id}", name="list_subject")
      * @param SubjectRepository $subjectRepository
      * @param int $id
-     * @param Subject $subjectEntity
      * @return Response A response instance
      */
     public function subject(
         SubjectRepository $subjectRepository,
-        int $id,
-        Subject $subjectEntity
+        int $id
     ): Response {
         $subjects = $subjectRepository->findBytheme($id);
         return $this->render('subjects_display/display_list.html.twig', [
-            'subjects' => $subjects,
-            'meeting' => $subjectEntity->getMeeting()
+            'subjects' => $subjects
         ]);
     }
 

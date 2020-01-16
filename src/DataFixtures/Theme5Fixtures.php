@@ -23,6 +23,7 @@ class Theme5Fixtures extends Fixture
         $subject9 = new Subject();
         $subject9->setName('Linux');
         $subject9->setDescription('Description du sujet Linux');
+        $subject9->setRequirements('requirements');
         $subject9->setTheme($theme5);
 
         $manager->persist($subject9);
@@ -30,6 +31,7 @@ class Theme5Fixtures extends Fixture
         $subject10 = new Subject();
         $subject10->setName('MacOS');
         $subject10->setDescription('Description du sujet MacOS');
+        $subject10->setRequirements('requirements');
         $subject10->setTheme($theme5);
         $manager->persist($subject10);
 

@@ -25,6 +25,7 @@ class Theme1Fixtures extends Fixture
         $subject1 = new Subject();
         $subject1->setName('PHP');
         $subject1->setDescription('Description du sujet PHP');
+        $subject1->setRequirements('requirements');
         $subject1->setTheme($theme);
 
         $manager->persist($subject1);
@@ -32,6 +33,7 @@ class Theme1Fixtures extends Fixture
         $subject2 = new Subject();
         $subject2->setName('JavaScript');
         $subject2->setDescription('Description du sujet JavaScript');
+        $subject2->setRequirements('requirements');
         $subject2->setTheme($theme);
         $manager->persist($subject2);
 
