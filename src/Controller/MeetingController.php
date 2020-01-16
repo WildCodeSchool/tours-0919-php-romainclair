@@ -28,7 +28,7 @@ class MeetingController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="meeting_new", methods={"GET","POST"})
+     * @Route("/meet/new", name="meeting_new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
      */
