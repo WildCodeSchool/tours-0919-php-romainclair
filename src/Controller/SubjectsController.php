@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\SubjectType;
 use App\Repository\SubjectRepository;
+use App\Repository\ThemeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,11 +31,14 @@ class SubjectsController extends AbstractController
      */
     public function subject(
         SubjectRepository $subjectRepository,
-        int $id
+        int $id,
+        ThemeRepository $themeRepository
     ): Response {
+        $theme = $themeRepository->findOneByid($id);
         $subjects = $subjectRepository->findBytheme($id);
         return $this->render('subjects_display/display_list.html.twig', [
-            'subjects' => $subjects
+            'subjects' => $subjects,
+            'theme' => $theme
         ]);
     }
 
