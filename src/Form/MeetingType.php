@@ -2,12 +2,12 @@
 
 namespace App\Form;
 
-use App\Entity\Meetings;
+use App\Entity\Meeting;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class MeetingsType extends AbstractType
+class MeetingType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -18,13 +18,13 @@ class MeetingsType extends AbstractType
             ->add('required')
             ->add('participating')
             ->add('subjects', null, ['choice_label' => 'name'])
-            ->add('meetings', null, ['choice_label' => 'name','label' => 'Requirements(link to other meetings)']);
+            ->add('meeting', null, ['choice_label' => 'name','label' => 'Requirements(link to other meeting)']);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Meetings::class,
+            'data_class' => Meeting::class,
         ]);
     }
 }

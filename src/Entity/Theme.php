@@ -102,13 +102,13 @@ class Theme
         return $this;
     }
 
-    public function removeSubject(Subjects $subject): self
+    public function removeSubject(Subjects $subjects): self
     {
-        if ($this->subjects->contains($subject)) {
-            $this->subjects->removeElement($subject);
+        if ($this->subjects->contains($subjects)) {
+            $this->subjects->removeElement($subjects);
             // set the owning side to null (unless already changed)
-            if ($subject->getTheme() === $this) {
-                $subject->setTheme(null);
+            if ($subjects->getTheme() === $this) {
+                $subjects->setTheme(null);
             }
         }
 

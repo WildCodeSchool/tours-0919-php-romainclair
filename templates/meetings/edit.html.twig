@@ -5,9 +5,9 @@
 {% block body %}
     <h1>Éditer un atelier</h1>
 
-    {{ include('meetings/_form.html.twig', {'button_label': 'Éditer'}) }}
+    {{ include('meeting/_form.html.twig', {'button_label': 'Éditer'}) }}
 
-    <a class="admin__link" href="{{ path('meetings_index') }}">Retour</a>
+    <a class="admin__link" href="{{ path('meeting_index') }}">Retour</a>
 
-    {{ include('meetings/_delete_form.html.twig') }}
+    {{ include('meeting/_delete_form.html.twig') }}
 {% endblock %}
