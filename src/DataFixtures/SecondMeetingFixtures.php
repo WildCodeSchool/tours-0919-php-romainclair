@@ -4,7 +4,7 @@ namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use App\Entity\Meetings;
+use App\Entity\Meeting;
 
 class SecondMeetingFixtures extends Fixture
 {
@@ -14,7 +14,7 @@ class SecondMeetingFixtures extends Fixture
         // $product = new Product();
         // $manager->persist($product);
 
-        $meetings7 = new Meetings();
+        $meetings7 = new Meeting();
         $meetings7->setName('Django');
         $meetings7->setDescription('exemple');
         $meetings7->setRequired('Base de python');
@@ -23,7 +23,7 @@ class SecondMeetingFixtures extends Fixture
 
         $manager->persist($meetings7);
 
-        $meetings8 = new Meetings();
+        $meetings8 = new Meeting();
         $meetings8->setName('Hashage');
         $meetings8->setDescription('exemple');
         $meetings8->setRequired('Aucune');
@@ -32,7 +32,7 @@ class SecondMeetingFixtures extends Fixture
 
         $manager->persist($meetings8);
 
-        $meetings9 = new Meetings();
+        $meetings9 = new Meeting();
         $meetings9->setName('Hashage');
         $meetings9->setDescription('exemple');
         $meetings9->setRequired('Aucune');
@@ -41,7 +41,7 @@ class SecondMeetingFixtures extends Fixture
 
         $manager->persist($meetings9);
 
-        $meetings10 = new Meetings();
+        $meetings10 = new Meeting();
         $meetings10->setName('Gérer l\'accès par IP');
         $meetings10->setDescription('exemple');
         $meetings10->setRequired('Bases en réseaux');
@@ -50,7 +50,7 @@ class SecondMeetingFixtures extends Fixture
 
         $manager->persist($meetings10);
 
-        $meetings11 = new Meetings();
+        $meetings11 = new Meeting();
         $meetings11->setName('Le scrum board');
         $meetings11->setDescription('exemple');
         $meetings11->setRequired('Connaisance de la methodologie agile');
@@ -58,7 +58,7 @@ class SecondMeetingFixtures extends Fixture
         # $meetings11->setSubjects(11);
 
         $manager->persist($meetings11);
-        $meetings12 = new Meetings();
+        $meetings12 = new Meeting();
         $meetings12->setName('Installation de sa version d\'ubuntu');
         $meetings12->setDescription('exemple');
         $meetings12->setRequired('Aucune');

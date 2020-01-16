@@ -4,7 +4,7 @@ namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use App\Entity\Subjects;
+use App\Entity\Subject;
 
 class SubjectFixtures extends Fixture
 {
@@ -13,7 +13,7 @@ class SubjectFixtures extends Fixture
     {
         // $product = new Product();
         // $manager->persist($product);
-        $subject1 = new Subjects();
+        $subject1 = new Subject();
         $subject1->setName('C');
         $subject1->setDescription('exemple');
         $subject1->setRequirements('[NULL]');
@@ -23,7 +23,7 @@ class SubjectFixtures extends Fixture
 
         $manager->persist($subject1);
 
-        $subject2 = new Subjects();
+        $subject2 = new Subject();
         $subject2->setName('PHP');
         $subject2->setDescription('exemple');
         $subject2->setRequirements('[NULL]');
@@ -33,7 +33,7 @@ class SubjectFixtures extends Fixture
 
         $manager->persist($subject2);
 
-        $subject3 = new Subjects();
+        $subject3 = new Subject();
         $subject3->setName('Java');
         $subject3->setDescription('exemple');
         $subject3->setRequirements('[NULL]');
@@ -43,7 +43,7 @@ class SubjectFixtures extends Fixture
 
         $manager->persist($subject3);
 
-        $subject4 = new Subjects();
+        $subject4 = new Subject();
         $subject4->setName('C++');
         $subject4->setDescription('exemple');
         $subject4->setRequirements('[NULL]');
@@ -52,7 +52,7 @@ class SubjectFixtures extends Fixture
         $subject4->setParticipation('[NULL]');
         $manager->persist($subject4);
 
-        $subject5 = new Subjects();
+        $subject5 = new Subject();
         $subject5->setName('Javascript');
         $subject5->setDescription('exemple');
         $subject5->setRequirements('[NULL]');
@@ -62,7 +62,7 @@ class SubjectFixtures extends Fixture
 
         $manager->persist($subject5);
 
-        $subject6 = new Subjects();
+        $subject6 = new Subject();
         $subject6->setName('Rust');
         $subject6->setDescription('exemple');
         $subject6->setRequirements('[NULL]');

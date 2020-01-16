@@ -4,7 +4,7 @@ namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use App\Entity\Meetings;
+use App\Entity\Meeting;
 
 class MeetingFixtures extends Fixture
 {
@@ -13,7 +13,7 @@ class MeetingFixtures extends Fixture
     {
         // $product = new Product();
         // $manager->persist($product);
-        $meetings1 = new Meetings();
+        $meetings1 = new Meeting();
         $meetings1->setName('Les fonctions');
         $meetings1->setDescription('exemple');
         $meetings1->setRequired('Les Variables');
@@ -22,7 +22,7 @@ class MeetingFixtures extends Fixture
 
         $manager->persist($meetings1);
 
-        $meetings2 = new Meetings();
+        $meetings2 = new Meeting();
         $meetings2->setName('Les Variables');
         $meetings2->setDescription('exemple');
         $meetings2->setRequired('Les fonctions');
@@ -32,7 +32,7 @@ class MeetingFixtures extends Fixture
         $manager->persist($meetings2);
 
 
-        $meetings3 = new Meetings();
+        $meetings3 = new Meeting();
         $meetings3->setName('Symfony');
         $meetings3->setDescription('exemple');
         $meetings3->setRequired('Les Variables');
@@ -41,7 +41,7 @@ class MeetingFixtures extends Fixture
 
         $manager->persist($meetings3);
 
-        $meetings4 = new Meetings();
+        $meetings4 = new Meeting();
         $meetings4->setName('Les Boucles');
         $meetings4->setDescription('exemple');
         $meetings4->setRequired('Les Variables');
@@ -50,7 +50,7 @@ class MeetingFixtures extends Fixture
 
         $manager->persist($meetings4);
 
-        $meetings5 = new Meetings();
+        $meetings5 = new Meeting();
         $meetings5->setName('Node.js');
         $meetings5->setDescription('exemple');
         $meetings5->setRequired('Base de javascript');
@@ -60,7 +60,7 @@ class MeetingFixtures extends Fixture
         $manager->persist($meetings5);
 
 
-        $meetings6 = new Meetings();
+        $meetings6 = new Meeting();
         $meetings6->setName('Rust pour les nuls');
         $meetings6->setDescription('exemple');
         $meetings6->setRequired('Aucune');
