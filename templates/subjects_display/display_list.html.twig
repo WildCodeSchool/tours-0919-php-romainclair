@@ -5,22 +5,26 @@
     <div class="subject">
         <!-- Here is the head of the content-->
         <header class = "subject__header">
-            <h1 class="subject__title">Titre de la thématique</h1>
-            <p class="subject__description">Est Scaevola si rogati consuetudo et amici cum casus sanciatur oporteat neque nos Etenim se igitur et oporteat.</p>
+            <h1 class="subject__title">{{theme.name}}</h1>
+            <p class="subject__description">{{ theme.description }}</p>
         </header>
         <!-- Here is card with each subjects-->
         <div class="subject__allCards">
             {% for subject in subjects %}
                 <article class="subject__card subject__card__display" {# id="card{{ i }}" #}>
                     <h2>{{ subject.name }}</h2>
-                    <img class="subject__image" src="/img/placeholder.png" alt="placeholder for an illustration">
+                    {% if subject.image is empty%}
+                        <img class="subject__image" src="/img/placeholder.png" alt="placeholder for an illustration">
+                    {% else %}
+                        <img class="subject__image" src="/img/{{ subject.image }}" alt="placeholder for an illustration">
+                    {% endif %}
                     <p class="subject__cardDescription">{{ subject.description }}</p>
                     <form method="post" action="">
                         <button name="favSubj" value="{{ subject.id }}" type="submit">Favori</button>
                     </form>
                     {% if is_granted('ROLE_ADMIN') %}
-                        <a class="admin__link" href="{{ path('subjects_edit', {'id': subject.id}) }}">Éditer</a>
-                        {{ include('subjects/_delete_form.html.twig') }}
+                        <a class="admin__link" href="{{ path('subject_edit', {'id': subject.id}) }}">Éditer</a>
+                        {{ include('subject/_delete_form.html.twig') }}
                     {% endif %}
                     <button type="button" class="subject__link">Voir les sujets</button>
                     <ul class="subject__atelier-list">

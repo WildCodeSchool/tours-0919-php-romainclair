@@ -2,6 +2,16 @@
     text-align: center;
     font-family: Lato, sans-serif;
 }
+.theme__linkToSubject {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.subject__actions {
+    z-index: 1;
+}
 .subject__header {
     width: 90%;
     padding-bottom: 4vw;
@@ -17,6 +27,7 @@
     width: 60vw;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 .subject__show-more-icon, .subject__image{
     object-fit: contain;
@@ -84,18 +95,7 @@ main {
         margin-left: auto;
     }
     .subject__card{
-        position: relative;
         width: 33%;
-    }
-    .subject__actions {
-        z-index: 1;
-    }
-    .theme__linkToSubject {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
     }
     .subject__card > h2 {
         margin-bottom: 0;

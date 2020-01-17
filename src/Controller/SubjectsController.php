@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\SubjectType;
 use App\Repository\SubjectRepository;
+use App\Repository\ThemeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,8 +29,12 @@ class SubjectsController extends AbstractController
      * @param int $id
      * @return Response A response instance
      */
-    public function subject(SubjectRepository $subjectRepository, int $id): Response
-    {
+    public function subject(
+        SubjectRepository $subjectRepository,
+        int $id,
+        ThemeRepository $themeRepository
+    ): Response {
+        $theme = $themeRepository->findOneByid(
         $subjects = $subjectRepository->findBytheme($id);
         if (isset($_POST['favSubj'])) {
             $subj = $subjectRepository->findOneByid($_POST['favSubj']);
@@ -41,7 +46,8 @@ class SubjectsController extends AbstractController
             $entityManager->flush();
         }
         return $this->render('subjects_display/display_list.html.twig', [
-            'subjects' => $subjects
+            'subjects' => $subjects,
+            'theme' => $theme
         ]);
     }
 
