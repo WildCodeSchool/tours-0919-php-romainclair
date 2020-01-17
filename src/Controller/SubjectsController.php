@@ -27,6 +27,7 @@ class SubjectsController extends AbstractController
      * @Route("/sujets/{id}", name="list_subject")
      * @param SubjectRepository $subjectRepository
      * @param int $id
+     * @param ThemeRepository $themeRepository
      * @return Response A response instance
      */
     public function subject(
@@ -34,13 +35,12 @@ class SubjectsController extends AbstractController
         int $id,
         ThemeRepository $themeRepository
     ): Response {
-        $theme = $themeRepository->findOneByid(
+        $theme = $themeRepository->findOneByid();
         $subjects = $subjectRepository->findBytheme($id);
         if (isset($_POST['favSubj'])) {
             $subj = $subjectRepository->findOneByid($_POST['favSubj']);
             $user = $this->getUser();
             $user->addFavoriteSubjects($subj);
-
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
