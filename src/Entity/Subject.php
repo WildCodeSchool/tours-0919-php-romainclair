@@ -55,7 +55,7 @@ class Subject
     private $participation;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="FavoriteSubject")
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="favoriteSubjects")
      */
     private $users;
 
@@ -187,7 +187,7 @@ class Subject
     {
         if (!$this->users->contains($user)) {
             $this->users[] = $user;
-            $user->addFavoriteSubject($this);
+            $user->addFavoriteSubjects($this);
         }
 
         return $this;

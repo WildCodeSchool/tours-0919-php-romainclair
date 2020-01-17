@@ -12,7 +12,8 @@ class FavoriteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('FavoriteSubject')
+            ->add('FavoriteSubject');
+            $options;
         ;
     }
 

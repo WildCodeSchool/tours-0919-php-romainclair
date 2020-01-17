@@ -96,6 +96,10 @@ class UserController extends AbstractController
      */
     public function addFavorite(Request $request)
     {
+        $user = new User();
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
+        
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
         }
