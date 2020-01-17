@@ -91,4 +91,20 @@ class UserController extends AbstractController
 
         return $this->redirectToRoute('user_index');
     }
+    /**
+     * @Route("/favorite", name="user_favorite" , methods={"POST"})
+     */
+    public function addFavorite(Request $request)
+    {
+        $user = new User();
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+        }
+        return $this->render('subject/favourite.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
 }

@@ -54,10 +54,16 @@ class Subject
      */
     private $participation;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="favoriteSubjects")
+     */
+    private $users;
+
 
     public function __construct()
     {
         $this->meeting = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
 
@@ -165,6 +171,34 @@ class Subject
     public function setParticipation(string $participation): self
     {
         $this->participation = $participation;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addFavoriteSubjects($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->contains($user)) {
+            $this->users->removeElement($user);
+            $user->removeFavoriteSubjects($this);
+        }
 
         return $this;
     }
