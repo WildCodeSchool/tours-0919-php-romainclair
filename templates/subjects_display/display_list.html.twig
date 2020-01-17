@@ -13,7 +13,11 @@
             {% for subject in subjects %}
                 <article class="subject__card subject__card__display" {# id="card{{ i }}" #}>
                     <h2>{{ subject.name }}</h2>
-                    <img class="subject__image" src="/img/placeholder.png" alt="placeholder for an illustration">
+                    {% if subject.image is empty%}
+                        <img class="subject__image" src="/img/placeholder.png" alt="placeholder for an illustration">
+                    {% else %}
+                        <img class="subject__image" src="/img/{{ subject.image }}" alt="placeholder for an illustration">
+                    {% endif %}
                     <p class="subject__cardDescription">{{ subject.description }}</p>
                     {% if is_granted('ROLE_ADMIN') %}
                         <a class="admin__link" href="{{ path('subject_edit', {'id': subject.id}) }}">Éditer</a>
