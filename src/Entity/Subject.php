@@ -197,7 +197,7 @@ class Subject
     {
         if ($this->users->contains($user)) {
             $this->users->removeElement($user);
-            $user->removeFavoriteSubject($this);
+            $user->removeFavoriteSubjects($this);
         }
 
         return $this;
