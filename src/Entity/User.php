@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -34,6 +36,16 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Subject", inversedBy="users")
+     */
+    private $favoriteSubjects;
+
+    public function __construct()
+    {
+        $this->favoriteSubjects = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -109,5 +121,31 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    /**
+     * @return Collection|Subject[]
+     */
+    public function getFavoriteSubjects(): Collection
+    {
+        return $this->favoriteSubjects;
+    }
+
+    public function addFavoriteSubjects(Subject $favoriteSubjects): self
+    {
+        if (!$this->favoriteSubjects->contains($favoriteSubjects)) {
+            $this->favoriteSubjects[] = $favoriteSubjects;
+        }
+
+        return $this;
+    }
+
+    public function removeFavoriteSubject(Subject $favoriteSubjects): self
+    {
+        if ($this->favoriteSubjects->contains($favoriteSubjects)) {
+            $this->favoriteSubjects->removeElement($favoriteSubjects);
+        }
+
+        return $this;
     }
 }
