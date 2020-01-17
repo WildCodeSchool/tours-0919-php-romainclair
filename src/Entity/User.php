@@ -140,7 +140,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function removeFavoriteSubject(Subject $favoriteSubjects): self
+    public function removeFavoriteSubjects(Subject $favoriteSubjects): self
     {
         if ($this->favoriteSubjects->contains($favoriteSubjects)) {
             $this->favoriteSubjects->removeElement($favoriteSubjects);
