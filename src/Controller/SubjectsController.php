@@ -28,11 +28,18 @@ class SubjectsController extends AbstractController
      * @param int $id
      * @return Response A response instance
      */
-    public function subject(
-        SubjectRepository $subjectRepository,
-        int $id
-    ): Response {
+    public function subject(SubjectRepository $subjectRepository, int $id): Response
+    {
         $subjects = $subjectRepository->findBytheme($id);
+        if (isset($_POST['favSubj'])) {
+            $subj = $subjectRepository->findOneByid($_POST['favSubj']);
+            $user = $this->getUser();
+            $user->addFavoriteSubjects($subj);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+        }
         return $this->render('subjects_display/display_list.html.twig', [
             'subjects' => $subjects
         ]);
