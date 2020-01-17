@@ -12,8 +12,11 @@
             {% for theme in themes %}
                     <article class="subject__card">
                         <h2>{{theme.name}}</h2>
-                        <img class="subject__image" src="../uploads/thematiques/{{ theme.image }}" alt="placeholder for an illustration">
-                        <p class="subject__cardDescription">
+                        {% if theme.image is empty%}
+                            <img class="subject__image" src="/img/placeholder.png" alt="placeholder for an illustration">
+                        {% else %}
+                            <img class="subject__image" src="/img/{{ theme.image }}" alt="placeholder for an illustration">
+                        {% endif %}                        <p class="subject__cardDescription">
                             Est Scaevola si <span>rogati consuetudo</span> et amici cum casus <span>Turpis maiorum</span> causa.Est Scaevola si <span>rogati consuetudo</span> et amici cum casus <span>Turpis maiorum</span> causa.
                         </p>
                         <a class="theme__linkToSubject" href="{{ path('list_subject', {'id' : theme.id})}}"><span class="sr-only">Voir les sujets liés</span></a>
