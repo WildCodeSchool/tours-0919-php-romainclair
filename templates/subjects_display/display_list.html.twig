@@ -19,9 +19,18 @@
                         <img class="subject__image" src="/img/{{ subject.image }}" alt="placeholder for an illustration">
                     {% endif %}
                     <p class="subject__cardDescription">{{ subject.description }}</p>
-                    <form method="post" action="">
-                        <button name="favSubj" value="{{ subject.id }}" type="submit">Favori</button>
-                    </form>
+                    {{ dump(subject.id) }}
+                    {{ dump(favedSubjectsID) }}
+                    {%  if subject.id in favedSubjectsID %}
+                        <form method="post" action="">
+                            <button name="unfavedSubj" value="{{ subject.id }}" type="submit">Je me desintéresse</button>
+                        </form>
+                    {% else %}
+                        <form method="post" action="">
+                            <button name="favSubj" value="{{ subject.id }}" type="submit">Je m'intéresse</button>
+                        </form>
+                    {% endif %}
+
                     {% if is_granted('ROLE_ADMIN') %}
                         <a class="admin__link" href="{{ path('subject_edit', {'id': subject.id}) }}">Éditer</a>
                         {{ include('subject/_delete_form.html.twig') }}
