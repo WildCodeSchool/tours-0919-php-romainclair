@@ -19,8 +19,6 @@
                         <img class="subject__image" src="/img/{{ subject.image }}" alt="placeholder for an illustration">
                     {% endif %}
                     <p class="subject__cardDescription">{{ subject.description }}</p>
-                    {{ dump(subject.id) }}
-                    {{ dump(favedSubjectsID) }}
                     {%  if subject.id in favedSubjectsID %}
                         <form method="post" action="">
                             <button name="unfavedSubj" value="{{ subject.id }}" type="submit">Je me desintéresse</button>
