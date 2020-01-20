@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class DisplayMeetingController extends AbstractController
 {
     /**
-     * @Route("/meeting/{id}", name="show_meeting", methods={"GET"})
+     * @Route("/meeting/show/{id}", name="show_meeting", methods={"GET"})
      * @param MeetingRepository $meetingRepository
      * @param int $id
      * @return Response A response instance

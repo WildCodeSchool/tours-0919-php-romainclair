@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Meeting;
 use App\Form\MeetingType;
+use App\Service\MailMeeting;
 use App\Repository\MeetingRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,17 +29,18 @@ class MeetingController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="meeting_new", methods={"GET","POST"})
+     * @Route("/create/new", name="meeting_new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
      */
-    public function new(Request $request): Response
+    public function new(Request $request, MailMeeting $mail): Response
     {
         $meeting = new Meeting();
         $form = $this->createForm(MeetingType::class, $meeting);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $mail->ifFavoriteSubject(1);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($meeting);
             $entityManager->flush();
@@ -51,19 +53,6 @@ class MeetingController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
-    /**
-     * @Route("/{id}", name="meetings_show", methods={"GET"})
-     * @param Meeting $meeting
-     * @return Response
-     */
-    public function show(Meeting $meeting): Response
-    {
-        return $this->render('meeting/show.html.twig', [
-            'meeting' => $meeting,
-        ]);
-    }
-
     /**
      * @Route("/{id}/edit", name="meeting_edit", methods={"GET","POST"})
      * @param Request $request
@@ -88,7 +77,7 @@ class MeetingController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="meeting_delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="meeting_delete", methods={"DELETE"})
      * @param Request $request
      * @param Meeting $meeting
      * @return Response

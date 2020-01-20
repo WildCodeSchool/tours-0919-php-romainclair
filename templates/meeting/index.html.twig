@@ -18,7 +18,6 @@
                         <p class="subject__description">Il n'y a aucun prérequis</p>
                     {% endif %}
                     <p class="subject__description">{{ meeting.participating }}</p>
-                    <a class="admin__link" href="{{ path('meeting_show', {'id': meeting.id}) }}">Details</a>
                     <a class="admin__link" href="{{ path('meeting_edit', {'id': meeting.id}) }}">Editer</a>
                     <a class="admin__link" href="{{ path('meeting_delete', {'id': meeting.id}) }}">Supprimer</a>
                 </article>
