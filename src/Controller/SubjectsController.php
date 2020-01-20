@@ -35,19 +35,33 @@ class SubjectsController extends AbstractController
         int $id,
         ThemeRepository $themeRepository
     ): Response {
-        $theme = $themeRepository->findOneByid();
+        $theme = $themeRepository->findOneByid($id);
         $subjects = $subjectRepository->findBytheme($id);
-        if (isset($_POST['favSubj'])) {
-            $subj = $subjectRepository->findOneByid($_POST['favSubj']);
-            $user = $this->getUser();
-            $user->addFavoriteSubjects($subj);
+        $user = $this->getUser();
+        $allSubjectsID = [];
+        if ($user) {
+            if (isset($_POST['favSubj'])) {
+                $subj = $subjectRepository->findOneByid($_POST['favSubj']);
+                $user->addFavoriteSubjects($subj);
+            }
+            if (isset($_POST['unfavedSubj'])) {
+                $subj = $subjectRepository->findOneByid($_POST['unfavedSubj']);
+                $user->removeFavoriteSubjects($subj);
+            }
+            $allSubjects = $user->getFavoriteSubjects();
+            foreach ($allSubjects as $value) {
+                $allSubjectsID[] = $value->getId();
+            }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
         }
+
+
         return $this->render('subjects_display/display_list.html.twig', [
             'subjects' => $subjects,
-            'theme' => $theme
+            'theme' => $theme,
+            'favedSubjectsID' => $allSubjectsID
         ]);
     }
 
