@@ -7,7 +7,7 @@
     top: 0;
 }
 .header__header a {
-    color: #1D1D1D;
+    color: #FFFF;
     text-decoration: none;
     transition: all 0.3s ease-in-out 0s;
     -moz-transition: all 0.3s ease-in-out 0s;
@@ -33,7 +33,7 @@
 {
     .header__header h2 {
         color: #737373;
-        top: 7vw;
+        top: 5vw;
         margin-left: 3vw;
     }
     .header__logoText{
@@ -56,7 +56,7 @@
         margin: 0;
     }
     .header__header a {
-        color: #1D1D1D;
+        color: #FFFF;
         text-decoration: none;
         transition: all 0.3s ease-in-out 0s;
         -moz-transition: all 0.3s ease-in-out 0s;
@@ -108,7 +108,7 @@
         margin: 0;
     }
     .header__header a {
-        color: #1D1D1D;
+        color: #FFFF;
         text-decoration: none;
         transition: all 0.3s ease-in-out 0s;
         -moz-transition: all 0.3s ease-in-out 0s;
