@@ -28,7 +28,6 @@
                                 {{ meeting.required }}
                             </p>
                             <p>
-                                {# {{ meetings.meetings }} #}
                             </p>
                         </div>
                 </div>
@@ -52,13 +51,13 @@
                 </h2>
             </div>
             <div class="meetings__head__date-line"></div>
-            {% for i in 0..3 %}
-            <div class="meetings__schedule__one">
-                <input type="checkbox" id="date_one" name="date_one">
-                <label for="date_one">
-                    01/01/19 19h00
-                </label>
-            </div>
+            {% for date in nextDates %}
+                <div class="meetings__schedule__one">
+                    <input type="checkbox" id="date_one" name="date_one">
+                    <label for="date_one">
+                        {{ date }}
+                    </label>
+                </div>
             {% endfor %}
             <div class="meetings__schedule-button">
                 <button type="submit">Ajouter</button>
@@ -71,13 +70,13 @@
                 </h2>
             </div>
             <div class="meetings__head__date-line-2"></div>
-            {% for i in 0..3 %}
-            <div class="meetings__schedule__two">
-                <label for="date_two">
-                    01/01/19 19h00
-                </label>
+                {% for date in pastDates %}
+                    <div class="meetings__schedule__two">
+                    <label for="date_two">
+                        {{ date }}
+                    </label>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
         </form>
         </section>
