@@ -44,7 +44,6 @@ class SubjectsController extends AbstractController
         if ($user) {
             if (isset($_POST['favSubj'])) {
                 $favedSubject->setFavedSubject($subjectRepository, $_POST['favSubj'], $user);
-                dump($user);
             }
             if (isset($_POST['unfavedSubj'])) {
                 $favedSubject->unfavedSubject($subjectRepository, $_POST['unfavedSubj'], $user);
