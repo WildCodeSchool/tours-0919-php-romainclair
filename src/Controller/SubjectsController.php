@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Form\SubjectType;
 use App\Repository\SubjectRepository;
 use App\Repository\ThemeRepository;
+use App\Service\FavedSubject;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,7 +34,8 @@ class SubjectsController extends AbstractController
     public function subject(
         SubjectRepository $subjectRepository,
         int $id,
-        ThemeRepository $themeRepository
+        ThemeRepository $themeRepository,
+        FavedSubject $favedSubject
     ): Response {
         $theme = $themeRepository->findOneByid($id);
         $subjects = $subjectRepository->findBytheme($id);
@@ -41,17 +43,13 @@ class SubjectsController extends AbstractController
         $allSubjectsID = [];
         if ($user) {
             if (isset($_POST['favSubj'])) {
-                $subj = $subjectRepository->findOneByid($_POST['favSubj']);
-                $user->addFavoriteSubjects($subj);
+                $favedSubject->setFavedSubject($subjectRepository, $_POST['favSubj'], $user);
+                dump($user);
             }
             if (isset($_POST['unfavedSubj'])) {
-                $subj = $subjectRepository->findOneByid($_POST['unfavedSubj']);
-                $user->removeFavoriteSubjects($subj);
+                $favedSubject->unfavedSubject($subjectRepository, $_POST['unfavedSubj'], $user);
             }
-            $allSubjects = $user->getFavoriteSubjects();
-            foreach ($allSubjects as $value) {
-                $allSubjectsID[] = $value->getId();
-            }
+            $allSubjectsID = $favedSubject->getFavedSubjectArray($user);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
