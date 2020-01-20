@@ -18,6 +18,7 @@
     margin-right: auto;
     margin-left: auto;
     padding-top: 2vw;
+    margin-top: -21vw;
 }
 .subject__description {
     margin-right: auto;
@@ -31,7 +32,8 @@
 }
 .subject__show-more-icon, .subject__image{
     object-fit: contain;
-    margin-top: 2vw;
+    margin-top: -9vw;
+    margin-bottom: 0vw;
 }
 
 .subject__link{
@@ -56,6 +58,7 @@ main {
 }
 .subject__cardDescription{
     text-align: center;
+    margin-top: -9vw;
 }
 .subject__allCards{
     border-top: 0.1rem dotted #A7A64A;
@@ -81,6 +84,17 @@ main {
         margin-right: auto;
         width: 60%
     }
+    .subject__show-more-icon, .subject__image{
+        object-fit: contain;
+        margin-top: -3vw;
+    }
+    .subject__cardDescription{
+        text-align: center;
+        margin-top: 3vw;
+    }
+    .subject__header {
+        margin-top: -3vw;
+    }
 }
 @media screen and (min-width: 1024px)
 {
@@ -96,10 +110,17 @@ main {
     }
     .subject__card{
         width: 33%;
+        margin-top: 7vw;
+    }
+    .subject__header {
+        margin-top: -2vw;
+    }
+    .subject__cardDescription {
+        margin-top: 1vw;
     }
     .subject__card > h2 {
         margin-bottom: 0;
-        margin-top: 2vw;
+        margin-top: -5vw;
     }
     .subject__atelier-list {
         display: block;
@@ -114,6 +135,7 @@ main {
         margin-right: auto;
         margin-left: auto;
         object-fit: cover;
+        margin-top: 1vw;
     }
     .subject__card__display{
         width: 33%;
