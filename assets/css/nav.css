@@ -38,11 +38,8 @@ nav a {
 }
 nav li:hover
 {
-    /* background-color: #BEBEBE; */
     background-color: #A7A64A;
 }
-
-/* Mise en page du menu de navigation - On supprime la coloration classique des liens lors du survol */
 
 nav li a:hover
 {

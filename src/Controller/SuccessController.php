@@ -5,15 +5,15 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class SuccesController extends AbstractController
+class SuccessController extends AbstractController
 {
     /**
-     * @Route("/succes", name="succes")
+     * @Route("/success", name="success")
      */
     public function index()
     {
-        return $this->render('succes/index.html.twig', [
-            'controller_name' => 'SuccesController',
+        return $this->render('success/index.html.twig', [
+            'controller_name' => 'SuccessController',
         ]);
     }
 }
