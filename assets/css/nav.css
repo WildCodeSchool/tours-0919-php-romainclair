@@ -2,7 +2,7 @@ nav {
     height: 2.4rem;
     width: 100%;
     position: relative;
-    top: -3vw;
+    top: -5vw;
 }
 nav ul {
     margin: 0px;
@@ -38,11 +38,8 @@ nav a {
 }
 nav li:hover
 {
-    /* background-color: #BEBEBE; */
     background-color: #A7A64A;
 }
-
-/* Mise en page du menu de navigation - On supprime la coloration classique des liens lors du survol */
 
 nav li a:hover
 {
@@ -53,6 +50,12 @@ nav li a:hover
 @media screen and (min-width: 421px) and (max-width: 1023px)
 {
     nav {
-        top: -5vw;
+        top: -6vw;
+    }
+}
+@media screen and (min-width: 1024px)
+{
+    nav {
+        top: -50px;
     }
 }

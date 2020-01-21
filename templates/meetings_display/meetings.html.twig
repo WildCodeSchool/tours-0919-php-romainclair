@@ -1,54 +1,47 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-        <section class="meetings__head">
-            <div class="meetings_head-image">
-                <img src="/img/placeholder.png" alt="Meetings_images">
+    <section class="meetings__head">
+        <div class="meetings_head-image">
+            <img src="/img/placeholder.png" alt="Meetings_images">
+        </div>
+        <div class="meetings__head-text">
+            <h1>{{ meeting.name }}</h1>
+            <div class="meetings__head-line"></div>
+            <h2>Theme</h2>
+            <p>{{ meeting.participating }} personne(s) participent.</p>
+        </div>
+        <div class="meetings__requirements">
+            <h2>Pré-requis</h2>
+            <div class="meetings__head__requirements-line"></div>
+            <br />
+            <p>{{ meeting.required }}</p>
+        </div>
+    </section>
+
+    <section class="meetings__description">
+        <h2>Description</h2>
+        <div class="meetings__head__description-line"></div>
+        <p>{{ meeting.description }}</p>
+    </section>
+
+    <section class="meetings__schedule">
+        <div class="schedule">
+            <div class="meetings_schedule-title-2">
+                <h2>Créneaux passés</h2>
             </div>
-            <div class="meetings__head-text">
-                <h1>
-                   {{ meeting.name }}
-                </h1>
-                <div class="meetings__head-line"></div>
-                <h2>
-                    Theme
-                </h2>
-                <p>
-                    {{ meeting.participating }} personne(s) participent.
-                </p>
-            </div>
-            {# {% if meetings.required %} #}
-                <div class="meetings__requirements">
-                    <h2>
-                        Pré-requis
-                    </h2>
-                        <div class="meetings__head__requirements-line">
-                        <br />
-                            <p>
-                                {{ meeting.required }}
-                            </p>
-                            <p>
-                            </p>
-                        </div>
+            <div class="meetings__head__date-line-2"></div>
+            {% for date in pastDates %}
+                <div class="meetings__schedule__two">
+                    <label for="date_two">
+                        {{ date }}
+                    </label>
                 </div>
-            {# {% endif %} #}
-        </section>
-        <section class="meetings__description">
-            <h2>
-                Description
-            </h2>
-            <div class="meetings__head__description-line"></div>
-            <p>
-                {{ meeting.description }}
-            </p>
-        </section>
-        <section class="meetings__schedule">
+            {% endfor %}
+        </div>
         <form>
-        <div>
-             <div class="meetings_schedule-title">
-                <h2>
-                    Créneaux a venir
-                </h2>
+            <div class="meetings_schedule-title">
+                <h2>Créneaux a venir</h2>
             </div>
             <div class="meetings__head__date-line"></div>
             {% for date in nextDates %}
@@ -62,22 +55,6 @@
             <div class="meetings__schedule-button">
                 <button type="submit">Ajouter</button>
             </div>
-        </div>
-        <div class="schedule">
-            <div class="meetings_schedule-title-2">
-                <h2>
-                    Créneaux passée
-                </h2>
-            </div>
-            <div class="meetings__head__date-line-2"></div>
-                {% for date in pastDates %}
-                    <div class="meetings__schedule__two">
-                    <label for="date_two">
-                        {{ date }}
-                    </label>
-                {% endfor %}
-            </div>
-        </div>
         </form>
-        </section>
+    </section>
 {% endblock %}

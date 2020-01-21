@@ -1,6 +1,4 @@
 {% extends 'base.html.twig' %}
-
-{% block body %}
     <section class="meetings__head">
         <div class="meetings_head-image">
             <img src="/img/placeholder.png" alt="Meetings_images">
@@ -10,6 +8,26 @@
                 {{ meeting.name }}
             </h1>
             <div class="meetings__head-line"></div>
+                <h2>
+                    Theme
+                </h2>
+                <p>
+                    {{ meeting.participating }} personne(s) participent.
+                </p>
+            </div>
+                <div class="meetings__requirements">
+                    <h2>
+                        Pré-requis
+                    </h2>
+                    <div class="meetings__head__requirements-line">
+                        <br />
+                        <p>
+                            {{ meeting.required }}
+                        </p>
+                    </div>
+                </div>
+        </section>
+        <section class="meetings__description">
             <h2>
                 Theme
             </h2>
@@ -17,7 +35,6 @@
                 {{ meeting.participating }} personne(s) participent.
             </p>
         </div>
-        {# {% if meetings.required %} #}
         <div class="meetings__requirements">
             <h2>
                 Pré-requis
@@ -31,7 +48,6 @@
                 </p>
             </div>
         </div>
-        {# {% endif %} #}
     </section>
     <section class="meetings__description">
         <h2>

@@ -13,11 +13,8 @@ use \DateTime;
 
 class Theme1Fixtures extends Fixture
 {
-
-
     public function load(ObjectManager $manager)
     {
-
         $theme = new Theme();
         $theme->setName('Développement');
         $theme->setDescription('Description de la thématique sur le développement');

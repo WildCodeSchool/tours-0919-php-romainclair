@@ -13,11 +13,8 @@ use \DateTime;
 
 class Theme3Fixtures extends Fixture
 {
-
-
     public function load(ObjectManager $manager)
     {
-
         $theme3 = new Theme();
         $theme3->setName('Réseau');
         $theme3->setDescription('Description de la thématique sur le réseau');
