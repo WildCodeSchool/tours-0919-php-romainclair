@@ -1,10 +1,10 @@
 ### Prerequisites
-
+---
 1. Check composer is installed
 2. Check yarn & node are installed
 
 ### Install
-
+---
 1. Clone this project
 2. Run `composer install`
 3. Run `yarn install`
@@ -16,12 +16,12 @@
 9. Run `php bin/console doctrine:fixtures:load`
 
 ### Working
-
+---
 1. Run `symfony server:start` to launch your local symfony server
 2. Run `yarn run dev --watch` to launch your local server for assets
 
 ### Testing
-
+---
 1. Run `./bin/phpcs` to launch PHP code sniffer
 2. Run `./bin/phpstan analyse src --level max` to launch PHPStan
 3. Run `./bin/phpmd src text phpmd.xml` to launch PHP Mess Detector
@@ -29,7 +29,7 @@
 3. Run `./bin/sass-lint -c sass-linter.yml` to launch Sass-lint SASS/CSS linter
 
 ## Built With
-
+---
 * [Symfony](https://github.com/symfony/symfony)
 * [GrumPHP](https://github.com/phpro/grumphp)
 * [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
