@@ -17,8 +17,8 @@
 
 ### Working
 ---
-1. Run `symfony server:start` to launch your local symfony server
-2. Run `yarn run dev --watch` to launch your local server for assets
+1. Run `yarn run dev` to launch your local server for assets
+2. Run `symfony server:start` to launch your local symfony server
 
 ### Testing
 ---
