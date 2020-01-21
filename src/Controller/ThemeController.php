@@ -11,9 +11,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/theme")
- */
 class ThemeController extends AbstractController
 {
     /**
@@ -30,7 +27,7 @@ class ThemeController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="theme_new", methods={"GET","POST"})
+     * @Route("/theme/new", name="theme_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -69,7 +66,7 @@ class ThemeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="theme_show", methods={"GET"})
+     * @Route("/theme/{id}", name="theme_show", methods={"GET"})
      */
     public function show(Theme $theme): Response
     {
@@ -79,7 +76,7 @@ class ThemeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="theme_edit", methods={"GET","POST"})
+     * @Route("/theme/{id}/edit", name="theme_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Theme $theme): Response
     {
@@ -99,7 +96,7 @@ class ThemeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="theme_delete", methods={"DELETE"})
+     * @Route("/theme/{id}", name="theme_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Theme $theme): Response
     {
