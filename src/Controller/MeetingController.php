@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Meeting;
 use App\Form\MeetingType;
+use App\Entity\Subject;
 use App\Repository\MeetingDateRepository;
 use App\Repository\MeetingRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -30,7 +31,7 @@ class MeetingController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="show_meeting", methods={"GET"})
+     * @Route("/show/{id}", name="show_meeting", methods={"GET"})
      * @param MeetingRepository $meetingRepository
      * @param int $id
      * @param MeetingDateRepository $meetingDateRepo
@@ -63,6 +64,7 @@ class MeetingController extends AbstractController
             'nextDates' => $nextDates
         ]);
     }
+
     /**
      * @Route("/new", name="meeting_new", methods={"GET","POST"})
      * @param Request $request
