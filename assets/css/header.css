@@ -17,7 +17,7 @@
     flex-direction: column;
 }
 .header__header h1 {
-    background: url('https://www.romainclair.com/images/LogoClair.svg') no-repeat;
+    background: url('../img/logoclair.svg') no-repeat;
     background-position: 25% 40%;
     min-width: 65px;
     padding-top: 5rem;
@@ -62,7 +62,7 @@
         -moz-transition: all 0.3s ease-in-out 0s;
     }
     .header__header h1 {
-    background: url('https://www.romainclair.com/images/LogoClair.svg') no-repeat;
+        background: url('../img/logoclair.svg') no-repeat;
         background-position: 50% 40%;
         min-width: 35px;
         padding-top: 6rem;
@@ -114,7 +114,7 @@
         -moz-transition: all 0.3s ease-in-out 0s;
     }
     .header__header h1 {
-        background: url('https://www.romainclair.com/images/LogoClair.svg') no-repeat;
+        background: url('../img/logoclair.svg') no-repeat;
         background-position: 50% 40%;
         min-width: 35px;
         padding-top: 6rem;

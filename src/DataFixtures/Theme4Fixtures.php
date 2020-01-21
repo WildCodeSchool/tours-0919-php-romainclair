@@ -11,11 +11,8 @@ use App\Entity\Subject;
 
 class Theme4Fixtures extends Fixture
 {
-
-
     public function load(ObjectManager $manager)
     {
-
         $theme4 = new Theme();
         $theme4->setName('Méthodologie');
         $theme4->setDescription('Description de la thématique sur la méthodologie');

@@ -20,7 +20,6 @@ use App\Entity\Subject;
  */
 class SubjectsController extends AbstractController
 {
-    /*  index utilisateurs */
 
     /**
      * Show all rows from Subject’s entity
@@ -62,8 +61,6 @@ class SubjectsController extends AbstractController
         ]);
     }
 
-    /* ajouts utilisateurs */
-
     /**
      * @Route("/new", name="subjects_new", methods={"GET","POST"})
      */
@@ -103,7 +100,7 @@ class SubjectsController extends AbstractController
                 $entityManager->persist($subject);
                 $entityManager->flush();
     
-                return $this->redirect($this->generateUrl('succes'));
+                return $this->redirect($this->generateUrl('success'));
             }
         }
         return $this->render('subjects/new.html.twig', [
