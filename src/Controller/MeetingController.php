@@ -40,8 +40,7 @@ class MeetingController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            if (!empty($meeting->getSubject()))
-            {
+            if (!empty($meeting->getSubject())) {
                 $subjectMeeting = $meeting->getSubject()->getId();
                 $mail->ifFavoriteSubject($subjectMeeting);
                 $entityManager = $this->getDoctrine()->getManager();

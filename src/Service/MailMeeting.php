@@ -33,7 +33,7 @@ class MailMeeting extends AbstractController
             ->to($user->getMail())
             ->subject('Un sujet a etait soumis')
             ->text('Sending emails is fun again!')
-            ->html($this->renderView('email/email.html.twig'));
+            ->html($this->renderView('email/meetingEmail.html.twig'));
 
             /** @var Symfony\Component\Mailer\SentMessage $sentEmail */
             $this->mailer->send($email);
