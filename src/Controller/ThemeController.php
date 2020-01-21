@@ -17,14 +17,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class ThemeController extends AbstractController
 {
     /**
-     * @Route("/", name="theme_index", methods={"GET"})
-     * @param ThemeRepository $themeRepository
+     * @Route("/", name="show_theme", methods={"GET"})
+     * @param ThemeRepository $themeRepo
      * @return Response
      */
-    public function index(ThemeRepository $themeRepository): Response
+    public function index(ThemeRepository $themeRepo): Response
     {
-        return $this->render('theme/index.html.twig', [
-            'themes' => $themeRepository->findAll(),
+        $allTheme = $themeRepo->findAll();
+        return $this->render('theme.html.twig', [
+            'themes' => $allTheme
         ]);
     }
 
