@@ -22,7 +22,7 @@ class MailMeeting extends AbstractController
         $this->mailer = $mailer;
         $this->subjectRepository = $subjectRepository;
     }
-    public function ifFavoriteSubject(int $id)
+    public function ifFavoriteSubject($id)
     {
         $subject = $this->subjectRepository->findOneByid($id);
         $allUsers = $subject->getUsers();

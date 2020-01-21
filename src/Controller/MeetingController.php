@@ -40,12 +40,16 @@ class MeetingController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $mail->ifFavoriteSubject(1);
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($meeting);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('succes');
+            if (!empty($meeting->getSubject()))
+            {
+                $subjectMeeting = $meeting->getSubject()->getId();
+                $mail->ifFavoriteSubject($subjectMeeting);
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($meeting);
+                $entityManager->flush();
+    
+                return $this->redirectToRoute('succes');
+            }
         }
 
         return $this->render('meeting/new.html.twig', [
