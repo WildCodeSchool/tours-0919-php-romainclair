@@ -17,7 +17,7 @@
 
 ### Working
 ---
-1. Run `yarn run dev` to launch your local server for assets
+1. Run `yarn encore dev` to launch your local server for assets
 2. Run `symfony server:start` to launch your local symfony server
 
 ### Testing
