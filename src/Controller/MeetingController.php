@@ -4,11 +4,14 @@ namespace App\Controller;
 
 use App\Entity\Meeting;
 use App\Form\MeetingType;
+use App\Entity\Subject;
+use App\Repository\MeetingDateRepository;
 use App\Repository\MeetingRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use \DateTime;
 
 /**
  * @Route("/meeting")
@@ -24,6 +27,41 @@ class MeetingController extends AbstractController
     {
         return $this->render('meeting/index.html.twig', [
             'meeting' => $meetingRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/show/{id}", name="show_meeting", methods={"GET"})
+     * @param MeetingRepository $meetingRepository
+     * @param int $id
+     * @param MeetingDateRepository $meetingDateRepo
+     * @return Response A response instance
+     * @throws \Exception
+     */
+    public function meeting(
+        MeetingRepository $meetingRepository,
+        int $id,
+        MeetingDateRepository $meetingDateRepo
+    ) :Response {
+        $meeting = $meetingRepository->findOneById($id);
+        $dates = $meetingDateRepo->findByMeeting($meeting);
+        $pastDates = [];
+        $nextDates = [];
+        $nowDate = new DateTime();
+        $nowTimestamp = $nowDate->getTimestamp();
+        foreach ($dates as $meetingDate) {
+            $date = $meetingDate->getDate();
+            $timestamp = $date->getTimestamp();
+            if ($timestamp < $nowTimestamp) {
+                $pastDates[] = $date->format('Y-m-d H:i');
+            } else {
+                $pastDates[] = $date->format('Y-m-d H:i');
+            }
+        }
+        return $this->render('meeting_display/meeting.html.twig', [
+            'meeting' => $meeting,
+            'pastDates' => $pastDates,
+            'nextDates' => $nextDates
         ]);
     }
 
@@ -53,18 +91,6 @@ class MeetingController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="meetings_show", methods={"GET"})
-     * @param Meeting $meeting
-     * @return Response
-     */
-    public function show(Meeting $meeting): Response
-    {
-        return $this->render('meeting/show.html.twig', [
-            'meeting' => $meeting,
-        ]);
-    }
-
-    /**
      * @Route("/{id}/edit", name="meeting_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Meeting $meeting
@@ -88,7 +114,7 @@ class MeetingController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="meeting_delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="meeting_delete", methods={"DELETE"})
      * @param Request $request
      * @param Meeting $meeting
      * @return Response

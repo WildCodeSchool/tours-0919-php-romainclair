@@ -2,12 +2,14 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\MeetingDate;
 use App\Entity\Theme;
 use App\Repository\SubjectRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Meeting;
 use App\Entity\Subject;
+use \DateTime;
 
 class Theme4Fixtures extends Fixture
 {
@@ -54,6 +56,24 @@ class Theme4Fixtures extends Fixture
         $meetings8->setParticipating('200');
 
         $manager->persist($meetings8);
+
+
+        $meetingDate7 = new MeetingDate();
+        $date7 = new DateTime('2011-12-02');
+        $date7->setTime(21, 1, 20);
+        $meetingDate7->setDate($date7);
+        $meetingDate7->setMeeting($meetings7);
+
+        $manager->persist($meetingDate7);
+
+
+        $meetingDate8 = new MeetingDate();
+        $date8 = new DateTime('2001-02-02');
+        $date8->setTime(10, 1, 20);
+        $meetingDate8->setDate($date8);
+        $meetingDate8->setMeeting($meetings8);
+
+        $manager->persist($meetingDate8);
 
         $manager->flush();
     }
