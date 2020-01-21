@@ -43,7 +43,7 @@ class MeetingController extends AbstractController
             $entityManager->persist($meeting);
             $entityManager->flush();
 
-            return $this->redirectToRoute('succes');
+            return $this->redirectToRoute('success');
         }
 
         return $this->render('meeting/new.html.twig', [
@@ -78,7 +78,7 @@ class MeetingController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('succes');
+            return $this->redirectToRoute('success');
         }
 
         return $this->render('meeting/edit.html.twig', [
@@ -101,6 +101,6 @@ class MeetingController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('succes');
+        return $this->redirectToRoute('success');
     }
 }

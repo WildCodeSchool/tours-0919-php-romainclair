@@ -11,11 +11,8 @@ use App\Entity\Subject;
 
 class Theme2Fixtures extends Fixture
 {
-
-
     public function load(ObjectManager $manager)
     {
-
         $theme2 = new Theme();
         $theme2->setName('Sécurité');
         $theme2->setDescription('Description de la thématique sur la sécurité');

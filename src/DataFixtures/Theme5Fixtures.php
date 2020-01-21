@@ -11,11 +11,8 @@ use App\Entity\Subject;
 
 class Theme5Fixtures extends Fixture
 {
-
-
     public function load(ObjectManager $manager)
     {
-
         $theme5 = new Theme();
         $theme5->setName('Systeme');
         $theme5->setDescription('Description de la thématique sur les systemes');

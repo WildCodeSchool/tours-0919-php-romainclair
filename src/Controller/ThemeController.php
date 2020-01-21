@@ -14,7 +14,6 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/theme")
  */
-
 class ThemeController extends AbstractController
 {
     /**
@@ -58,7 +57,7 @@ class ThemeController extends AbstractController
                 $entityManager->persist($theme);
                 $entityManager->flush();
 
-                return $this->redirect($this->generateUrl('succes'));
+                return $this->redirect($this->generateUrl('success'));
             }
         }
 
@@ -89,7 +88,7 @@ class ThemeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('succes');
+            return $this->redirectToRoute('success');
         }
 
         return $this->render('theme/edit.html.twig', [
