@@ -53,7 +53,6 @@ class SubjectsController extends AbstractController
             $entityManager->flush();
         }
 
-
         return $this->render('subjects_display/display_list.html.twig', [
             'subjects' => $subjects,
             'theme' => $theme,

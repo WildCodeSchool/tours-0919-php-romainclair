@@ -11,6 +11,7 @@
         <!-- Here is card with each subjects-->
         <div class="subject__allCards">
             {% for subject in subjects %}
+                {{ dump(subject.meeting) }}
                 <article class="subject__card subject__card__display" {# id="card{{ i }}" #}>
                     <h2>{{ subject.name }}</h2>
                     {% if subject.image is empty%}
