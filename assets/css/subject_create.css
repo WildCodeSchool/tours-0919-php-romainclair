@@ -10,21 +10,22 @@
         margin-right: 10%;
     }
     #subject_requirements {
-        width: 55%;
+        width: 48%;
         margin-left: 2%;
         margin-top: 2%;
-        margin-right: 5%;
+        margin-right: 13%;
     }
     #subject_image {
-        width: 51%;
+        width: 64%;
         margin-left: 2%;
-        margin-right: 12%;
+        margin-right: -3%;
         margin-top: 2%;
     }
     #subject_participation {
         width: 58%;
         margin-left: 2%;
-        margin-top: 1%;
+        margin-top: 2%;
+        margin-right: 8%;
     }
 }
 @media screen and (min-width: 421px) and (max-width: 1023px)
