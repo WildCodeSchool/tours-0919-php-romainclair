@@ -7,3 +7,4 @@ require('../css/displayMeetings.css');
 require('../css/nav.css');
 require('../css/footer.css');
 require('../css/meeting_create.css');
+require('../css/subject_create.css');
