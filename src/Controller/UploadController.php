@@ -25,15 +25,9 @@ class UploadController extends AbstractController
 
         if (!$this->isCsrfTokenValid('upload', $token)) {
             $logger->info("CSRF failure");
-            // add render
         }
 
         $file = $request->files->get('myfile');
-
-        if (empty($file)) {
-            // add render
-        }
-
         $filename = $file->getClientOriginalName();
         $uploader->upload($uploadDir, $file, $filename);
 
