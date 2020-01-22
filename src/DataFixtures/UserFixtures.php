@@ -38,10 +38,7 @@ class UserFixtures extends Fixture
             $admin,
             'admin'
         ));
-
         $manager->persist($admin);
-
-
         $manager->flush();
     }
 }
