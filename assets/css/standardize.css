@@ -1,18 +1,17 @@
-:root
-{
+:root {
     font-family: Lato,arial,sans-serif;
 }
 body , html {
     margin: 0;
 }
 
-h1, h2{
+h1, h2 {
     font-family: Economica-Regular, sans-serif;
     font-weight: normal;
     text-align: center;
 
 }
-h1:first-of-type{
+h1:first-of-type {
     font-size: 1.8rem;
     letter-spacing: -0.05rem;
 }
@@ -31,29 +30,29 @@ article h2 {
     color: #1F1F1F;
 }
 
-p{
+p {
     font-family: Lato, sans-serif;
     color: #6F6F6F;
     text-align: center;
 }
 a {
     font-family: Lato-Reg, sans-serif;
-    color : #1D1D1D;
+    color: #111;
     text-decoration: none;
     text-align: center;
     display: block;
 }
-article h1{
+article h1 {
     font-family: Economica-Bold, sans-serif;
 }
 span {
     color : #A7A64A;
 }
 
-button{
+button {
     margin: 1vw auto;
 }
-form{
+form {
     margin-right: auto;
     margin-left: auto;
     display: flex;
@@ -85,7 +84,7 @@ input {
     white-space: nowrap !important;            /* 3 */
 }
 
-#thematiques_description, #subjects_description{
+#thematiques_description, #subjects_description {
     height: 30vw;
 }
 

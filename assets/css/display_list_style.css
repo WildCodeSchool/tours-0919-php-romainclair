@@ -1,4 +1,4 @@
-.subject{
+.subject {
     text-align: center;
     font-family: Lato, sans-serif;
 }
@@ -24,22 +24,22 @@
     margin-right: auto;
     margin-left: auto;
 }
-.subject__card{
+.subject__card {
     width: 60vw;
     display: flex;
     flex-direction: column;
     position: relative;
 }
-.subject__show-more-icon, .subject__image{
+.subject__show-more-icon, .subject__image {
     object-fit: contain;
     margin-top: -9vw;
     margin-bottom: 0vw;
 }
 
-.subject__link{
+.subject__link {
     margin-top: 2vw;
 }
-.subject__atelier-list{
+.subject__atelier-list {
     padding: 0;
 }
 main {
@@ -56,22 +56,22 @@ main {
 .subject__link:focus + ul {
     display: block;
 }
-.subject__cardDescription{
+.subject__cardDescription {
     text-align: center;
     margin-top: -9vw;
 }
-.subject__allCards{
+.subject__allCards {
     border-top: 0.1rem dotted #A7A64A;
 }
 @media screen and (max-width: 420px)
 {
-    .subject__card{
+    .subject__card {
         width: 60vw;
         display: flex;
         flex-direction: column;
         margin: 5vw auto;
     }
-    .subject__allCards{
+    .subject__allCards {
         margin-left: auto;
         margin-right: auto;
         width: 60%
@@ -79,16 +79,16 @@ main {
 }
 @media screen and (min-width: 421px) and (max-width: 1023px)
 {
-    .subject__allCards{
+    .subject__allCards {
         margin-left: auto;
         margin-right: auto;
         width: 60%
     }
-    .subject__show-more-icon, .subject__image{
+    .subject__show-more-icon, .subject__image {
         object-fit: contain;
         margin-top: -3vw;
     }
-    .subject__cardDescription{
+    .subject__cardDescription {
         text-align: center;
         margin-top: 3vw;
     }
@@ -98,7 +98,7 @@ main {
 }
 @media screen and (min-width: 1024px)
 {
-    .subject__allCards{
+    .subject__allCards {
         display: flex;
         align-items: flex-start;
         flex-direction: row;
@@ -108,7 +108,7 @@ main {
         margin-right: auto;
         margin-left: auto;
     }
-    .subject__card{
+    .subject__card {
         width: 33%;
         margin-top: 7vw;
     }
@@ -125,10 +125,10 @@ main {
     .subject__atelier-list {
         display: block;
     }
-    .subject__link{
+    .subject__link {
         display: none;
     }
-    .subject__image{
+    .subject__image {
         display: block;
         height: 120px;
         width: 264px;
@@ -137,7 +137,7 @@ main {
         object-fit: cover;
         margin-top: 1vw;
     }
-    .subject__card__display{
+    .subject__card__display {
         width: 33%;
         margin: none;
     }

@@ -53,10 +53,16 @@ class Meeting
      */
     private $meeting;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\MeetingDate", mappedBy="meeting", orphanRemoval=true)
+     */
+    private $meetingDates;
+
     public function __construct()
     {
         $this->requiredMeeting = new ArrayCollection();
         $this->meeting = new ArrayCollection();
+        $this->meetingDates = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -173,6 +179,37 @@ class Meeting
         if ($this->meeting->contains($meeting)) {
             $this->meeting->removeElement($meeting);
             $meeting->removeRequiredMeeting($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|MeetingDate[]
+     */
+    public function getMeetingDates(): Collection
+    {
+        return $this->meetingDates;
+    }
+
+    public function addMeetingDate(MeetingDate $meetingDate): self
+    {
+        if (!$this->meetingDates->contains($meetingDate)) {
+            $this->meetingDates[] = $meetingDate;
+            $meetingDate->setMeeting($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMeetingDate(MeetingDate $meetingDate): self
+    {
+        if ($this->meetingDates->contains($meetingDate)) {
+            $this->meetingDates->removeElement($meetingDate);
+            // set the owning side to null (unless already changed)
+            if ($meetingDate->getMeeting() === $this) {
+                $meetingDate->setMeeting(null);
+            }
         }
 
         return $this;

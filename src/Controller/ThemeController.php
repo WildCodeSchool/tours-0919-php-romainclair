@@ -11,26 +11,23 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/theme")
- */
-
 class ThemeController extends AbstractController
 {
     /**
-     * @Route("/", name="theme_index", methods={"GET"})
-     * @param ThemeRepository $themeRepository
+     * @Route("/", name="show_theme", methods={"GET"})
+     * @param ThemeRepository $themeRepo
      * @return Response
      */
-    public function index(ThemeRepository $themeRepository): Response
+    public function index(ThemeRepository $themeRepo): Response
     {
-        return $this->render('theme/index.html.twig', [
-            'themes' => $themeRepository->findAll(),
+        $allTheme = $themeRepo->findAll();
+        return $this->render('theme.html.twig', [
+            'themes' => $allTheme
         ]);
     }
 
     /**
-     * @Route("/new", name="theme_new", methods={"GET","POST"})
+     * @Route("/theme/new", name="theme_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -58,7 +55,7 @@ class ThemeController extends AbstractController
                 $entityManager->persist($theme);
                 $entityManager->flush();
 
-                return $this->redirect($this->generateUrl('succes'));
+                return $this->redirect($this->generateUrl('success'));
             }
         }
 
@@ -69,7 +66,7 @@ class ThemeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="theme_show", methods={"GET"})
+     * @Route("/theme/{id}", name="theme_show", methods={"GET"})
      */
     public function show(Theme $theme): Response
     {
@@ -79,7 +76,7 @@ class ThemeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="theme_edit", methods={"GET","POST"})
+     * @Route("/theme/{id}/edit", name="theme_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Theme $theme): Response
     {
@@ -89,7 +86,7 @@ class ThemeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('succes');
+            return $this->redirectToRoute('success');
         }
 
         return $this->render('theme/edit.html.twig', [
@@ -99,7 +96,7 @@ class ThemeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="theme_delete", methods={"DELETE"})
+     * @Route("/theme/{id}", name="theme_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Theme $theme): Response
     {

@@ -19,7 +19,7 @@ class UserFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
 
-        // Création d’un utilisateur de type “auteur”
+        // Creating normal user
         $subscriber = new User();
         $subscriber->setUsername('user');
         $subscriber->setRoles(['ROLE_SUBSCRIBER']);
@@ -30,7 +30,7 @@ class UserFixtures extends Fixture
 
         $manager->persist($subscriber);
 
-        // Création d’un utilisateur de type “administrateur”
+        // Creating an Admin
         $admin = new User();
         $admin->setUsername('admin');
         $admin->setRoles(['ROLE_ADMIN']);

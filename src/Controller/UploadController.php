@@ -12,7 +12,7 @@ use Psr\Log\LoggerInterface;
 class UploadController extends AbstractController
 {
     /**
-     * @Route("/theme/doUpload", name="upload")
+     * @Route("/theme/do-upload", name="upload")
      */
     public function index(
         Request $request,

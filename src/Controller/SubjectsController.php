@@ -20,7 +20,6 @@ use App\Entity\Subject;
  */
 class SubjectsController extends AbstractController
 {
-    /*  index utilisateurs */
 
     /**
      * Show all rows from Subject’s entity
@@ -54,7 +53,6 @@ class SubjectsController extends AbstractController
             $entityManager->flush();
         }
 
-
         return $this->render('subjects_display/display_list.html.twig', [
             'subjects' => $subjects,
             'theme' => $theme,
@@ -62,7 +60,25 @@ class SubjectsController extends AbstractController
         ]);
     }
 
-    /* ajouts utilisateurs */
+    /**
+     * @Route("/{id}/edit", name="subject_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request, Subject $subject): Response
+    {
+        $form = $this->createForm(SubjectType::class, $subject);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('success');
+        }
+
+        return $this->render('subject/edit.html.twig', [
+            'subject' => $subject,
+            'form' => $form->createView(),
+        ]);
+    }
 
     /**
      * @Route("/new", name="subjects_new", methods={"GET","POST"})
@@ -103,12 +119,26 @@ class SubjectsController extends AbstractController
                 $entityManager->persist($subject);
                 $entityManager->flush();
     
-                return $this->redirect($this->generateUrl('succes'));
+                return $this->redirect($this->generateUrl('success'));
             }
         }
-        return $this->render('subjects/new.html.twig', [
+        return $this->render('subject/new.html.twig', [
             'subject' => $subject,
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/{id}", name="subject_delete", methods={"DELETE"})
+     */
+    public function delete(Request $request, Subject $subject): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$subject->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($subject);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('show_theme');
     }
 }

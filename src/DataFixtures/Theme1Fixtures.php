@@ -2,20 +2,19 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\MeetingDate;
 use App\Entity\Theme;
 use App\Repository\SubjectRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Meeting;
 use App\Entity\Subject;
+use \DateTime;
 
 class Theme1Fixtures extends Fixture
 {
-
-
     public function load(ObjectManager $manager)
     {
-
         $theme = new Theme();
         $theme->setName('Développement');
         $theme->setDescription('Description de la thématique sur le développement');
@@ -59,6 +58,22 @@ class Theme1Fixtures extends Fixture
         $meetings2->setParticipating('12');
 
         $manager->persist($meetings2);
+
+        $meetingDate1 = new MeetingDate();
+        $date1 = new DateTime('2001-02-02');
+        $date1->setTime(14, 1, 20);
+        $meetingDate1->setDate($date1);
+        $meetingDate1->setMeeting($meetings1);
+
+        $manager->persist($meetingDate1);
+
+        $meetingDate2 = new MeetingDate();
+        $date2 = new DateTime('2002-03-03');
+        $date2->setTime(4, 10, 20);
+        $meetingDate2->setDate($date2);
+        $meetingDate2->setMeeting($meetings2);
+
+        $manager->persist($meetingDate2);
 
         $manager->flush();
     }

@@ -5,11 +5,14 @@ namespace App\Controller;
 use App\Entity\Meeting;
 use App\Form\MeetingType;
 use App\Service\MailMeeting;
+use App\Entity\Subject;
+use App\Repository\MeetingDateRepository;
 use App\Repository\MeetingRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use \DateTime;
 
 /**
  * @Route("/meeting")
@@ -29,7 +32,42 @@ class MeetingController extends AbstractController
     }
 
     /**
-     * @Route("/create/new", name="meeting_new", methods={"GET","POST"})
+     * @Route("/show/{id}", name="show_meeting", methods={"GET"})
+     * @param MeetingRepository $meetingRepository
+     * @param int $id
+     * @param MeetingDateRepository $meetingDateRepo
+     * @return Response A response instance
+     * @throws \Exception
+     */
+    public function meeting(
+        MeetingRepository $meetingRepository,
+        int $id,
+        MeetingDateRepository $meetingDateRepo
+    ) :Response {
+        $meeting = $meetingRepository->findOneById($id);
+        $dates = $meetingDateRepo->findByMeeting($meeting);
+        $pastDates = [];
+        $nextDates = [];
+        $nowDate = new DateTime();
+        $nowTimestamp = $nowDate->getTimestamp();
+        foreach ($dates as $meetingDate) {
+            $date = $meetingDate->getDate();
+            $timestamp = $date->getTimestamp();
+            if ($timestamp < $nowTimestamp) {
+                $pastDates[] = $date->format('Y-m-d H:i');
+            } else {
+                $pastDates[] = $date->format('Y-m-d H:i');
+            }
+        }
+        return $this->render('meeting_display/meeting.html.twig', [
+            'meeting' => $meeting,
+            'pastDates' => $pastDates,
+            'nextDates' => $nextDates
+        ]);
+    }
+
+    /**
+     * @Route("/new", name="meeting_new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
      */
@@ -70,7 +108,7 @@ class MeetingController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('succes');
+            return $this->redirectToRoute('success');
         }
 
         return $this->render('meeting/edit.html.twig', [
@@ -93,6 +131,6 @@ class MeetingController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('succes');
+        return $this->redirectToRoute('success');
     }
 }

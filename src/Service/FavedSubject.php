@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Service;
 
 use App\Form\SubjectType;
@@ -36,6 +35,7 @@ class FavedSubject
         $subj = $subjectRepository->findOneByid($id);
         $user->addFavoriteSubjects($subj);
     }
+
     public function unfavedSubject(
         SubjectRepository $subjectRepository,
         int $id,
