@@ -8,7 +8,7 @@
 1. Clone this project
 2. Run `composer install`
 3. Run `yarn install`
-4. Run `cp .env.local .env`
+4. Run `cp .env .env.local`
 5. Modify `DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name` with the username and password of mysql/mariadb and change the name of database with the one you want.
 6. Run ` php bin/console doctrine:database:create`
 7. Run `php bin/console make:migration`
