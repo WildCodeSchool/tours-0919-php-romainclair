@@ -16,6 +16,7 @@ class ThemeType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('description', TextareaType::class)
             ->add('image', FileType::class, [
                 'label' => 'Image File',
                 'mapped' => false,
@@ -32,7 +33,6 @@ class ThemeType extends AbstractType
                     ])
                 ]
             ])
-            ->add('description', TextareaType::class)
         ;
         $options = [];
     }

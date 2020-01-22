@@ -8,3 +8,4 @@ require('../css/nav.css');
 require('../css/footer.css');
 require('../css/meeting_create.css');
 require('../css/subject_create.css');
+require('../css/theme_create.css');
