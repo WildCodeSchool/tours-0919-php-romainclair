@@ -1,0 +1,95 @@
+@media screen and (max-width: 420px)
+{
+    #meeting_name {
+        width: 50%;
+        margin-left: 4%;
+    }
+    #meeting_description {
+        width: 55%;
+        margin-left: 2%;
+        margin-right: 10%;
+    }
+    #meeting_required {
+        width: 55%;
+        margin-left: 2%;
+        margin-top: 2%;
+        margin-right: 5%;
+    }
+    #meeting_participating {
+        width: 51%;
+        margin-left: 2%;
+        margin-right: 12%;
+        margin-top: 2%;
+    }
+    #meeting_subject {
+        width: 58%;
+        margin-left: 2%;
+        margin-top: 1%;
+    }
+}
+@media screen and (min-width: 421px) and (max-width: 1023px)
+{
+    #meeting_name {
+        width: 50%;
+        margin-left: 2%;
+        margin-right: 3%;
+    }
+    #meeting_description {
+        width: 52%;
+        margin-left: 2%;
+        margin-right: 8%;
+    }
+    #meeting_required {
+        width: 52%;
+        margin-left: 2%;
+        margin-right: 5%;
+        margin-top: 2%;
+    }
+    #meeting_participating {
+        width: 51%;
+        margin-left: 2%;
+        margin-right: 8%;
+        margin-top: 2%;
+    }
+    #meeting_subject {
+        width: 53%;
+        margin-left: 2%;
+        margin-right: 4%;
+    }
+    #meeting_meeting {
+        width: 54%;
+        margin-left: 16%;
+        margin-right: 12%;
+    }
+}
+
+@media screen and (min-width: 1024px)
+{
+    #meeting_name {
+        margin-left: 46px;
+        margin-bottom: 1%;
+    }
+    #meeting_description {
+        width: 51%;
+        margin-left: 1%;
+    }
+    #meeting_required {
+        width: 50%;
+        margin-top: 30px;
+        margin-left: 20px;
+    }
+    #meeting_participating {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+    #meeting_subject {
+        width: 50%;
+        margin-left: 2%;
+    }
+    #meeting_meeting {
+        width: 50%;
+        margin-right: 8%;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+}
