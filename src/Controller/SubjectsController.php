@@ -137,4 +137,21 @@ class SubjectsController extends AbstractController
 
         return $this->redirectToRoute('show_theme');
     }
+
+    /**
+     * @Route("/chemin", name="chemin", methods={"GET"})
+     */
+    public function chemin(SubjectRepository $subjectRepository): Response
+    {
+        $subjects = $subjectRepository->findAll();
+        $varUlterieure = [];
+        foreach ($subjects as $subject) {
+            $varUlterieure[] = ['userName' => $subject->getName(), 'userNumber'=> $subject->getUsers()->toArray()];
+        }
+        $columns = array_column($varUlterieure, 'userNumber');
+        array_multisort($columns, SORT_DESC, $varUlterieure);
+        return $this->render('subject/sorted.html.twig', [
+            'subjects' => $varUlterieure
+        ]);
+    }
 }
