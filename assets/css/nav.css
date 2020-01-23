@@ -30,12 +30,16 @@ nav li {
     -ms-transition: all 0.3s ease-in-out 0s;
 }
 nav a {
-    transition: all 0.3s ease-in-out 0s;
-    -webkit-transition: all 0.3s ease-in-out 0s;
-    -moz-transition: all 0.3s ease-in-out 0s;
-    -o-transition: all 0.3s ease-in-out 0s;
-    -ms-transition: all 0.3s ease-in-out 0s;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        font-family: Economica-Bold;
+        font-size: 1.2rem;
+        transition: all 0.3s ease-in-out 0s;
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        -moz-transition: all 0.3s ease-in-out 0s;
+        -o-transition: all 0.3s ease-in-out 0s;
 }
+
 nav li:hover
 {
     background-color: #A7A64A;
@@ -44,7 +48,7 @@ nav li:hover
 nav li a:hover
 {
     color : #FFFFFF;
-}
+}   
 
 
 @media screen and (min-width: 421px) and (max-width: 1023px)
