@@ -1,0 +1,51 @@
+@media screen and (max-width: 420px)
+{
+    #theme_name {
+        width: 51%;
+        margin-left: 2%;
+    }
+    #theme_description {
+        width: 56%;
+        margin-left: 2%;
+        margin-right: 11%;
+        margin-bottom: 2%;
+    }
+    #theme_image {
+        width: 63%;
+        margin-left: 2%;
+    }
+}
+@media screen and (min-width: 421px) and (max-width: 1023px)
+{
+    #theme_name {
+        margin-left: 2%;
+        width: 51%;
+    }
+    #theme_description {
+        width: 51%;
+        margin-bottom: 2%;
+        margin-right: 2%;
+    }
+    #theme_image {
+        width: 51%;
+        margin-left: 3%;
+    }
+}
+@media screen and (min-width: 1024px)
+{
+    #theme_name {
+        width: 50%;
+        margin-left: 1%;
+        margin-bottom: 1%;
+    }
+    #theme_description {
+        width: 51%;
+        margin-left: 1%;
+        margin-right: 2%;
+        margin-bottom: 1%;
+    }
+    #theme_image {
+        width: 52%;
+        margin-left: 2%;
+    }
+}
