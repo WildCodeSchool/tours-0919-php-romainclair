@@ -124,6 +124,7 @@
     .meetings__head-line
     {
         width: 100%;
+        margin-left: -5%;
     }
     .meetings__head__requirements-line
     {
@@ -158,7 +159,7 @@
     }
     .meetings_schedule-title-2 {
         margin-left: -11%;
-        margin-top: -1%;
+        margin-top: 252px;
     }
     .meetings__schedule-button {
         margin-left: -34vw;

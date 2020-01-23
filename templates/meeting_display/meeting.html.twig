@@ -28,28 +28,6 @@
                     </div>
                 </div>
         </section>
-        <section class="meetings__description">
-            <h2>
-                Theme
-            </h2>
-            <p>
-                {{ meeting.participating }} personne(s) participent.
-            </p>
-        </div>
-        <div class="meetings__requirements">
-            <h2>
-                Pré-requis
-            </h2>
-            <div class="meetings__head__requirements-line">
-                <br />
-                <p>
-                    {{ meeting.required }}
-                </p>
-                <p>
-                </p>
-            </div>
-        </div>
-    </section>
     <section class="meetings__description">
         <h2>
             Description
@@ -60,6 +38,11 @@
         </p>
     </section>
     <section class="meetings__schedule">
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="subject__actions">
+                <a class="admin__link" href="{{ path('meeting_date_new', {'id': meeting.id}) }}">Créer un nouveau créneau</a>
+            </div>
+        {% endif %}
         <form>
             <div>
                 <div class="meetings_schedule-title">
@@ -72,13 +55,13 @@
                     <div class="meetings__schedule__one">
                         <input type="checkbox" id="date_one" name="date_one">
                         <label for="date_one">
-                            {{ date }}
+                            {{ date.date }}
                         </label>
                     </div>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        {{ include('meeting_date/_delete_form.html.twig') }}
+                    {% endif %}
                 {% endfor %}
-                <div class="meetings__schedule-button">
-                    <button type="submit">Ajouter</button>
-                </div>
             </div>
             <div class="schedule">
                 <div class="meetings_schedule-title-2">
@@ -90,9 +73,14 @@
                 {% for date in pastDates %}
                     <div class="meetings__schedule__two">
                         <label for="date_two">
-                            {{ date }}
+                            {{ date.date }}
                         </label>
                     </div>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <div class="subject__actions">
+                            {{ include('meeting_date/_delete_form.html.twig') }}
+                        </div>
+                    {% endif %}
                 {% endfor %}
             </div>
         </form>
