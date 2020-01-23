@@ -17,16 +17,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class MeetingDateController extends AbstractController
 {
     /**
-     * @Route("/", name="meeting_date_index", methods={"GET"})
-     */
-    public function index(MeetingDateRepository $meetingDateRepo): Response
-    {
-        return $this->render('meeting_date/index.html.twig', [
-            'meeting_dates' => $meetingDateRepo->findAll(),
-        ]);
-    }
-
-    /**
      * @Route("{id}/new", name="meeting_date_new", methods={"GET","POST"})
      */
     public function new(Request $request, int $id, MeetingRepository $meetingRepo): Response
@@ -49,16 +39,6 @@ class MeetingDateController extends AbstractController
             'meeting_date' => $meetingDate,
             'meeting' => $meeting,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="meeting_date_show", methods={"GET"})
-     */
-    public function show(MeetingDate $meetingDate): Response
-    {
-        return $this->render('meeting_date/show.html.twig', [
-            'meeting_date' => $meetingDate,
         ]);
     }
 
