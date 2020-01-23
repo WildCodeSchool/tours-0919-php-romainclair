@@ -92,7 +92,6 @@ class MeetingDateController extends AbstractController
             $entityManager->remove($meetingDate);
             $entityManager->flush();
         }
-
-        return $this->redirectToRoute('meeting_date_index');
+        return $this->redirectToRoute('success');
     }
 }

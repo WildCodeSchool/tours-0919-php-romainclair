@@ -54,9 +54,9 @@ class MeetingController extends AbstractController
             $date = $meetingDate->getDate();
             $timestamp = $date->getTimestamp();
             if ($timestamp < $nowTimestamp) {
-                $pastDates[] = $date->format('Y-m-d H:i');
+                $pastDates[] = ['entity' => $meetingDate, 'date' => $date->format('Y-m-d H:i')];
             } else {
-                $pastDates[] = $date->format('Y-m-d H:i');
+                $nextDates[] = ['entity' => $meetingDate, 'date' => $date->format('Y-m-d H:i')];
             }
         }
         return $this->render('meeting_display/meeting.html.twig', [
@@ -118,7 +118,7 @@ class MeetingController extends AbstractController
     }
 
     /**
-     * @Route("/delete/{id}", name="meeting_delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="meeting_delete", methods={"ANY"})
      * @param Request $request
      * @param Meeting $meeting
      * @return Response
