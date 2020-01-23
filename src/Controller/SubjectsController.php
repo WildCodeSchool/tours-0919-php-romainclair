@@ -94,15 +94,11 @@ class SubjectsController extends AbstractController
             if ($imageFile) {
                 $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
                 $newFilename = $originalFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
-    
-                try {
-                    $imageFile->move(
-                        $this->getParameter('subjects_image_directory'),
-                        $newFilename
-                    );
-                } catch (FileException $e) {
-                    // return exception
-                }
+                $imageFile->move(
+                    $this->getParameter('subjects_image_directory'),
+                    $newFilename
+                );
+
                 $subject->setImage($newFilename);
 
                 $email = (new Email())
