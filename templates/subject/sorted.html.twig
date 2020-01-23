@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des sujets{% endblock %}
+
+{% block body %}
+    <ul>
+    {% for subject in subjects %}
+        <li>
+            {{ subject.userName }}
+        </li>
+        <li>
+            {{ subject.userNumber|length }}
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}
