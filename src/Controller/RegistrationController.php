@@ -26,25 +26,33 @@ class RegistrationController extends AbstractController
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
-
+        $email = '';
         if ($form->isSubmitted() && $form->isValid()) {
+            $user->getMail();
+            $honeyPot = $_POST['email'];
+            if (empty($honeyPot)) {
+                $user->setPassword($passwordEncoder->encodePassword($user, $form->get('plainPassword')->getData()));
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($user);
+                $entityManager->flush();
+                $guardHandler->authenticateUserAndHandleSuccess(
+                    $user,
+                    $request,
+                    $authenticator,
+                    'main'
+                );
+                return $this->render('success/index.html.twig');
+            } else {
+                // Spam detected!
+                $warning = sprintf('🐛 SPAM detected: email: "%s", honeypot content: "%s"', $email, $honeyPot);
+                $this->addFlash('warning', $warning);
+            }
             $user->setPassword(
                 $passwordEncoder->encodePassword(
                     $user,
                     $form->get('plainPassword')->getData()
                 )
             );
-
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
-            $guardHandler->authenticateUserAndHandleSuccess(
-                $user,
-                $request,
-                $authenticator,
-                'main'
-            );
-            return $this->render('success/index.html.twig');
         }
 
         return $this->render('registration/register.html.twig', [
