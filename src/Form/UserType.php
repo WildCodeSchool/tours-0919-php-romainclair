@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -18,6 +19,14 @@ class UserType extends AbstractType
         $options;
         $builder
             ->add('username')
+            ->add('roles', ChoiceType::class, [
+                'choices' => [
+                    '["ROLE_ADMIN"]' => 'ROLE_ADMIN',
+                    '["ROLE_SUBSCRIBER"]' => 'ROLE_SUBSCRIBER'
+                ],
+                'multiple' => true,
+                'expanded' => true,
+            ])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'invalid_message' => 'Les mots de passe doivent être similaires',
