@@ -38,6 +38,11 @@
         </p>
     </section>
     <section class="meetings__schedule">
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="subject__actions">
+                <a class="admin__link" href="{{ path('meeting_date_new', {'id': meeting.id}) }}">Créer un nouveau créneau</a>
+            </div>
+        {% endif %}
         <form>
             <div>
                 <div class="meetings_schedule-title">
