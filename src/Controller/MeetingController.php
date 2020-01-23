@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Meeting;
 use App\Form\MeetingType;
+use App\Service\MailMeeting;
 use App\Entity\Subject;
 use App\Repository\MeetingDateRepository;
 use App\Repository\MeetingRepository;
@@ -70,18 +71,22 @@ class MeetingController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function new(Request $request): Response
+    public function new(Request $request, MailMeeting $mail): Response
     {
         $meeting = new Meeting();
         $form = $this->createForm(MeetingType::class, $meeting);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($meeting);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('success');
+            if (!empty($meeting->getSubject())) {
+                $subjectMeeting = $meeting->getSubject()->getId();
+                $mail->ifFavoriteSubject($subjectMeeting);
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($meeting);
+                $entityManager->flush();
+    
+                return $this->redirectToRoute('succes');
+            }
         }
 
         return $this->render('meeting/new.html.twig', [
@@ -89,7 +94,6 @@ class MeetingController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
     /**
      * @Route("/{id}/edit", name="meeting_edit", methods={"GET","POST"})
      * @param Request $request

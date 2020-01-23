@@ -106,7 +106,7 @@ class SubjectsController extends AbstractController
                     ->to('romainculleron12@gmail.com')
                     ->subject('Un sujet a etait soumis')
                     ->text('Sending emails is fun again!')
-                    ->html($this->renderView('email/email.html.twig'));
+                    ->html($this->renderView('email/subjectEmail.html.twig'));
     
                     /** @var Symfony\Component\Mailer\SentMessage $sentEmail */
                     $mailer->send($email);

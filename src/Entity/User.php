@@ -42,6 +42,11 @@ class User implements UserInterface
      */
     private $favoriteSubjects;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $mail;
+
     public function __construct()
     {
         $this->favoriteSubjects = new ArrayCollection();
@@ -145,6 +150,18 @@ class User implements UserInterface
         if ($this->favoriteSubjects->contains($favoriteSubjects)) {
             $this->favoriteSubjects->removeElement($favoriteSubjects);
         }
+
+        return $this;
+    }
+
+    public function getMail(): ?string
+    {
+        return $this->mail;
+    }
+
+    public function setMail(string $mail): self
+    {
+        $this->mail = $mail;
 
         return $this;
     }
