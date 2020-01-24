@@ -47,9 +47,21 @@ class User implements UserInterface
      */
     private $mail;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Meeting", inversedBy="users")
+     */
+    private $meeting;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\MeetingDate", inversedBy="users")
+     */
+    private $date;
+
     public function __construct()
     {
         $this->favoriteSubjects = new ArrayCollection();
+        $this->meeting = new ArrayCollection();
+        $this->date = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -162,6 +174,58 @@ class User implements UserInterface
     public function setMail(string $mail): self
     {
         $this->mail = $mail;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Meeting[]
+     */
+    public function getMeeting(): Collection
+    {
+        return $this->meeting;
+    }
+
+    public function addMeeting(Meeting $meeting): self
+    {
+        if (!$this->meeting->contains($meeting)) {
+            $this->meeting[] = $meeting;
+        }
+
+        return $this;
+    }
+
+    public function removeMeeting(Meeting $meeting): self
+    {
+        if ($this->meeting->contains($meeting)) {
+            $this->meeting->removeElement($meeting);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|MeetingDate[]
+     */
+    public function getDate(): Collection
+    {
+        return $this->date;
+    }
+
+    public function addDate(MeetingDate $date): self
+    {
+        if (!$this->date->contains($date)) {
+            $this->date[] = $date;
+        }
+
+        return $this;
+    }
+
+    public function removeDate(MeetingDate $date): self
+    {
+        if ($this->date->contains($date)) {
+            $this->date->removeElement($date);
+        }
 
         return $this;
     }

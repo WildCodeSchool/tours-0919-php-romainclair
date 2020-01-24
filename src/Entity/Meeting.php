@@ -58,11 +58,17 @@ class Meeting
      */
     private $meetingDates;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="meeting")
+     */
+    private $users;
+
     public function __construct()
     {
         $this->requiredMeeting = new ArrayCollection();
         $this->meeting = new ArrayCollection();
         $this->meetingDates = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -210,6 +216,34 @@ class Meeting
             if ($meetingDate->getMeeting() === $this) {
                 $meetingDate->setMeeting(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addMeeting($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->contains($user)) {
+            $this->users->removeElement($user);
+            $user->removeMeeting($this);
         }
 
         return $this;

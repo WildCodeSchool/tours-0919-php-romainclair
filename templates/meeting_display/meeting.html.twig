@@ -43,7 +43,7 @@
                 <a class="admin__link" href="{{ path('meeting_date_new', {'id': meeting.id}) }}">Créer un nouveau créneau</a>
             </div>
         {% endif %}
-        <form>
+        <form method="post">
             <div>
                 <div class="meetings_schedule-title">
                     <h2>
@@ -53,7 +53,7 @@
                 <div class="meetings__head__date-line"></div>
                 {% for date in nextDates %}
                     <div class="meetings__schedule__one">
-                        <input type="checkbox" id="date_one" name="date_one">
+                        <input type="checkbox" value="{{ date.entity.id }}" id="date_select" name="date_select[]">
                         <label for="date_one">
                             {{ date.date }}
                         </label>
@@ -62,6 +62,7 @@
                         {{ include('meeting_date/_delete_form.html.twig') }}
                     {% endif %}
                 {% endfor %}
+                <button type="submit" name="meetingDateButton">Enregistrer les créneaux</button>
             </div>
             <div class="schedule">
                 <div class="meetings_schedule-title-2">
