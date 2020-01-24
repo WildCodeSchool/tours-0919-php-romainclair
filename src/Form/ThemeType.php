@@ -15,10 +15,10 @@ class ThemeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
+            ->add('name', null, ['label' => 'Nom'])
             ->add('description', TextareaType::class)
             ->add('image', FileType::class, [
-                'label' => 'Image File',
+                'label' => 'Image',
                 'mapped' => false,
                 'required' => false,
 
@@ -29,7 +29,7 @@ class ThemeType extends AbstractType
                             'image/jpeg',
                             'image/png',
                         ],
-                        'mimeTypesMessage' => 'Please Upload a valid Image document'
+                        'mimeTypesMessage' => 'Veuillez soumettre une image valide.'
                     ])
                 ]
             ])

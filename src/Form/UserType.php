@@ -17,8 +17,9 @@ class UserType extends AbstractType
     {
         $options;
         $builder
-            ->add('username')
+            ->add('username', null, ['label' => 'Nom d\'utilisateur'])
             ->add('password', RepeatedType::class, [
+                'label' => 'Mot de passe',
                 'type' => PasswordType::class,
                 'invalid_message' => 'Les mots de passe doivent être similaires',
                 'options' => ['attr' => ['class' => 'password-field']],
