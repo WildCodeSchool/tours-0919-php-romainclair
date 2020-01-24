@@ -139,7 +139,7 @@ class SubjectsController extends AbstractController
     }
 
     /**
-     * @Route("/chemin", name="chemin", methods={"GET"})
+     * @Route("/order", name="subject_order", methods={"GET"})
      */
     public function chemin(SubjectRepository $subjectRepository): Response
     {
