@@ -20,6 +20,7 @@ class UserType extends AbstractType
         $builder
             ->add('username')
             ->add('roles', ChoiceType::class, [
+               'label' => 'Nom d\'utilisateur',
                 'choices' => [
                     '["ROLE_ADMIN"]' => 'ROLE_ADMIN',
                     '["ROLE_SUBSCRIBER"]' => 'ROLE_SUBSCRIBER'
@@ -28,6 +29,7 @@ class UserType extends AbstractType
                 'expanded' => true,
             ])
             ->add('password', RepeatedType::class, [
+                'label' => 'Mot de passe',
                 'type' => PasswordType::class,
                 'invalid_message' => 'Les mots de passe doivent être similaires',
                 'options' => ['attr' => ['class' => 'password-field']],

@@ -16,11 +16,11 @@ class SubjectType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
+            ->add('name', null, ['label' => 'Nom'])
             ->add('description', TextareaType::class)
-            ->add('requirements')
+            ->add('requirements', null, ['label' => 'Pré-requis'])
             ->add('image', FileType::class, [
-                'label' => 'Image File',
+                'label' => 'Image',
                 'mapped' => false,
                 'required' => false,
 
@@ -31,7 +31,7 @@ class SubjectType extends AbstractType
                             'image/jpeg',
                             'image/png',
                         ],
-                        'mimeTypesMessage' => 'Please Upload a valid Image document'
+                        'mimeTypesMessage' => 'Veuillez soumettre une image valide.'
                     ])
                 ]
             ])
