@@ -5,6 +5,9 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -15,20 +18,17 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class RegistrationFormType extends AbstractType
 {
+    public const HONEYPOT_FIELD_NAME = 'email';
+    public const EMAIL_FIELD_NAME    = 'information';
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $options;
         $builder
-            ->add('username')
-            ->add('agreeTerms', CheckboxType::class, [
-                'mapped' => false,
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'Merci d\'accepter les termes légaux',
-                    ]),
-                ],
-            ])
+            ->add('username', null, ['label' => 'Nom d\'utilisateur'])
+            ->add('mail', EmailType::class)
             ->add('plainPassword', RepeatedType::class, [
+                'label' => 'Mot de passe',
                 'type' => PasswordType::class,
                 'invalid_message' => 'Les mots de passe doivent être similaires',
                 'options' => ['attr' => ['class' => 'password-field']],
@@ -47,7 +47,8 @@ class RegistrationFormType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
-            ])
+            ]);
+            $builder->setMethod(Request::METHOD_POST);
         ;
     }
 
