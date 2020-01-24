@@ -18,7 +18,7 @@ class UserType extends AbstractType
     {
         $options;
         $builder
-            ->add('username', null, 'label' => 'Nom d\'utilisateur',)
+            ->add('username', null, ['label' => 'Nom d\'utilisateur'])
             ->add('roles', ChoiceType::class, [
                'label' => 'Nom d\'utilisateur',
                 'choices' => [
