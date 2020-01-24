@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New MeetingDate{% endblock %}
+
+{% block body %}
+    <h1>Créer un nouveau créneau pour {{ meeting.name }}</h1>
+
+    {{ include('meeting_date/_form.html.twig') }}
+{% endblock %}

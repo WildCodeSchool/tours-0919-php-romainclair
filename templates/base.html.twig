@@ -2,15 +2,62 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
     </head>
     <body>
+    <header class="header__header">
+        <a class="header__logoText" href="https://www.romainclair.com/">
+            <h1 class="header__header-h1"></h1>
+            <h2>Romain Clair</h2>
+        </a>
+        <nav class="header__nav">
+            <ul class="header__nav-ul">
+                <li class="PageAccueil">
+                    <a href="{{ path('show_theme') }}">
+                        <img src="img/PictoAccueilFonce.png" alt="icone accueil"/>
+                        <span>Accueil</span>
+                    </a>
+                </li>
+             {% if app.user %}
+                <li>
+                    <a href="{{ path('user_edit', {'id': app.user.id}) }}">{{ app.user.username }}</a>
+                </li>
+                <li>
+                    <a href="{{ path('app_logout') }}"> Se déconnecter</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="{{ path('app_register') }}"> S'inscrire</a>
+                </li>
+                <li>
+                    <a href="{{ path('app_login') }}"> Se connecter</a>
+                </li>
+                {% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+                <li>
+                    <a href="{{ path('user_index') }}">Gérer les utilisateurs</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main>
         {% block body %}{% endblock %}
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+
+    </main>
+    <footer>
+        <div>
+            <div class="footer__bottom">
+                <a href="https://www.romainclair.com/mentions.php">Mentions légales</a>
+            </div>
+        </div>
+    </footer>
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
     </body>
 </html>

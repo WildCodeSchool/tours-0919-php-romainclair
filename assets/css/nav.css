@@ -1,0 +1,61 @@
+nav {
+    height: 2.4rem;
+    width: 100%;
+    position: relative;
+    top: -5vw;
+}
+nav ul {
+    margin: 0px;
+    text-align: center;
+    padding-top: 0.25rem;
+    padding-left: 0.5rem;
+    padding-right: 0;
+    background-color: #BFBFBF;
+    height: 2.15rem;
+}
+nav li {
+    list-style: none;
+    display: inline-block;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 0;
+    padding-top: 0.5rem;
+    height: 1.9rem;
+    margin-top: -0.25rem;
+    background-image: none;
+    transition: all 0.3s ease-in-out 0s;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    -ms-transition: all 0.3s ease-in-out 0s;
+}
+nav a {
+    transition: all 0.3s ease-in-out 0s;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    -ms-transition: all 0.3s ease-in-out 0s;
+}
+nav li:hover
+{
+    background-color: #A7A64A;
+}
+
+nav li a:hover
+{
+    color : #FFFFFF;
+}
+
+
+@media screen and (min-width: 421px) and (max-width: 1023px)
+{
+    nav {
+        top: -6vw;
+    }
+}
+@media screen and (min-width: 1024px)
+{
+    nav {
+        top: -50px;
+    }
+}

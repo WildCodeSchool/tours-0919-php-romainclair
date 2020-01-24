@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer une thématique{% endblock %}
+
+{% block body %}
+    <h1>Créer une thématique</h1>
+    {{ include('theme/_form.html.twig') }}
+    <a class="admin__link" href="{{ path('show_theme') }}">Retour</a>
+{% endblock %}

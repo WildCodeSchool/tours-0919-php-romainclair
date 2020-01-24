@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+{% block title %}Liste des sujets{% endblock %}
+
+{% block body %}
+    <div class="subject">
+        <!-- Here is the head of the content-->
+        <header class = "subject__header">
+            <h1 class="subject__title">{{theme.name}}</h1>
+            <p class="subject__description">{{ theme.description }}</p>
+        </header>
+        <!-- Here is card with each subjects-->
+        <div class="subject__allCards">
+            {% for subject in subjects %}
+                <article class="subject__card subject__card__display">
+                    <h2>{{ subject.name }}</h2>
+                    {% if subject.image is empty%}
+                        <img class="subject__image" src="/img/placeholder.png" alt="placeholder for an illustration">
+                    {% else %}
+                        <img class="subject__image" src="/img/{{ subject.image }}" alt="placeholder for an illustration">
+                    {% endif %}
+                    <p class="subject__cardDescription">{{ subject.description }}</p>
+                    {% if app.user %}
+                        {%  if subject.id in favedSubjectsID %}
+                            <form method="post" action="">
+                                <button name="unfavedSubj" value="{{ subject.id }}" type="submit">Je me desintéresse</button>
+                            </form>
+                        {% else %}
+                            <form method="post" action="">
+                                <button name="favSubj" value="{{ subject.id }}" type="submit">Je m'intéresse</button>
+                            </form>
+                        {% endif %}
+                    {% endif %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a class="admin__link" href="{{ path('subject_edit', {'id': subject.id}) }}">Éditer</a>
+                        {{ include('subject/_delete_form.html.twig') }}
+                    {% endif %}
+                    <button type="button" class="subject__link">Voir les sujets</button>
+                    <ul class="subject__atelier-list">
+                        {% for meeting in subject.meeting %}
+                            <a href="{{ path('show_meeting', {'id' : meeting.id}) }}"><li>{{ meeting.name }}</li></a>
+                        {% endfor %}
+                    </ul>
+                </article>
+            {% endfor %}
+        </div>
+{% endblock %}

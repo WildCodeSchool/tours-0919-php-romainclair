@@ -1,0 +1,87 @@
+footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #131313;
+    background-image: url('https://www.romainclair.com/images/Pied.png');
+    background-position: center bottom;
+    background-repeat: repeat-x;
+    padding-bottom: 2.8rem;
+    margin-top: 4vw;
+}
+footer div {
+    width: 90%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+footer p {
+    font-family: Economica-Regular;
+    font-size: 1.2rem;
+    color: #737373;
+    text-align: left;
+}
+footer a {
+    color: #BFBFBF;
+    font-size: 1rem;
+}
+footer h1
+{
+    text-transform: uppercase;
+    font-family: Economica-Bold;
+    font-size: 1.5rem;
+    text-align: left;
+    padding-top: 0.5rem;
+    color : #737373;
+}
+.footer__contact {
+    width: 48%;
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 1rem;
+    margin-left: 3rem;
+}
+.footer__contact h1 + p {
+    margin-bottom: 0.8rem;
+}
+.footer__contact p {
+    width: 12.5rem;
+}
+.footer__contact a {
+    background-image: url('https://www.romainclair.com/images/PictoPuceClair.png');
+    background-repeat: no-repeat;
+    background-position: 0.4rem 0.6rem;
+    padding-left: 1rem;
+}
+.footer__bottom {
+    border-top: #373600 solid 1px;
+    width: 100%;
+    background-image: url('https://www.romainclair.com/images/LogoFonce.svg');
+    background-position: 21% 50%;
+    background-size: 28px 28px;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    text-indent: 4rem;
+    font-family: Economica-Regular;
+}
+@media screen and (max-width: 1024px) and (min-width: 481px)
+{
+    .footer__bottom {
+        background-position: 42% 50%;
+    }
+    .footer__references p {
+        display: inherit;
+    }
+}
+
+@media screen and (min-width: 1024px)
+{
+    .footer__contact p {
+        width: 30.5rem;
+    }
+    .footer__bottom {
+        background-position: 45% 50%;
+
+    }
+}

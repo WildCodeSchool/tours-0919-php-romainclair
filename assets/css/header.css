@@ -1,0 +1,137 @@
+.header__header {
+    background-color: #131313;
+    height: 10rem;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+.header__header a {
+    color: #FFFF;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+}
+.header__logoText {
+    display: flex;
+    flex-direction: column;
+}
+.header__header h1 {
+    background: url('../img/logoclair.svg') no-repeat;
+    background-position: 25% 40%;
+    min-width: 65px;
+    padding-top: 5rem;
+    color: #737373;
+}
+.header__header h2 {
+    color: #737373;
+    position: relative;
+    top: -3vw;
+}
+
+.PageAccueil {
+    color: #FFFF;
+}
+
+.PageAccueil a {
+    color: #131313;
+}
+
+@media screen and (max-width: 700px)
+{
+    .header__header h2 {
+        color: #737373;
+        top: 5vw;
+        margin-left: 3vw;
+    }
+    .header__logoText{
+        display: flex;
+        flex-direction: row;
+        margin-left: 3vw;
+        position: relative;
+        top: -1vw;
+    }
+    .header__header {
+        height: 8rem;
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 700px)
+{
+    .header__header {
+        background-color: #131313;
+        height: 10rem;
+        margin: 0;
+    }
+    .header__header a {
+        color: #FFFF;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out 0s;
+        -moz-transition: all 0.3s ease-in-out 0s;
+    }
+    .header__header h1 {
+        background: url('../img/logoclair.svg') no-repeat;
+        background-position: 50% 40%;
+        min-width: 35px;
+        padding-top: 6rem;
+        color: #737373;
+
+    }
+    .header__header h2 {
+        color: #737373;
+        top: -5vw;
+    }
+    main {
+        margin-top: 13rem;
+    }
+}
+@media screen and (max-width: 1300px) and (min-width: 1025px)
+{
+    .header__header h1 {
+        background-position: 50% 40%;
+    }
+    .header__header h2 {
+        color:
+        #737373;
+        top: -4vw;
+    }
+}
+
+@media screen and (max-width: 1529px) and (min-width: 1301px)
+{
+    .header__header h1 {
+        background-position: 50% 40%;
+    }
+    .header__header h2 {
+        color:
+        #737373;
+    }
+}
+
+@media screen and (min-width: 1530px)
+{
+    .header__header {
+        background-color: #131313;
+        height: 10rem;
+        margin: 0;
+    }
+    .header__header a {
+        color: #FFFF;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out 0s;
+        -moz-transition: all 0.3s ease-in-out 0s;
+    }
+    .header__header h1 {
+        background: url('../img/logoclair.svg') no-repeat;
+        background-position: 50% 40%;
+        min-width: 35px;
+        padding-top: 6rem;
+        color: #737373;
+    }
+    .header__header h2 {
+        color: #737373;
+    }
+    main {
+        margin-top: 13rem;
+    }
+}
