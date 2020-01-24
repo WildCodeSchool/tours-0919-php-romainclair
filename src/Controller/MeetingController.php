@@ -131,7 +131,7 @@ class MeetingController extends AbstractController
     }
 
     /**
-     * @Route("/delete/{id}", name="meeting_delete", methods={"ANY"})
+     * @Route("/delete/{id}", name="meeting_delete")
      * @param Request $request
      * @param Meeting $meeting
      * @return Response
