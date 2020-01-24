@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use \DateTime;
+use App\Entity\User;
 
 /**
  * @Route("/meeting")
@@ -32,7 +33,7 @@ class MeetingController extends AbstractController
     }
 
     /**
-     * @Route("/show/{id}", name="show_meeting", methods={"GET"})
+     * @Route("/show/{id}", name="show_meeting")
      * @param MeetingRepository $meetingRepository
      * @param int $id
      * @param MeetingDateRepository $meetingDateRepo
@@ -44,6 +45,7 @@ class MeetingController extends AbstractController
         int $id,
         MeetingDateRepository $meetingDateRepo
     ) :Response {
+        $user = $this->getUser();
         $meeting = $meetingRepository->findOneById($id);
         $dates = $meetingDateRepo->findByMeeting($meeting);
         $pastDates = [];
@@ -57,6 +59,17 @@ class MeetingController extends AbstractController
                 $pastDates[] = ['entity' => $meetingDate, 'date' => $date->format('Y-m-d H:i')];
             } else {
                 $nextDates[] = ['entity' => $meetingDate, 'date' => $date->format('Y-m-d H:i')];
+            }
+        }
+        $datesFaved = [];
+        if (isset($_POST['meetingDateButton'])) {
+            $datesFaved = $_POST['date_select'];
+            foreach ($datesFaved as $dateFaved) {
+                $meetingDateFaved = $meetingDateRepo->findOneByid($dateFaved);
+                $user->addDate($meetingDateFaved);
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($user);
+                $entityManager->flush();
             }
         }
         return $this->render('meeting_display/meeting.html.twig', [
