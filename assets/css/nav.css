@@ -4,6 +4,7 @@ nav {
     position: relative;
     top: -5vw;
 }
+
 nav ul {
     margin: 0px;
     text-align: center;
@@ -13,6 +14,7 @@ nav ul {
     background-color: #BFBFBF;
     height: 2.15rem;
 }
+
 nav li {
     list-style: none;
     display: inline-block;
@@ -29,6 +31,7 @@ nav li {
     -o-transition: all 0.3s ease-in-out 0s;
     -ms-transition: all 0.3s ease-in-out 0s;
 }
+
 nav a {
         color: #FFFFFF;
         text-transform: uppercase;
@@ -40,13 +43,11 @@ nav a {
         -o-transition: all 0.3s ease-in-out 0s;
 }
 
-nav li:hover
-{
+nav li:hover {
     background-color: #A7A64A;
 }
 
-nav li a:hover
-{
+nav li a:hover {
     color : #FFFFFF;
 }   
 
