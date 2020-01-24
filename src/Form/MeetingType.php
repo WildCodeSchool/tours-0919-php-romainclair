@@ -15,8 +15,8 @@ class MeetingType extends AbstractType
     {
         $options = [];
         $builder
-            ->add('name')
-            ->add('description')
+            ->add('name', null, ['label' => 'Nom'])
+            ->add('description', null, ['label' => 'Description'])
             ->add('required')
             ->add('participating')
             ->add('subject', null, ['choice_label' => 'name'])

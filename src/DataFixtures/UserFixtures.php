@@ -18,10 +18,10 @@ class UserFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-
         // Creating normal user
         $subscriber = new User();
         $subscriber->setUsername('user');
+        $subscriber->setMail('subscriber@monsite.com');
         $subscriber->setRoles(['ROLE_SUBSCRIBER']);
         $subscriber->setPassword($this->passwordEncoder->encodePassword(
             $subscriber,
@@ -33,6 +33,7 @@ class UserFixtures extends Fixture
         // Creating an Admin
         $admin = new User();
         $admin->setUsername('admin');
+        $admin->setMail('admin@monsite.com');
         $admin->setRoles(['ROLE_ADMIN']);
         $admin->setPassword($this->passwordEncoder->encodePassword(
             $admin,
