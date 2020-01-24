@@ -51,7 +51,7 @@ article h1 {
     font-family: 'Economica-Bold', sans-serif;
 }
 
-.PageAccueil  {
+.PageAccueil {
     background-color: #FFFF;
     background-repeat: no-repeat center;
 }
@@ -60,7 +60,7 @@ article h1 {
     color: #1F1F1F;
 }
 
-.LienAccueil span{
+.LienAccueil span {
     display: none;
    visibility: hidden;
 }
