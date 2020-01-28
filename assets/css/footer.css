@@ -15,19 +15,20 @@ footer div {
     margin-right: auto;
 }
 footer p {
-    font-family: Economica-Regular;
+    font-family: 'Economica-Regular';
     font-size: 1.2rem;
     color: #737373;
     text-align: left;
 }
 footer a {
+    font-family: 'Economica-Regular';
     color: #BFBFBF;
     font-size: 1rem;
 }
 footer h1
 {
     text-transform: uppercase;
-    font-family: Economica-Bold;
+    font-family: 'Economica-Bold';
     font-size: 1.5rem;
     text-align: left;
     padding-top: 0.5rem;
@@ -63,7 +64,7 @@ footer h1
     padding-bottom: 2rem;
     padding-top: 2rem;
     text-indent: 4rem;
-    font-family: Economica-Regular;
+    font-family: 'Economica-Regular';
 }
 @media screen and (max-width: 1024px) and (min-width: 481px)
 {
