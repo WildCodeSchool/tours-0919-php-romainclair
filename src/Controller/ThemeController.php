@@ -17,6 +17,7 @@ class ThemeController extends AbstractController
      * @Route("/", name="show_theme", methods={"GET"})
      * @param ThemeRepository $themeRepo
      * @return Response
+     *
      */
     public function index(ThemeRepository $themeRepo): Response
     {
@@ -28,6 +29,7 @@ class ThemeController extends AbstractController
 
     /**
      * @Route("/theme/new", name="theme_new", methods={"GET","POST"})
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function new(Request $request): Response
     {
@@ -67,6 +69,7 @@ class ThemeController extends AbstractController
 
     /**
      * @Route("/theme/{id}", name="theme_show", methods={"GET"})
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function show(Theme $theme): Response
     {
@@ -77,6 +80,7 @@ class ThemeController extends AbstractController
 
     /**
      * @Route("/theme/{id}/edit", name="theme_edit", methods={"GET","POST"})
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function edit(Request $request, Theme $theme): Response
     {
@@ -97,6 +101,7 @@ class ThemeController extends AbstractController
 
     /**
      * @Route("/theme/{id}", name="theme_delete", methods={"DELETE"})
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function delete(Request $request, Theme $theme): Response
     {

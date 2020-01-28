@@ -14,6 +14,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use \DateTime;
 use App\Entity\User;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/meeting")
@@ -24,6 +26,7 @@ class MeetingController extends AbstractController
      * @Route("/", name="meeting_index", methods={"GET"})
      * @param MeetingRepository $meetingRepository
      * @return Response
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function index(MeetingRepository $meetingRepository): Response
     {
@@ -83,6 +86,7 @@ class MeetingController extends AbstractController
      * @Route("/new", name="meeting_new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function new(Request $request, MailMeeting $mail): Response
     {
@@ -111,6 +115,7 @@ class MeetingController extends AbstractController
      * @Route("/{id}/edit", name="meeting_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Meeting $meeting
+     * @Security("is_granted('ROLE_ADMIN')")
      * @return Response
      */
     public function edit(Request $request, Meeting $meeting): Response
@@ -134,6 +139,7 @@ class MeetingController extends AbstractController
      * @Route("/delete/{id}", name="meeting_delete")
      * @param Request $request
      * @param Meeting $meeting
+     * @Security("is_granted('ROLE_ADMIN')")
      * @return Response
      */
     public function delete(Request $request, Meeting $meeting): Response
