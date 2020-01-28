@@ -92,6 +92,10 @@
         width: 60%;
         margin-left: 13vw;
     }
+    .meeting--button
+    {
+        margin-left: 27vw;
+    }
     .meetings__requirements
     {
         margin-left: 5%;
@@ -147,6 +151,10 @@
         margin-bottom: 1%;
         margin-left: 38vw;
     }
+    .meeting--button
+    {
+        margin-left: 26vw;
+    }
     .meetings__schedule__one
     {
         width: 15%;
@@ -158,8 +166,8 @@
         margin-left: -36vw;
     }
     .meetings_schedule-title-2 {
-        margin-left: -11%;
-        margin-top: 252px;
+        margin-left: 41%;
+        margin-top: -7.8%;
     }
     .meetings__schedule-button {
         margin-left: -34vw;
@@ -169,22 +177,28 @@
         background-color: black;
         height: 1pt;
         width: 25%;
-        margin-left: 32%;
+        margin-left: 58%;
         margin-top: -6px;
     }
     .schedule
     {
-        margin-top: -21vw;
-        margin-bottom: 12vw;
-        margin-left: 28vw;
-    }
+        margin-top: -16vw;
+    } 
     .meetings__schedule__two
     {
-        width: 20%;
+        width: 21%;
         text-align: center;
         font-size: large;
-        margin-left: 25vw;
+        margin-left: 60vw;
         margin-bottom: 3%;
         margin-top: 20px;
+    }
+    .subject__actions-2
+    {
+        margin-left: 39vw;
+    }
+    #date_select
+    {
+        width: 27%;
     }
 }
