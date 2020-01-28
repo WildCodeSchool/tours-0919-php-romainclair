@@ -25,6 +25,7 @@ footer a {
     color: #BFBFBF;
     font-size: 1rem;
 }
+
 footer h1
 {
     text-transform: uppercase;
@@ -66,6 +67,11 @@ footer h1
     text-indent: 4rem;
     font-family: 'Economica-Regular';
 }
+
+.footer__bottom a:hover {
+    color: #A7A64A;
+}
+
 @media screen and (max-width: 1024px) and (min-width: 481px)
 {
     .footer__bottom {
