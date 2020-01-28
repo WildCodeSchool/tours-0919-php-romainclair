@@ -47,6 +47,7 @@ article h1 {
 }
 span {
     color : #A7A64A;
+    display: none;
 }
 
 button {
