@@ -57,11 +57,14 @@ class MeetingController extends AbstractController
         $nowTimestamp = $nowDate->getTimestamp();
         foreach ($dates as $meetingDate) {
             $date = $meetingDate->getDate();
+            $nbUsers = count($meetingDate->getUsers());
             $timestamp = $date->getTimestamp();
             if ($timestamp < $nowTimestamp) {
                 $pastDates[] = ['entity' => $meetingDate, 'date' => $date->format('Y-m-d H:i')];
             } else {
-                $nextDates[] = ['entity' => $meetingDate, 'date' => $date->format('Y-m-d H:i')];
+                $nextDates[] = ['entity' => $meetingDate,
+                                'date' => $date->format('Y-m-d H:i'),
+                                'interested' => $nbUsers];
             }
         }
         $datesFaved = [];
