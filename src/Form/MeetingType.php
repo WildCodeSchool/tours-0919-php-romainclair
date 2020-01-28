@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Meeting;
+use App\Entity\MeetingDate;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,8 +21,7 @@ class MeetingType extends AbstractType
             ->add('required')
             ->add('participating')
             ->add('subject', null, ['choice_label' => 'name'])
-            ->add('meeting', null, ['choice_label' => 'name','label' => 'Requirements(link to other meeting)'])
-            ->add('meetingDates', DateTimeType::class, ['date_label' => 'Starts On']);
+            ->add('meeting', null, ['choice_label' => 'name','label' => 'Requirements(link to other meeting)']);
     }
 
     public function configureOptions(OptionsResolver $resolver)
