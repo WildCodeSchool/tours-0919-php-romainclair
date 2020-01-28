@@ -14,6 +14,8 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use App\Entity\Subject;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/subjects")
@@ -62,6 +64,7 @@ class SubjectsController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="subject_edit", methods={"GET","POST"})
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function edit(Request $request, Subject $subject): Response
     {
@@ -82,6 +85,7 @@ class SubjectsController extends AbstractController
 
     /**
      * @Route("/new", name="subjects_new", methods={"GET","POST"})
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function new(Request $request, MailerInterface $mailer): Response
     {
@@ -126,6 +130,7 @@ class SubjectsController extends AbstractController
 
     /**
      * @Route("/{id}", name="subject_delete", methods={"DELETE"})
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function delete(Request $request, Subject $subject): Response
     {
@@ -139,7 +144,7 @@ class SubjectsController extends AbstractController
     }
 
     /**
-     * @Route("/chemin", name="chemin", methods={"GET"})
+     * @Route("/order", name="subject_order", methods={"GET"})
      */
     public function chemin(SubjectRepository $subjectRepository): Response
     {

@@ -10,6 +10,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/meeting/date")
@@ -18,6 +20,7 @@ class MeetingDateController extends AbstractController
 {
     /**
      * @Route("{id}/new", name="meeting_date_new", methods={"GET","POST"})
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function new(Request $request, int $id, MeetingRepository $meetingRepo): Response
     {
@@ -44,6 +47,7 @@ class MeetingDateController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="meeting_date_edit", methods={"GET","POST"})
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function edit(Request $request, MeetingDate $meetingDate): Response
     {
@@ -64,6 +68,7 @@ class MeetingDateController extends AbstractController
 
     /**
      * @Route("/{id}", name="meeting_date_delete", methods={"DELETE"})
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function delete(Request $request, MeetingDate $meetingDate): Response
     {
