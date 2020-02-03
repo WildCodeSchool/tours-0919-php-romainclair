@@ -170,7 +170,8 @@
     }
     .meetings_schedule-title-2 {
         margin-left: 41%;
-        /* margin-top: -7.8%; */
+        margin-top: -13.8%;
+        position: inherit;
     }
     .meetings__schedule-button {
         margin-left: -34vw;
@@ -183,10 +184,10 @@
         margin-left: 58%;
         margin-top: -6px;
     }
-    .schedule
+    /* .schedule
     {
         margin-top: -16vw;
-    } 
+    } */
     .meetings__schedule__two
     {
         width: 21%;
