@@ -5,6 +5,9 @@
     font-size: small;
     margin-left: 8%;
 }
+.meetings__participate {
+    display: inline;
+}
 .meetings__head-line
 {
     background-color: black;
