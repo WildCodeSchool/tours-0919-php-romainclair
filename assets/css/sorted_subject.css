@@ -1,0 +1,44 @@
+@media screen and (max-width: 420px)
+{
+    .subject__sorted {
+        list-style: none;
+        text-align: center;
+        margin-right: 10%;
+    }
+    .subject__sorted--2 {
+        list-style: none;
+        text-align: center;
+        border-bottom: 2px solid gray;
+        margin-bottom: 20px;
+        margin-right: 24%;
+        margin-left: 9%;
+    }
+}
+@media screen and (max-width: 1024px) and (min-width: 481px) {
+    .subject__sorted {
+        list-style: none;
+        text-align: center;
+    }
+    .subject__sorted--2 {
+        list-style: none;
+        text-align: center;
+        border-bottom: 2px solid gray;
+        margin-bottom: 20px;
+        margin-right: 20%;
+        margin-left: 20%;
+    }
+}
+@media screen and (min-width: 1025px) {
+    .subject__sorted {
+        list-style: none;
+        text-align: center;
+    }
+    .subject__sorted--2 {
+        list-style: none;
+        text-align: center;
+        border-bottom: 2px solid gray;
+        margin-bottom: 20px;
+        margin-right: 20%;
+        margin-left: 20%;
+    }
+}
