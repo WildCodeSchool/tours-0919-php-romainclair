@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/user")
@@ -17,6 +19,7 @@ class UserController extends AbstractController
 {
     /**
      * @Route("/", name="user_index", methods={"GET"})
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function index(UserRepository $userRepository): Response
     {
@@ -27,6 +30,7 @@ class UserController extends AbstractController
 
     /**
      * @Route("/new", name="user_new", methods={"GET","POST"})
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function new(Request $request): Response
     {
@@ -50,6 +54,7 @@ class UserController extends AbstractController
 
     /**
      * @Route("/{id}", name="user_show", methods={"GET"})
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function show(User $user): Response
     {
@@ -60,11 +65,16 @@ class UserController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
+     * @Security("is_granted('ROLE_USER')")
      */
     public function edit(Request $request, User $user): Response
     {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
+
+        if ($this->getUser()->getId() !== $user->getId()) {
+            return $this->redirectToRoute('danger');
+        }
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
@@ -80,6 +90,7 @@ class UserController extends AbstractController
 
     /**
      * @Route("/{id}", name="user_delete", methods={"DELETE"})
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function delete(Request $request, User $user): Response
     {

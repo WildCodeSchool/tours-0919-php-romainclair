@@ -30,18 +30,20 @@
 }
 
 .PageAccueil {
-    color: #FFFF;
+   background-color: #FFFF;
 }
 
 .PageAccueil a {
     color: #131313;
+    margin-left: -1.3rem;
+    margin-right: -1.3rem;
 }
 
 @media screen and (max-width: 700px)
 {
     .header__header h2 {
         color: #737373;
-        top: 5vw;
+        top: 6vw;
         margin-left: 3vw;
     }
     .header__logoText{
