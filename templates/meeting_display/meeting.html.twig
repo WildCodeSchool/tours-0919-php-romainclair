@@ -61,7 +61,7 @@
                     <div class="meetings__schedule__one">
                         <input type="checkbox" value="{{ date.entity.id }}" id="date_select" name="date_select[]">
                         <label for="date_one">
-                            {{ date.date }} <span>Nombre de participants: {{ date.interested }}</span>
+                            {{ date.date }} <span class="meetings__participate">Nombre de participants: {{ date.interested }}</span>
                         </label>
                     </div>
                     {% if is_granted('ROLE_ADMIN') %}

@@ -85,7 +85,6 @@ class SubjectsController extends AbstractController
 
     /**
      * @Route("/new", name="subjects_new", methods={"GET","POST"})
-     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function new(Request $request, MailerInterface $mailer): Response
     {

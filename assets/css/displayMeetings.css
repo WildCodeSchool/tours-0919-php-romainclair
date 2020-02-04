@@ -5,6 +5,9 @@
     font-size: small;
     margin-left: 8%;
 }
+.meetings__participate {
+    display: inline;
+}
 .meetings__head-line
 {
     background-color: black;
@@ -167,7 +170,6 @@
     }
     .meetings_schedule-title-2 {
         margin-left: 41%;
-        margin-top: auto;
     }
     .meetings__schedule-button {
         margin-left: -34vw;
