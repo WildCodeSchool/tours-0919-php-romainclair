@@ -31,6 +31,9 @@
 
 .PageAccueil {
    background-color: #FFFF;
+   padding-left: 0.8%;
+   padding-right: 0.8%;
+   margin-left: -0.4rem;
 }
 
 .PageAccueil a {
@@ -67,6 +70,10 @@
     }
     .header__header a {
         color: #FFFF;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
         text-decoration: none;
         transition: all 0.3s ease-in-out 0s;
         -moz-transition: all 0.3s ease-in-out 0s;
