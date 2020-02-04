@@ -1,6 +1,11 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     <section class="meetings__head">
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="subject__actions">
+                {{ include('meeting/_delete_form.html.twig') }}
+            </div>
+        {% endif %}
         <div class="meetings_head-image">
             <img src="/img/placeholder.png" alt="Meetings_images">
         </div>
@@ -41,6 +46,7 @@
         {% if is_granted('ROLE_ADMIN') %}
             <div class="subject__actions">
                 <a class="admin__link" href="{{ path('meeting_date_new', {'id': meeting.id}) }}">Créer un nouveau créneau</a>
+                {{ include('meeting/_delete_form.html.twig') }}
             </div>
         {% endif %}
         <form method="post">
@@ -55,14 +61,14 @@
                     <div class="meetings__schedule__one">
                         <input type="checkbox" value="{{ date.entity.id }}" id="date_select" name="date_select[]">
                         <label for="date_one">
-                            {{ date.date }}
+                            {{ date.date }} <span>Nombre de participants: {{ date.interested }}</span>
                         </label>
                     </div>
                     {% if is_granted('ROLE_ADMIN') %}
                         {{ include('meeting_date/_delete_form.html.twig') }}
                     {% endif %}
                 {% endfor %}
-                <button type="submit" name="meetingDateButton">Enregistrer les créneaux</button>
+                <button type="submit" class="meeting--button" name="meetingDateButton">Enregistrer les créneaux</button>
             </div>
             <div class="schedule">
                 <div class="meetings_schedule-title-2">
@@ -78,7 +84,7 @@
                         </label>
                     </div>
                     {% if is_granted('ROLE_ADMIN') %}
-                        <div class="subject__actions">
+                        <div class="subject__actions-2">
                             {{ include('meeting_date/_delete_form.html.twig') }}
                         </div>
                     {% endif %}
