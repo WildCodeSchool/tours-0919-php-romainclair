@@ -28,6 +28,10 @@
 3. Run `./bin/eslint assets/js` to launch ESLint JS linter
 3. Run `./bin/sass-lint -c sass-linter.yml` to launch Sass-lint SASS/CSS linter
 
+### In Production
+1. You need to change the mail with your own webmail server in the .env
+2. don't use the fixtures
+
 ## Built With
 ---
 * [Symfony](https://github.com/symfony/symfony)
