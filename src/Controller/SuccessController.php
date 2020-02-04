@@ -16,4 +16,12 @@ class SuccessController extends AbstractController
             'controller_name' => 'SuccessController',
         ]);
     }
+
+    /**
+     * @Route("/danger", name="danger")
+     */
+    public function danger()
+    {
+        return $this->render('success/danger.html.twig');
+    }
 }

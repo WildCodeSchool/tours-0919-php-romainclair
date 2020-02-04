@@ -5,10 +5,10 @@
 {% block body %}
     <ul>
     {% for subject in subjects %}
-        <li>
+        <li class="subject__sorted">
             {{ subject.userName }}
         </li>
-        <li>
+        <li class="subject__sorted--2">
             {{ subject.userNumber|length }}
         </li>
     {% endfor %}
