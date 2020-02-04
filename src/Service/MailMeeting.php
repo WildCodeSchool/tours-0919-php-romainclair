@@ -29,12 +29,12 @@ class MailMeeting extends AbstractController
 
         foreach ($allUsers as $user) {
             $email = (new Email())
-            ->from("mail@incoming.com")
+            ->from($this->getParameter('mailer_from'))
             ->to($user->getMail())
             ->subject('Un sujet a etait soumis')
-            ->text('Sending emails is fun again!')
-            ->html($this->renderView('render/incoming'));
-
+            ->text('Un des sujets que vous avez mis en favori a un atelier de lancé')
+            ->html($this->renderView('email/meetingEmail.html.twig'));
+            
             /** @var Symfony\Component\Mailer\SentMessage $sentEmail */
             $this->mailer->send($email);
         }
