@@ -6,6 +6,7 @@
     margin-left: 8%;
 }
 .meetings__participate {
+
     display: inline;
 }
 .meetings__head-line
@@ -105,15 +106,18 @@
         width: 25%;
         margin-top: 38px;
     }
-    .meetings__head-text h1 {
+    .meetings__head-text h1 
+    {
         font-size: 24px;
         margin-left: -25%;
     }
-    .meetings__head-text h2 {
+    .meetings__head-text h2 
+    {
         font-size: 24px;
         margin-left: -78%;
     }
-    .meetings__head-text p {
+    .meetings__head-text p
+    {
         margin-left: -48%;
     }
     .meetings__head-text
@@ -123,7 +127,8 @@
         font-size: 14px;
         width: 25%;
     }
-    .meetings_head-image {
+    .meetings_head-image
+    {
         float: left;
         margin-left: 10vw;
         margin-top: 2vw;
@@ -165,13 +170,18 @@
         font-size: large;
         margin-left: 25vw;
     }
-    .meetings_schedule-title {
+    .meetings_schedule-title
+    {
         margin-left: -36vw;
     }
-    .meetings_schedule-title-2 {
+    .meetings_schedule-title-2
+    {
         margin-left: 41%;
+        margin-top: -13.8%;
+        position: inherit;
     }
-    .meetings__schedule-button {
+    .meetings__schedule-button
+    {
         margin-left: -34vw;
     }
     .meetings__head__date-line-2
@@ -182,10 +192,6 @@
         margin-left: 58%;
         margin-top: -6px;
     }
-    .schedule
-    {
-        margin-top: -16vw;
-    } 
     .meetings__schedule__two
     {
         width: 21%;
