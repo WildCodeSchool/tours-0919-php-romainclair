@@ -63,7 +63,17 @@
     width: 50%;
     margin-left: 23%;
 }
-
+.meetings__description
+{
+    margin-top: 20%;
+}
+@media screen and (min-width: 414px)
+{
+    .meetings_head-image
+    {
+        margin-left: 3%;
+    }
+}
 @media screen and (max-width: 1024px) and (min-width: 481px)
 {
     .meetings__head
@@ -73,6 +83,10 @@
     .meetings__requirements
     {
         margin-left: 10%;
+    }
+    .meetings__description
+    {
+        margin-top: 0%;
     }
     .meetings__head-text
     {
@@ -99,6 +113,10 @@
     .meeting--button
     {
         margin-left: 27vw;
+    }
+    .meetings__description
+    {
+        margin-top: 0%;
     }
     .meetings__requirements
     {
@@ -177,7 +195,7 @@
     .meetings_schedule-title-2
     {
         margin-left: 41%;
-        margin-top: -13.8%;
+        margin-top: -7.8%;
         position: inherit;
     }
     .meetings__schedule-button
