@@ -43,9 +43,10 @@
     padding: 0;
 }
 main {
-    margin-top: 13rem;
+    margin-top: 10rem;
     min-height: 60vh;
 }
+
 .subject__atelier-list {
     display: none;
 }
