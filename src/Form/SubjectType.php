@@ -35,12 +35,7 @@ class SubjectType extends AbstractType
                     ])
                 ]
             ])
-            ->add('participation', ChoiceType::class, [
-                'choices' => [
-                    'Oui' => true,
-                    'Non' => false,
-                ],
-            ])
+            ->add('theme', null, ['choice_label' => 'name'])
         ;
         $options;
     }

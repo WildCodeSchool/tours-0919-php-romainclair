@@ -101,25 +101,23 @@ class SubjectsController extends AbstractController
                     $this->getParameter('subjects_image_directory'),
                     $newFilename
                 );
-
                 $subject->setImage($newFilename);
-
-                $email = (new Email())
-                    ->from($this->getParameter('mailer_from'))
-                    ->to('romainculleron12@gmail.com')
-                    ->subject('Un sujet a etait soumis')
-                    ->text('Sending emails is fun again!')
-                    ->html($this->renderView('email/subjectEmail.html.twig'));
-    
-                    /** @var Symfony\Component\Mailer\SentMessage $sentEmail */
-                    $mailer->send($email);
-    
-                $entityManager = $this->getDoctrine()->getManager();
-                $entityManager->persist($subject);
-                $entityManager->flush();
-    
-                return $this->redirect($this->generateUrl('success'));
             }
+            $email = (new Email())
+                ->from($this->getParameter('mailer_from'))
+                ->to('romainculleron12@gmail.com')
+                ->subject('Un sujet a etait soumis')
+                ->text('Sending emails is fun again!')
+                ->html($this->renderView('email/subjectEmail.html.twig'));
+
+            /** @var Symfony\Component\Mailer\SentMessage $sentEmail */
+            $mailer->send($email);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($subject);
+            $entityManager->flush();
+
+            return $this->redirect($this->generateUrl('success'));
         }
         return $this->render('subject/new.html.twig', [
             'subject' => $subject,

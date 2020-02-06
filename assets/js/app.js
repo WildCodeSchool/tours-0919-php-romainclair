@@ -10,3 +10,4 @@ require('../css/meeting_create.css');
 require('../css/subject_create.css');
 require('../css/sorted_subject.css');
 require('../css/theme_create.css');
+require('../css/edit_user.css');
