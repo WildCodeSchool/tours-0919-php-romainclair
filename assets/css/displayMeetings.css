@@ -67,7 +67,8 @@
     border: solid black 2px;
     font-size: small;
     width: 50%;
-    margin-left: 23%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .meetings__description
 {
@@ -205,15 +206,8 @@
         font-size: large;
         margin-left: 25vw;
     }
-    .meetings_schedule-title
-    {
+    .meetings_schedule-title {
         margin-left: -36vw;
-    }
-    .meetings_schedule-title-2
-    {
-        margin-left: 41%;
-        margin-top: -26.8vh;
-        position: inherit;
     }
     .meetings__schedule-button
     {
@@ -224,7 +218,6 @@
         background-color: black;
         height: 1pt;
         width: 25%;
-        margin-left: 58%;
         margin-top: -6px;
     }
     .meetings__schedule__two
@@ -232,9 +225,8 @@
         width: 21%;
         text-align: center;
         font-size: large;
-        margin-left: 60vw;
         margin-bottom: 3%;
-        margin-top: 20px;
+        margin-top: 10px;
     }
     .subject__actions-2
     {
@@ -243,5 +235,13 @@
     #date_select
     {
         width: 27%;
+    }
+    .meetings__passedDates{
+        width: 50%;
+        align-items: center;
+        display: flex;
+        position: absolute;
+        right: 0;
+        top: 68.5vh;
     }
 }

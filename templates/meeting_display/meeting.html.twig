@@ -42,7 +42,7 @@
             {{ meeting.description }}
         </p>
     </section>
-    <section class="meetings__schedule">
+    <section class="">
         <form method="post">
             <div>
                 {% if is_granted('ROLE_ADMIN') %}
@@ -65,7 +65,7 @@
                 {% endfor %}
                 <button type="submit" class="meeting--button" name="meetingDateButton">Ce(s) créneau(x) m'intéresse(nt)</button>
             </div>
-            <div class="meetings__schedule">
+            <div class="meetings__passedDates">
                 <div class="meetings_schedule-title-2">
                     <h2>
                         Créneaux passée
@@ -75,14 +75,9 @@
                 {% for date in pastDates %}
                     <div class="meetings__schedule__two">
                         <label for="date_two">
-                            {{ date.date }}
+                            {{ date.date|date("d/m/Y h:m") }}
                         </label>
                     </div>
-                    {% if is_granted('ROLE_ADMIN') %}
-                        <div class="subject__actions-2">
-                            {{ include('meeting_date/_delete_form.html.twig') }}
-                        </div>
-                    {% endif %}
                 {% endfor %}
             </div>
         </form>
