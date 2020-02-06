@@ -1,22 +1,17 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     <section class="meetings__head">
-        {% if is_granted('ROLE_ADMIN') %}
-            <div class="subject__actions">
-                {{ include('meeting/_delete_form.html.twig') }}
-            </div>
-        {% endif %}
         <div class="meetings_head-image">
-            <img src="/img/placeholder.png" alt="Meetings_images">
+            <img class="meeting__image" src="/img/placeholder.png" alt="Meetings_images">
         </div>
         <div class="meetings__head-text">
             <h1>
                 {{ meeting.name }}
             </h1>
             <div class="meetings__head-line"></div>
-                <h2>
+                <h1>
                     Theme
-                </h2>
+                </h1>
                 <p>
                     {{ meeting.participating }} personne(s) participent.
                 </p>
@@ -33,6 +28,11 @@
                     </div>
                 </div>
         </section>
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="subject__actions">
+            {{ include('meeting/_delete_form.html.twig') }}
+        </div>
+    {% endif %}
     <section class="meetings__description">
         <h2>
             Description
@@ -43,14 +43,11 @@
         </p>
     </section>
     <section class="meetings__schedule">
-        {% if is_granted('ROLE_ADMIN') %}
-            <div class="subject__actions">
-                <a class="admin__link" href="{{ path('meeting_date_new', {'id': meeting.id}) }}">Créer un nouveau créneau</a>
-                {{ include('meeting/_delete_form.html.twig') }}
-            </div>
-        {% endif %}
         <form method="post">
             <div>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a class="admin__link" href="{{ path('meeting_date_new', {'id': meeting.id}) }}">Créer un nouveau créneau</a>
+                {% endif %}
                 <div class="meetings_schedule-title">
                     <h2>
                         Créneaux a venir
@@ -61,16 +58,14 @@
                     <div class="meetings__schedule__one">
                         <input type="checkbox" value="{{ date.entity.id }}" id="date_select" name="date_select[]">
                         <label for="date_one">
-                            {{ date.date }} <span class="meetings__participate">Nombre de participants: {{ date.interested }}</span>
+                            {{ date.date|date("d/m/Y h:m") }} <br/>
+                            <span class="meetings__participate">Nombre de participants: {{ date.interested }}</span>
                         </label>
                     </div>
-                    {% if is_granted('ROLE_ADMIN') %}
-                        {{ include('meeting_date/_delete_form.html.twig') }}
-                    {% endif %}
                 {% endfor %}
-                <button type="submit" class="meeting--button" name="meetingDateButton">Enregistrer les créneaux</button>
+                <button type="submit" class="meeting--button" name="meetingDateButton">Ce(s) créneau(x) m'intéresse(nt)</button>
             </div>
-            <div class="schedule">
+            <div class="meetings__schedule">
                 <div class="meetings_schedule-title-2">
                     <h2>
                         Créneaux passée
