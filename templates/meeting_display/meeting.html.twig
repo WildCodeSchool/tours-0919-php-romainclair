@@ -63,7 +63,9 @@
                         </label>
                     </div>
                 {% endfor %}
-                <button type="submit" class="meeting--button" name="meetingDateButton">Ce(s) créneau(x) m'intéresse(nt)</button>
+                {% if app.user %}
+                    <button type="submit" class="meeting--button" name="meetingDateButton">Ce(s) créneau(x) m'intéresse(nt)</button>
+                {% endif %}
             </div>
             <div class="meetings__passedDates">
                 <div class="meetings_schedule-title-2">
